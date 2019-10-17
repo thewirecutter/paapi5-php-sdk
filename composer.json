@@ -1,6 +1,8 @@
 {
-    "name" : "amazon/paapiphpsdk",
+    "name" : "thewirecutter/paapi5-php-sdk",
+    "description": "Code from Amazon to support the Amazon Product Advertising API v5, PHP SDK.",
     "version" : "1.0.0",
+    "type": "library",
     "keywords" : [
         "amazon",
         "php",
@@ -9,9 +11,14 @@
     ],
     "homepage" : "https://webservices.amazon.com/paapi5/documentation/index.html",
     "license" : "Apache2.0",
-    "authors" : [{
-        "name" : "Product Advertising API Team"
-    }
+    "authors" : [
+    	{
+        	"name" : "Product Advertising API Team"
+    	},
+    	{
+            "name": "Justin Yost",
+            "email": "justin.yost@wirecutter.com"
+        }
     ],
     "require" : {
         "php" : ">=5.5",
