@@ -10,7 +10,7 @@
         "api"
     ],
     "homepage" : "https://webservices.amazon.com/paapi5/documentation/index.html",
-    "license" : "Apache2.0",
+    "license" : "Apache-2.0",
     "authors" : [
     	{
         	"name" : "Product Advertising API Team"
