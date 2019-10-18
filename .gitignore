@@ -1,0 +1,8 @@
+# Dependencies
+/vendor
+
+# Code Editors
+.vscode/
+
+# OS Specific Files
+.DS_Store
