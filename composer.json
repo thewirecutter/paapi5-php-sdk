@@ -26,5 +26,8 @@
     },
     "autoload": {
         "psr-4": { "Amazon\\ProductAdvertisingAPI\\v1\\" : "src/" }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5"
     }
 }
