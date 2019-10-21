@@ -7,7 +7,7 @@ This repository contains the open source PHP SDK that allows you to access the [
 The Product Advertising API PHP SDK can be installed with [Composer](https://getcomposer.org/). Run this command:
 
 ```sh
-$ composer require amazon/paapi5-php-sdk
+$ composer require thewirecutter/paapi5-php-sdk
 ```
 ## Usage
 
