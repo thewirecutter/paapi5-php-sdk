@@ -1,7 +1,6 @@
 {
     "name" : "thewirecutter/paapi5-php-sdk",
     "description": "Code from Amazon to support the Amazon Product Advertising API v5, PHP SDK.",
-    "version" : "1.0.0",
     "type": "library",
     "keywords" : [
         "amazon",
