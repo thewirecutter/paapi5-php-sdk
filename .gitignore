@@ -1,5 +1,6 @@
 # Dependencies
 /vendor
+/composer.lock
 
 # Code Editors
 .vscode/
