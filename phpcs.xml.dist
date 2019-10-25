@@ -10,12 +10,7 @@
     <file>./src</file>
 
     <rule ref="PSR2">
-        <exclude name="PSR2.Files.EndFileNewline.TooMany"></exclude>
         <exclude name="PSR2.Namespaces.NamespaceDeclaration.BlankLineAfter"></exclude>
-        <exclude name="Squiz.WhiteSpace.ControlStructureSpacing.SpacingBeforeClose"></exclude>
-        <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine"></exclude>
-        <exclude name="PSR2.Files.EndFileNewline.NoneFound"></exclude>
         <exclude name="Generic.Files.LineLength"></exclude>
-        <exclude name="Squiz.Scope.MethodScope.Missing"></exclude>
     </rule>
 </ruleset>
