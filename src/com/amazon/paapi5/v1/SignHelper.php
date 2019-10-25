@@ -88,7 +88,7 @@ class SignHelper
      * Function to add a header
      * @param header - value of header
      */
-    function addHeader($headerName, $headerValue)
+    public function addHeader($headerName, $headerValue)
     {
         $this->awsHeaders[$headerName] = $headerValue;
     }
