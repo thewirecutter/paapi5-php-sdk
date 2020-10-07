@@ -21,13 +21,13 @@ use \ArrayAccess;
 use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
- * SingleStringValuedAttribute Class Doc Comment
+ * OfferConditionNote Class Doc Comment
  *
  * @category Class
  * @package  Amazon\ProductAdvertisingAPI\v1
  * @author   Product Advertising API team
  */
-class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
+class OfferConditionNote implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -36,7 +36,7 @@ class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SingleStringValuedAttribute';
+    protected static $swaggerModelName = 'OfferConditionNote';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -44,9 +44,8 @@ class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'displayValue' => 'string',
-        'label' => 'string',
-        'locale' => 'string'
+        'locale' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -55,9 +54,8 @@ class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'displayValue' => null,
-        'label' => null,
-        'locale' => null
+        'locale' => null,
+        'value' => null
     ];
 
     /**
@@ -87,9 +85,8 @@ class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'displayValue' => 'DisplayValue',
-        'label' => 'Label',
-        'locale' => 'Locale'
+        'locale' => 'Locale',
+        'value' => 'Value'
     ];
 
     /**
@@ -98,9 +95,8 @@ class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'displayValue' => 'setDisplayValue',
-        'label' => 'setLabel',
-        'locale' => 'setLocale'
+        'locale' => 'setLocale',
+        'value' => 'setValue'
     ];
 
     /**
@@ -109,9 +105,8 @@ class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'displayValue' => 'getDisplayValue',
-        'label' => 'getLabel',
-        'locale' => 'getLocale'
+        'locale' => 'getLocale',
+        'value' => 'getValue'
     ];
 
     /**
@@ -174,9 +169,8 @@ class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['displayValue'] = isset($data['displayValue']) ? $data['displayValue'] : null;
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -204,54 +198,6 @@ class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets displayValue
-     *
-     * @return string
-     */
-    public function getDisplayValue()
-    {
-        return $this->container['displayValue'];
-    }
-
-    /**
-     * Sets displayValue
-     *
-     * @param string $displayValue displayValue
-     *
-     * @return $this
-     */
-    public function setDisplayValue($displayValue)
-    {
-        $this->container['displayValue'] = $displayValue;
-
-        return $this;
-    }
-
-    /**
-     * Gets label
-     *
-     * @return string
-     */
-    public function getLabel()
-    {
-        return $this->container['label'];
-    }
-
-    /**
-     * Sets label
-     *
-     * @param string $label label
-     *
-     * @return $this
-     */
-    public function setLabel($label)
-    {
-        $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
      * Gets locale
      *
      * @return string
@@ -271,6 +217,30 @@ class SingleStringValuedAttribute implements ModelInterface, ArrayAccess
     public function setLocale($locale)
     {
         $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }

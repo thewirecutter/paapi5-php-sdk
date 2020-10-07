@@ -14,7 +14,7 @@ $ composer require thewirecutter/paapi5-php-sdk
 
 > **Note:** This version of the Product Advertising API SDK for PHP requires PHP 5.5 or greater.
 
-Simple example for searching items.
+Simple example for [SearchItems](https://webservices.amazon.com/paapi5/documentation/search-items.html) to discover Amazon products with the keyword 'Harry Potter' in Books category:
 
 ```php
 <?php
@@ -61,8 +61,8 @@ $config = new Configuration();
 
 /*
  * Add your credentials
- * Please add your access key here
  */
+# Please add your access key here
 $config->setAccessKey('<YOUR ACCESS KEY>');
 # Please add your secret key here
 $config->setSecretKey('<YOUR SECRET KEY>');
@@ -72,7 +72,8 @@ $partnerTag = '<YOUR PARTNER TAG>';
 
 /*
  * PAAPI host and region to which you want to send request
- * For more details refer: https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
+ * For more details refer:
+ * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
  */
 $config->setHost('webservices.amazon.com');
 $config->setRegion('us-east-1');
@@ -91,20 +92,22 @@ $keyword = 'Harry Potter';
 
 /*
  * Specify the category in which search request is to be made
- * For more details, refer: https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
+ * For more details, refer:
+ * https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
  */
-$searchIndex = "All";
+$searchIndex = "Books";
 
 # Specify item count to be returned in search result
 $itemCount = 1;
 
 /*
  * Choose resources you want from SearchItemsResource enum
- * For more details, refer: https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
+ * For more details, refer:
+ * https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
  */
-$resources = array(
+$resources = [
     SearchItemsResource::ITEM_INFOTITLE,
-    SearchItemsResource::OFFERSLISTINGSPRICE);
+    SearchItemsResource::OFFERSLISTINGSPRICE];
 
 # Forming the request
 $searchItemsRequest = new SearchItemsRequest();
@@ -134,32 +137,32 @@ try {
     echo 'Complete Response: ', $searchItemsResponse, PHP_EOL;
 
     # Parsing the response
-    if ($searchItemsResponse->getSearchResult() != null) {
+    if ($searchItemsResponse->getSearchResult() !== null) {
         echo 'Printing first item information in SearchResult:', PHP_EOL;
         $item = $searchItemsResponse->getSearchResult()->getItems()[0];
-        if ($item != null) {
-            if ($item->getASIN() != null) {
+        if ($item !== null) {
+            if ($item->getASIN() !== null) {
                 echo "ASIN: ", $item->getASIN(), PHP_EOL;
             }
-            if ($item->getDetailPageURL() != null) {
+            if ($item->getDetailPageURL() !== null) {
                 echo "DetailPageURL: ", $item->getDetailPageURL(), PHP_EOL;
             }
-            if ($item->getItemInfo() != null
-                and $item->getItemInfo()->getTitle() != null
-                and $item->getItemInfo()->getTitle()->getDisplayValue() != null) {
+            if ($item->getItemInfo() !== null
+                and $item->getItemInfo()->getTitle() !== null
+                and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                 echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
             }
-            if ($item->getOffers() != null
-                and $item->getOffers() != null
-                and $item->getOffers()->getListings() != null
-                and $item->getOffers()->getListings()[0]->getPrice() != null
-                and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+            if ($item->getOffers() !== null
+                and $item->getOffers() !== null
+                and $item->getOffers()->getListings() !== null
+                and $item->getOffers()->getListings()[0]->getPrice() !== null
+                and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
                 echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
                     ->getDisplayAmount(), PHP_EOL;
             }
         }
     }
-    if ($searchItemsResponse->getErrors() != null) {
+    if ($searchItemsResponse->getErrors() !== null) {
         echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
         echo 'Error code: ', $searchItemsResponse->getErrors()[0]->getCode(), PHP_EOL;
         echo 'Error message: ', $searchItemsResponse->getErrors()[0]->getMessage(), PHP_EOL;
@@ -180,6 +183,10 @@ try {
 } catch (Exception $exception) {
     echo "Error Message: ", $exception->getMessage(), PHP_EOL;
 }
+?>
 ```
 
-Complete documentation, installation instructions, and examples are available [here](https://webservices.amazon.com/paapi5/documentation/with-sdk.html).
+Complete documentation, installation instructions, and examples are available [here](https://webservices.amazon.com/paapi5/documentation/index.html).
+
+## License
+This SDK is distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0), see LICENSE.txt and NOTICE.txt for more information.
