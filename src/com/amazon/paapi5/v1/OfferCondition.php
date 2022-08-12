@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,6 +14,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
 use \ArrayAccess;
@@ -46,7 +48,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => 'string',
         'locale' => 'string',
         'value' => 'string',
-        'subCondition' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferSubCondition'
+        'subCondition' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferSubCondition',
+        'conditionNote' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferConditionNote'
     ];
 
     /**
@@ -59,7 +62,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => null,
         'locale' => null,
         'value' => null,
-        'subCondition' => null
+        'subCondition' => null,
+        'conditionNote' => null
     ];
 
     /**
@@ -93,7 +97,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => 'Label',
         'locale' => 'Locale',
         'value' => 'Value',
-        'subCondition' => 'SubCondition'
+        'subCondition' => 'SubCondition',
+        'conditionNote' => 'ConditionNote'
     ];
 
     /**
@@ -106,7 +111,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => 'setLabel',
         'locale' => 'setLocale',
         'value' => 'setValue',
-        'subCondition' => 'setSubCondition'
+        'subCondition' => 'setSubCondition',
+        'conditionNote' => 'setConditionNote'
     ];
 
     /**
@@ -119,7 +125,8 @@ class OfferCondition implements ModelInterface, ArrayAccess
         'label' => 'getLabel',
         'locale' => 'getLocale',
         'value' => 'getValue',
-        'subCondition' => 'getSubCondition'
+        'subCondition' => 'getSubCondition',
+        'conditionNote' => 'getConditionNote'
     ];
 
     /**
@@ -187,6 +194,7 @@ class OfferCondition implements ModelInterface, ArrayAccess
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['subCondition'] = isset($data['subCondition']) ? $data['subCondition'] : null;
+        $this->container['conditionNote'] = isset($data['conditionNote']) ? $data['conditionNote'] : null;
     }
 
     /**
@@ -209,8 +217,7 @@ class OfferCondition implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
@@ -333,6 +340,30 @@ class OfferCondition implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets conditionNote
+     *
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferConditionNote
+     */
+    public function getConditionNote()
+    {
+        return $this->container['conditionNote'];
+    }
+
+    /**
+     * Sets conditionNote
+     *
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OfferConditionNote $conditionNote conditionNote
+     *
+     * @return $this
+     */
+    public function setConditionNote($conditionNote)
+    {
+        $this->container['conditionNote'] = $conditionNote;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -403,3 +434,5 @@ class OfferCondition implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

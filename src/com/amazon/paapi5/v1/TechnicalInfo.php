@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,6 +14,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
 use \ArrayAccess;
@@ -42,6 +44,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'energyEfficiencyClass' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SingleStringValuedAttribute',
         'formats' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\MultiValuedAttribute'
     ];
 
@@ -51,6 +54,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'energyEfficiencyClass' => null,
         'formats' => null
     ];
 
@@ -81,6 +85,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'energyEfficiencyClass' => 'EnergyEfficiencyClass',
         'formats' => 'Formats'
     ];
 
@@ -90,6 +95,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'energyEfficiencyClass' => 'setEnergyEfficiencyClass',
         'formats' => 'setFormats'
     ];
 
@@ -99,6 +105,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'energyEfficiencyClass' => 'getEnergyEfficiencyClass',
         'formats' => 'getFormats'
     ];
 
@@ -162,6 +169,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['energyEfficiencyClass'] = isset($data['energyEfficiencyClass']) ? $data['energyEfficiencyClass'] : null;
         $this->container['formats'] = isset($data['formats']) ? $data['formats'] : null;
     }
 
@@ -185,10 +193,33 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets energyEfficiencyClass
+     *
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SingleStringValuedAttribute
+     */
+    public function getEnergyEfficiencyClass()
+    {
+        return $this->container['energyEfficiencyClass'];
+    }
+
+    /**
+     * Sets energyEfficiencyClass
+     *
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SingleStringValuedAttribute $energyEfficiencyClass energyEfficiencyClass
+     *
+     * @return $this
+     */
+    public function setEnergyEfficiencyClass($energyEfficiencyClass)
+    {
+        $this->container['energyEfficiencyClass'] = $energyEfficiencyClass;
+
+        return $this;
+    }
 
     /**
      * Gets formats
@@ -283,3 +314,5 @@ class TechnicalInfo implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+
