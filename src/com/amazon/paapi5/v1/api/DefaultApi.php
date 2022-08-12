@@ -55,15 +55,14 @@ class DefaultApi
 
     /**
      * @param ClientInterface $client
-     * @param Configuration $config
-     * @param HeaderSelector $selector
+     * @param Configuration   $config
+     * @param HeaderSelector  $selector
      */
     public function __construct(
         ClientInterface $client,
-        Configuration   $config,
-        HeaderSelector  $selector = null
-    )
-    {
+        Configuration $config,
+        HeaderSelector $selector = null
+    ) {
         $this->client = $client;
         $this->config = $config;
         $this->headerSelector = $selector ?: new HeaderSelector();
@@ -80,11 +79,11 @@ class DefaultApi
     /**
      * Operation getBrowseNodes
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesResponse
-     * @throws \InvalidArgumentException
      * @throws \Amazon\ProductAdvertisingAPI\v1\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesResponse
      */
     public function getBrowseNodes($getBrowseNodesRequest)
     {
@@ -95,11 +94,11 @@ class DefaultApi
     /**
      * Operation getBrowseNodesWithHttpInfo
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
      *
-     * @return array of \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \InvalidArgumentException
      * @throws \Amazon\ProductAdvertisingAPI\v1\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBrowseNodesWithHttpInfo($getBrowseNodesRequest)
     {
@@ -211,10 +210,10 @@ class DefaultApi
      *
      * 
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getBrowseNodesAsync($getBrowseNodesRequest)
     {
@@ -231,10 +230,10 @@ class DefaultApi
      *
      * 
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getBrowseNodesAsyncWithHttpInfo($getBrowseNodesRequest)
     {
@@ -296,10 +295,10 @@ class DefaultApi
     /**
      * Create request for operation 'getBrowseNodes'
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest $getBrowseNodesRequest GetBrowseNodesRequest (required)
      *
-     * @return \GuzzleHttp\Psr7\Request
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      */
     protected function getBrowseNodesRequest($getBrowseNodesRequest)
     {
@@ -317,6 +316,7 @@ class DefaultApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // body params
@@ -391,11 +391,11 @@ class DefaultApi
     /**
      * Operation getItems
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResponse
-     * @throws \InvalidArgumentException
      * @throws \Amazon\ProductAdvertisingAPI\v1\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResponse
      */
     public function getItems($getItemsRequest)
     {
@@ -406,11 +406,11 @@ class DefaultApi
     /**
      * Operation getItemsWithHttpInfo
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
      *
-     * @return array of \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \InvalidArgumentException
      * @throws \Amazon\ProductAdvertisingAPI\v1\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getItemsWithHttpInfo($getItemsRequest)
     {
@@ -522,10 +522,10 @@ class DefaultApi
      *
      * 
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getItemsAsync($getItemsRequest)
     {
@@ -542,10 +542,10 @@ class DefaultApi
      *
      * 
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getItemsAsyncWithHttpInfo($getItemsRequest)
     {
@@ -607,10 +607,10 @@ class DefaultApi
     /**
      * Create request for operation 'getItems'
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest $getItemsRequest GetItemsRequest (required)
      *
-     * @return \GuzzleHttp\Psr7\Request
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      */
     protected function getItemsRequest($getItemsRequest)
     {
@@ -628,6 +628,7 @@ class DefaultApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // body params
@@ -702,11 +703,11 @@ class DefaultApi
     /**
      * Operation getVariations
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResponse
-     * @throws \InvalidArgumentException
      * @throws \Amazon\ProductAdvertisingAPI\v1\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResponse
      */
     public function getVariations($getVariationsRequest)
     {
@@ -717,11 +718,11 @@ class DefaultApi
     /**
      * Operation getVariationsWithHttpInfo
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
      *
-     * @return array of \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \InvalidArgumentException
      * @throws \Amazon\ProductAdvertisingAPI\v1\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getVariationsWithHttpInfo($getVariationsRequest)
     {
@@ -833,10 +834,10 @@ class DefaultApi
      *
      * 
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getVariationsAsync($getVariationsRequest)
     {
@@ -853,10 +854,10 @@ class DefaultApi
      *
      * 
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getVariationsAsyncWithHttpInfo($getVariationsRequest)
     {
@@ -918,10 +919,10 @@ class DefaultApi
     /**
      * Create request for operation 'getVariations'
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest $getVariationsRequest GetVariationsRequest (required)
      *
-     * @return \GuzzleHttp\Psr7\Request
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      */
     protected function getVariationsRequest($getVariationsRequest)
     {
@@ -939,6 +940,7 @@ class DefaultApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // body params
@@ -1013,11 +1015,11 @@ class DefaultApi
     /**
      * Operation searchItems
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResponse
-     * @throws \InvalidArgumentException
      * @throws \Amazon\ProductAdvertisingAPI\v1\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResponse
      */
     public function searchItems($searchItemsRequest)
     {
@@ -1028,11 +1030,11 @@ class DefaultApi
     /**
      * Operation searchItemsWithHttpInfo
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
      *
-     * @return array of \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \InvalidArgumentException
      * @throws \Amazon\ProductAdvertisingAPI\v1\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchItemsWithHttpInfo($searchItemsRequest)
     {
@@ -1144,10 +1146,10 @@ class DefaultApi
      *
      * 
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function searchItemsAsync($searchItemsRequest)
     {
@@ -1164,10 +1166,10 @@ class DefaultApi
      *
      * 
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function searchItemsAsyncWithHttpInfo($searchItemsRequest)
     {
@@ -1229,10 +1231,10 @@ class DefaultApi
     /**
      * Create request for operation 'searchItems'
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
+     * @param  \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest $searchItemsRequest SearchItemsRequest (required)
      *
-     * @return \GuzzleHttp\Psr7\Request
      * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      */
     protected function searchItemsRequest($searchItemsRequest)
     {
@@ -1250,6 +1252,7 @@ class DefaultApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
 
 
         // body params
@@ -1324,8 +1327,8 @@ class DefaultApi
     /**
      * Create http client option
      *
-     * @return array of http client options
      * @throws \RuntimeException on file opening failure
+     * @return array of http client options
      */
     protected function createHttpClientOption()
     {
