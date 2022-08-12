@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,6 +14,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
 use \ArrayAccess;
@@ -43,6 +45,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'defaultShippingCountry' => 'string',
+        'feedbackCount' => 'int',
+        'feedbackRating' => 'float',
         'id' => 'string',
         'name' => 'string'
     ];
@@ -54,6 +58,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'defaultShippingCountry' => null,
+        'feedbackCount' => 'int32',
+        'feedbackRating' => null,
         'id' => null,
         'name' => null
     ];
@@ -86,6 +92,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'defaultShippingCountry' => 'DefaultShippingCountry',
+        'feedbackCount' => 'FeedbackCount',
+        'feedbackRating' => 'FeedbackRating',
         'id' => 'Id',
         'name' => 'Name'
     ];
@@ -97,6 +105,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'defaultShippingCountry' => 'setDefaultShippingCountry',
+        'feedbackCount' => 'setFeedbackCount',
+        'feedbackRating' => 'setFeedbackRating',
         'id' => 'setId',
         'name' => 'setName'
     ];
@@ -108,6 +118,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'defaultShippingCountry' => 'getDefaultShippingCountry',
+        'feedbackCount' => 'getFeedbackCount',
+        'feedbackRating' => 'getFeedbackRating',
         'id' => 'getId',
         'name' => 'getName'
     ];
@@ -173,6 +185,8 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['defaultShippingCountry'] = isset($data['defaultShippingCountry']) ? $data['defaultShippingCountry'] : null;
+        $this->container['feedbackCount'] = isset($data['feedbackCount']) ? $data['feedbackCount'] : null;
+        $this->container['feedbackRating'] = isset($data['feedbackRating']) ? $data['feedbackRating'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
@@ -197,8 +211,7 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
@@ -222,6 +235,54 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
     public function setDefaultShippingCountry($defaultShippingCountry)
     {
         $this->container['defaultShippingCountry'] = $defaultShippingCountry;
+
+        return $this;
+    }
+
+    /**
+     * Gets feedbackCount
+     *
+     * @return int
+     */
+    public function getFeedbackCount()
+    {
+        return $this->container['feedbackCount'];
+    }
+
+    /**
+     * Sets feedbackCount
+     *
+     * @param int $feedbackCount feedbackCount
+     *
+     * @return $this
+     */
+    public function setFeedbackCount($feedbackCount)
+    {
+        $this->container['feedbackCount'] = $feedbackCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets feedbackRating
+     *
+     * @return float
+     */
+    public function getFeedbackRating()
+    {
+        return $this->container['feedbackRating'];
+    }
+
+    /**
+     * Sets feedbackRating
+     *
+     * @param float $feedbackRating feedbackRating
+     *
+     * @return $this
+     */
+    public function setFeedbackRating($feedbackRating)
+    {
+        $this->container['feedbackRating'] = $feedbackRating;
 
         return $this;
     }
@@ -343,3 +404,5 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+
