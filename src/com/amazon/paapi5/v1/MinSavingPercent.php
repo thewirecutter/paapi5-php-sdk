@@ -44,7 +44,7 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+
     ];
 
     /**
@@ -53,7 +53,7 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+
     ];
 
     /**
@@ -83,7 +83,7 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+
     ];
 
     /**
@@ -92,7 +92,7 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+
     ];
 
     /**
@@ -101,7 +101,7 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+
     ];
 
     /**
@@ -145,9 +145,9 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -196,6 +196,7 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -208,6 +209,7 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -221,6 +223,7 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -237,6 +240,7 @@ class MinSavingPercent implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

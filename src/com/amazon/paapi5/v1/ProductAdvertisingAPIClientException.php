@@ -145,9 +145,9 @@ class ProductAdvertisingAPIClientException implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
