@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-    build-82:
+    build:
         docker:
             # Specify the version you desire here
             - image: cimg/php:8.2
