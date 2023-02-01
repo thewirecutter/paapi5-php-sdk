@@ -17,7 +17,7 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1;
 
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\API\DefaultApi;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest;
