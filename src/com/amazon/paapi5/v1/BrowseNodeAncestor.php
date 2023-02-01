@@ -374,5 +374,3 @@ class BrowseNodeAncestor implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
