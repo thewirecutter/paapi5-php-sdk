@@ -14,6 +14,6 @@ jobs:
 
             - run: composer install -n --prefer-dist
 
-            - run: ./vendor/bin/phpcs
+            - run: composer phpcs
 
-            - run: ./vendor/bin/phpunit
+            - run: composer test
