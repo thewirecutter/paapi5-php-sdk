@@ -41,8 +41,8 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "phpcs": "vendor/bin/phpcs --standard=phpcs.xml -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php",
-        "phpcbf": "vendor/bin/phpcbf --standard=phpcs.xml -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php",
+        "phpcs": "vendor/bin/phpcs --standard=PSR2 -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src",
+        "phpcbf": "vendor/bin/phpcbf --standard=PSR2 -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src",
         "php-cs-fixer": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes --using-cache=no --config=.php_cs SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php"
     },
     "autoload": {
