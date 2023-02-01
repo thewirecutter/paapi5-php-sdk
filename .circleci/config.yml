@@ -26,14 +26,3 @@ jobs:
             - run: composer install -n --prefer-dist
 
             - run: ./vendor/bin/phpcs
-    build-74:
-        docker:
-            # Specify the version you desire here
-            - image: cimg/php:7.4
-
-        steps:
-            - checkout
-
-            - run: composer install -n --prefer-dist
-
-            - run: ./vendor/bin/phpcs
