@@ -7,3 +7,4 @@
 
 # OS Specific Files
 .DS_Store
+/.phpunit.result.cache

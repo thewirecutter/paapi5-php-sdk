@@ -7,24 +7,13 @@ jobs:
     build:
         docker:
             # Specify the version you desire here
-            - image: circleci/php:7.1-node-browsers
+            - image: cimg/php:8.0
 
         steps:
             - checkout
 
-            # Download and cache dependencies
-            - restore_cache:
-                    keys:
-                        # "composer.lock" can be used if it is committed to the repo
-                        - v1-dependencies-{{ checksum "composer.json" }}
-                        # fallback to using the latest cache if no exact match is found
-                        - v1-dependencies-
-
             - run: composer install -n --prefer-dist
 
-            - save_cache:
-                    key: v1-dependencies-{{ checksum "composer.json" }}
-                    paths:
-                        - ./vendor
+            - run: composer phpcs
 
-            - run: ./vendor/bin/phpcs
+            - run: composer test
