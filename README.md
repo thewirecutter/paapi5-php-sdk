@@ -17,6 +17,7 @@ We have not changed the API in any way, however we did cleanup portions of the c
 * Replaced usage of `\GuzzleHttp\Psr7\build_query` with `\GuzzleHttp\Psr7\Query::build` https://github.com/thewirecutter/paapi5-php-sdk/pull/8
 * Added Support for Guzzle 7 https://github.com/thewirecutter/paapi5-php-sdk/pull/6
 * Removed Deprecation Warnings when using PHP 8 https://github.com/thewirecutter/paapi5-php-sdk/pull/13
+* Removed Dynamic Property Creation Warnings when using PHP 8 https://github.com/thewirecutter/paapi5-php-sdk/pull/13
 * Updated PHP Minimum Version to PHP 8 https://github.com/thewirecutter/paapi5-php-sdk/pull/13
 * CodeSniffed to PSR-2 https://github.com/thewirecutter/paapi5-php-sdk/pull/13
 * Updated Dev Dependencies to reflect PHP 8 version requirement https://github.com/thewirecutter/paapi5-php-sdk/pull/13
