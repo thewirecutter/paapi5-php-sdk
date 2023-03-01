@@ -1,6 +1,5 @@
 {
     "name": "thewirecutter/paapi5-php-sdk",
-    "version": "1.2.0",
     "description": "ProductAdvertisingAPI 5.0 PHP SDK",
     "keywords": [
         "amazon",
