@@ -177,7 +177,7 @@ class OfferDeliveryInfo implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['isAmazonFulfilled'] = isset($data['isAmazonFulfilled']) ? $data['isAmazonFulfilled'] : null;
         $this->container['isFreeShippingEligible'] = isset($data['isFreeShippingEligible']) ? $data['isFreeShippingEligible'] : null;

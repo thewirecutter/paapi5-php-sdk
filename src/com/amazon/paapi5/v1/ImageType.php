@@ -172,7 +172,7 @@ class ImageType implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['small'] = isset($data['small']) ? $data['small'] : null;
         $this->container['medium'] = isset($data['medium']) ? $data['medium'] : null;

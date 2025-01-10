@@ -172,7 +172,7 @@ class ImageSize implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['uRL'] = isset($data['uRL']) ? $data['uRL'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;

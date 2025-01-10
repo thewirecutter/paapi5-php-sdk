@@ -182,7 +182,7 @@ class OfferMerchantInfo implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['defaultShippingCountry'] = isset($data['defaultShippingCountry']) ? $data['defaultShippingCountry'] : null;
         $this->container['feedbackCount'] = isset($data['feedbackCount']) ? $data['feedbackCount'] : null;

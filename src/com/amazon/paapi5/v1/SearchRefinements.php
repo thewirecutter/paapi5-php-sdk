@@ -172,7 +172,7 @@ class SearchRefinements implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['browseNode'] = isset($data['browseNode']) ? $data['browseNode'] : null;
         $this->container['otherRefinements'] = isset($data['otherRefinements']) ? $data['otherRefinements'] : null;

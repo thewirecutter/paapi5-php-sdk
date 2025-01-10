@@ -167,7 +167,7 @@ class Images implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['primary'] = isset($data['primary']) ? $data['primary'] : null;
         $this->container['variants'] = isset($data['variants']) ? $data['variants'] : null;
