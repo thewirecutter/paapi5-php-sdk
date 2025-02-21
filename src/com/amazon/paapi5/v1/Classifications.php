@@ -167,7 +167,7 @@ class Classifications implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['binding'] = isset($data['binding']) ? $data['binding'] : null;
         $this->container['productGroup'] = isset($data['productGroup']) ? $data['productGroup'] : null;

@@ -167,7 +167,7 @@ class Offers implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['listings'] = isset($data['listings']) ? $data['listings'] : null;
         $this->container['summaries'] = isset($data['summaries']) ? $data['summaries'] : null;

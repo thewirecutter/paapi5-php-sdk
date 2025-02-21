@@ -172,7 +172,7 @@ class ByLineInfo implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
         $this->container['contributors'] = isset($data['contributors']) ? $data['contributors'] : null;

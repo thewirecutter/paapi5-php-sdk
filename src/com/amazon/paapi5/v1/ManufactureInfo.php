@@ -172,7 +172,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['itemPartNumber'] = isset($data['itemPartNumber']) ? $data['itemPartNumber'] : null;
         $this->container['model'] = isset($data['model']) ? $data['model'] : null;

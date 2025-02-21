@@ -172,7 +172,7 @@ class BrowseNodeChild implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['contextFreeName'] = isset($data['contextFreeName']) ? $data['contextFreeName'] : null;
         $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;

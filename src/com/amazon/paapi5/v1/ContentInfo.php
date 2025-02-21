@@ -177,7 +177,7 @@ class ContentInfo implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['edition'] = isset($data['edition']) ? $data['edition'] : null;
         $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;

@@ -172,7 +172,7 @@ class ExternalIds implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['eANs'] = isset($data['eANs']) ? $data['eANs'] : null;
         $this->container['iSBNs'] = isset($data['iSBNs']) ? $data['iSBNs'] : null;
