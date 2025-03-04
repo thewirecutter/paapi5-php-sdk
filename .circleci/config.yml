@@ -2,18 +2,51 @@
 #
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
-version: 2
+---
+version: 2.1
 jobs:
-    build:
+    test-lowest:
+        # Use the defined CircleCI IP Ranges.
+        circleci_ip_ranges: true
+
+        # Docker Container/PHP Version to Use.
         docker:
-            # Specify the version you desire here
             - image: cimg/php:8.0
+
+        resource_class: small
 
         steps:
             - checkout
 
-            - run: composer install -n --prefer-dist
+            - run: composer install --prefer-dist --no-scripts
 
             - run: composer phpcs
 
             - run: composer test
+
+    test-highest:
+        # Use the defined CircleCI IP Ranges.
+        circleci_ip_ranges: true
+
+        # Docker Container/PHP Version to Use.
+        docker:
+            - image: cimg/php:8.4
+
+        resource_class: small
+
+        steps:
+            - checkout
+
+            - run: composer install --prefer-dist --no-scripts
+
+            - run: composer phpcs
+
+            - run: composer test
+
+workflows:
+    version: 2
+    build:
+        jobs:
+            # Build and Test the code.
+            - test-highest
+            - test-lowest
