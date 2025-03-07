@@ -1,6 +1,6 @@
-# PHP CircleCI 2.0 configuration file
+# CircleCI Configuration file for test builds for PA-API Package.
 #
-# Check https://circleci.com/docs/2.0/language-php/ for more details
+# Check https://circleci.com/docs/introduction-to-yaml-configurations/
 #
 ---
 version: 2.1
@@ -18,7 +18,7 @@ jobs:
         steps:
             - checkout
 
-            - run: composer install --prefer-dist --no-scripts
+            - run: composer install --prefer-dist --no-interaction --no-scripts
 
             - run: composer phpcs
 
@@ -37,14 +37,13 @@ jobs:
         steps:
             - checkout
 
-            - run: composer install --prefer-dist --no-scripts
+            - run: composer install --prefer-dist --no-interaction --no-scripts
 
             - run: composer phpcs
 
             - run: composer test
 
 workflows:
-    version: 2
     build:
         jobs:
             # Build and Test the code.
