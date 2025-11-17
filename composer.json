@@ -28,7 +28,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2",
+        "guzzlehttp/guzzle" : "^6.2|^7.0",
         "traydigita/paapi5-php-sdk": "^1.1"
     },
     "require-dev": {
