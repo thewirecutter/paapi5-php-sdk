@@ -23,7 +23,7 @@ We have not changed the API in any way, however we did cleanup portions of the c
 * Updated Dev Dependencies to reflect PHP 8 version requirement https://github.com/thewirecutter/paapi5-php-sdk/pull/13
 
 ## Installation
-The Product Advertising API PHP SDK can be installed with [Composer](https://getcomposer.org/). The SDK is available via [Packagist](http://packagist.org/) under the [`amzn/paapi5-php-sdk`](https://packagist.org/packages/amzn/paapi5-php-sdk) package. If Composer is installed globally on your system, you can run the following in the base directory of your project to add the SDK as a dependency:
+The Product Advertising API PHP SDK can be installed with [Composer](https://getcomposer.org/). The SDK is available via [Packagist](http://packagist.org/) under the [`thewirecutter/paapi5-php-sdk`](https://packagist.org/packages/thewirecutter/paapi5-php-sdk) package. If Composer is installed globally on your system, you can run the following in the base directory of your project to add the SDK as a dependency:
 
 ```sh
 composer require thewirecutter/paapi5-php-sdk

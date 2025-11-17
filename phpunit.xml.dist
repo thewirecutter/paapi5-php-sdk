@@ -11,10 +11,4 @@
             <directory>./test/Api</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src/com/amazon/paapi5/v1/api</directory>
-            <directory suffix=".php">./src/com/amazon/paapi5/v1</directory>
-        </whitelist>
-    </filter>
 </phpunit>
