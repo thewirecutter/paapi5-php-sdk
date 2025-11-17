@@ -284,5 +284,3 @@ class ProductAdvertisingAPIClientException implements ModelInterface, ArrayAcces
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
