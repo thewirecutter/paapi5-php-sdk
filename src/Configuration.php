@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -62,7 +62,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'paapi5-php-sdk-1.0.0';
+    protected $userAgent = 'paapi5-php-sdk-1.2.3';
 
     /**
      * Debug switch (default set to false)
@@ -301,7 +301,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 1.0.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 1.0.0' . PHP_EOL;
+        $report .= '    SDK Package Version: 1.2.3' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

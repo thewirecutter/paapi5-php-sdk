@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -212,7 +212,7 @@ class ItemInfo implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(?array $data = null)
+    public function __construct(array $data = null)
     {
         $this->container['byLineInfo'] = isset($data['byLineInfo']) ? $data['byLineInfo'] : null;
         $this->container['classifications'] = isset($data['classifications']) ? $data['classifications'] : null;
@@ -521,7 +521,7 @@ class ItemInfo implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
     }
@@ -533,7 +533,7 @@ class ItemInfo implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -546,7 +546,7 @@ class ItemInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -562,7 +562,7 @@ class ItemInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
     }
@@ -584,3 +584,5 @@ class ItemInfo implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

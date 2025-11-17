@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -51,6 +51,7 @@ class Item implements ModelInterface, ArrayAccess
         'images' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Images',
         'itemInfo' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ItemInfo',
         'offers' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Offers',
+        'offersV2' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OffersV2',
         'parentASIN' => 'string',
         'rentalOffers' => '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\RentalOffers',
         'score' => 'float',
@@ -70,6 +71,7 @@ class Item implements ModelInterface, ArrayAccess
         'images' => null,
         'itemInfo' => null,
         'offers' => null,
+        'offersV2' => null,
         'parentASIN' => null,
         'rentalOffers' => null,
         'score' => null,
@@ -110,6 +112,7 @@ class Item implements ModelInterface, ArrayAccess
         'images' => 'Images',
         'itemInfo' => 'ItemInfo',
         'offers' => 'Offers',
+        'offersV2' => 'OffersV2',
         'parentASIN' => 'ParentASIN',
         'rentalOffers' => 'RentalOffers',
         'score' => 'Score',
@@ -129,6 +132,7 @@ class Item implements ModelInterface, ArrayAccess
         'images' => 'setImages',
         'itemInfo' => 'setItemInfo',
         'offers' => 'setOffers',
+        'offersV2' => 'setOffersV2',
         'parentASIN' => 'setParentASIN',
         'rentalOffers' => 'setRentalOffers',
         'score' => 'setScore',
@@ -148,6 +152,7 @@ class Item implements ModelInterface, ArrayAccess
         'images' => 'getImages',
         'itemInfo' => 'getItemInfo',
         'offers' => 'getOffers',
+        'offersV2' => 'getOffersV2',
         'parentASIN' => 'getParentASIN',
         'rentalOffers' => 'getRentalOffers',
         'score' => 'getScore',
@@ -212,7 +217,7 @@ class Item implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(?array $data = null)
+    public function __construct(array $data = null)
     {
         $this->container['aSIN'] = isset($data['aSIN']) ? $data['aSIN'] : null;
         $this->container['browseNodeInfo'] = isset($data['browseNodeInfo']) ? $data['browseNodeInfo'] : null;
@@ -221,6 +226,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
         $this->container['itemInfo'] = isset($data['itemInfo']) ? $data['itemInfo'] : null;
         $this->container['offers'] = isset($data['offers']) ? $data['offers'] : null;
+        $this->container['offersV2'] = isset($data['offersV2']) ? $data['offersV2'] : null;
         $this->container['parentASIN'] = isset($data['parentASIN']) ? $data['parentASIN'] : null;
         $this->container['rentalOffers'] = isset($data['rentalOffers']) ? $data['rentalOffers'] : null;
         $this->container['score'] = isset($data['score']) ? $data['score'] : null;
@@ -420,6 +426,30 @@ class Item implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets offersV2
+     *
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OffersV2
+     */
+    public function getOffersV2()
+    {
+        return $this->container['offersV2'];
+    }
+
+    /**
+     * Sets offersV2
+     *
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\OffersV2 $offersV2 offersV2
+     *
+     * @return $this
+     */
+    public function setOffersV2($offersV2)
+    {
+        $this->container['offersV2'] = $offersV2;
+
+        return $this;
+    }
+
+    /**
      * Gets parentASIN
      *
      * @return string
@@ -521,7 +551,7 @@ class Item implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
     }
@@ -533,7 +563,7 @@ class Item implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -546,7 +576,7 @@ class Item implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -562,7 +592,7 @@ class Item implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
     }
@@ -584,3 +614,5 @@ class Item implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

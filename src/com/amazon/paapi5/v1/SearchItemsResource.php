@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
  */
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
-
 use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
@@ -76,6 +75,14 @@ class SearchItemsResource
     const OFFERSSUMMARIESHIGHEST_PRICE = 'Offers.Summaries.HighestPrice';
     const OFFERSSUMMARIESLOWEST_PRICE = 'Offers.Summaries.LowestPrice';
     const OFFERSSUMMARIESOFFER_COUNT = 'Offers.Summaries.OfferCount';
+    const OFFERS_V2LISTINGSAVAILABILITY = 'OffersV2.Listings.Availability';
+    const OFFERS_V2LISTINGSCONDITION = 'OffersV2.Listings.Condition';
+    const OFFERS_V2LISTINGSDEAL_DETAILS = 'OffersV2.Listings.DealDetails';
+    const OFFERS_V2LISTINGSIS_BUY_BOX_WINNER = 'OffersV2.Listings.IsBuyBoxWinner';
+    const OFFERS_V2LISTINGSLOYALTY_POINTS = 'OffersV2.Listings.LoyaltyPoints';
+    const OFFERS_V2LISTINGSMERCHANT_INFO = 'OffersV2.Listings.MerchantInfo';
+    const OFFERS_V2LISTINGSPRICE = 'OffersV2.Listings.Price';
+    const OFFERS_V2LISTINGSTYPE = 'OffersV2.Listings.Type';
     const PARENT_ASIN = 'ParentASIN';
     const RENTAL_OFFERSLISTINGSAVAILABILITYMAX_ORDER_QUANTITY = 'RentalOffers.Listings.Availability.MaxOrderQuantity';
     const RENTAL_OFFERSLISTINGSAVAILABILITYMESSAGE = 'RentalOffers.Listings.Availability.Message';
@@ -144,6 +151,14 @@ class SearchItemsResource
             self::OFFERSSUMMARIESHIGHEST_PRICE,
             self::OFFERSSUMMARIESLOWEST_PRICE,
             self::OFFERSSUMMARIESOFFER_COUNT,
+            self::OFFERS_V2LISTINGSAVAILABILITY,
+            self::OFFERS_V2LISTINGSCONDITION,
+            self::OFFERS_V2LISTINGSDEAL_DETAILS,
+            self::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+            self::OFFERS_V2LISTINGSLOYALTY_POINTS,
+            self::OFFERS_V2LISTINGSMERCHANT_INFO,
+            self::OFFERS_V2LISTINGSPRICE,
+            self::OFFERS_V2LISTINGSTYPE,
             self::PARENT_ASIN,
             self::RENTAL_OFFERSLISTINGSAVAILABILITYMAX_ORDER_QUANTITY,
             self::RENTAL_OFFERSLISTINGSAVAILABILITYMESSAGE,
@@ -162,3 +177,5 @@ class SearchItemsResource
         ];
     }
 }
+
+

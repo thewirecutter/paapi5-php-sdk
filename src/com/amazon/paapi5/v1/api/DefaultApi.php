@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
-use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Amazon\ProductAdvertisingAPI\v1\ApiException;
@@ -61,7 +60,7 @@ class DefaultApi
     public function __construct(
         ClientInterface $client,
         Configuration $config,
-        ?HeaderSelector $selector = null
+        HeaderSelector $selector = null
     ) {
         $this->client = $client;
         $this->config = $config;
@@ -358,7 +357,7 @@ class DefaultApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = Query::build($formParams);
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
 
@@ -376,7 +375,7 @@ class DefaultApi
             $headers
         );
 
-        $query = Query::build($queryParams);
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -667,7 +666,7 @@ class DefaultApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = Query::build($formParams);
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
 
@@ -685,7 +684,7 @@ class DefaultApi
             $headers
         );
 
-        $query = Query::build($queryParams);
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -976,7 +975,7 @@ class DefaultApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = Query::build($formParams);
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
 
@@ -994,7 +993,7 @@ class DefaultApi
             $headers
         );
 
-        $query = Query::build($queryParams);
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1285,7 +1284,7 @@ class DefaultApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = Query::build($formParams);
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
 
@@ -1303,7 +1302,7 @@ class DefaultApi
             $headers
         );
 
-        $query = Query::build($queryParams);
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

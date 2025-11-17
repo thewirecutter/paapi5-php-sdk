@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
  */
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
-
 use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
@@ -35,7 +34,7 @@ class PriceType
     const LOWEST_PRICE = 'LOWEST_PRICE';
     const LOWEST_PRICE_STRIKETHROUGH = 'LOWEST_PRICE_STRIKETHROUGH';
     const WAS_PRICE = 'WAS_PRICE';
-
+    
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -50,3 +49,5 @@ class PriceType
         ];
     }
 }
+
+

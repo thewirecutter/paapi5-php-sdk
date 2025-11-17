@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
  */
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
-
 use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
@@ -90,6 +89,14 @@ class GetItemsResource
     const RENTAL_OFFERSLISTINGSDELIVERY_INFOIS_PRIME_ELIGIBLE = 'RentalOffers.Listings.DeliveryInfo.IsPrimeEligible';
     const RENTAL_OFFERSLISTINGSDELIVERY_INFOSHIPPING_CHARGES = 'RentalOffers.Listings.DeliveryInfo.ShippingCharges';
     const RENTAL_OFFERSLISTINGSMERCHANT_INFO = 'RentalOffers.Listings.MerchantInfo';
+    const OFFERS_V2LISTINGSAVAILABILITY = 'OffersV2.Listings.Availability';
+    const OFFERS_V2LISTINGSCONDITION = 'OffersV2.Listings.Condition';
+    const OFFERS_V2LISTINGSDEAL_DETAILS = 'OffersV2.Listings.DealDetails';
+    const OFFERS_V2LISTINGSIS_BUY_BOX_WINNER = 'OffersV2.Listings.IsBuyBoxWinner';
+    const OFFERS_V2LISTINGSLOYALTY_POINTS = 'OffersV2.Listings.LoyaltyPoints';
+    const OFFERS_V2LISTINGSMERCHANT_INFO = 'OffersV2.Listings.MerchantInfo';
+    const OFFERS_V2LISTINGSPRICE = 'OffersV2.Listings.Price';
+    const OFFERS_V2LISTINGSTYPE = 'OffersV2.Listings.Type';
     
     /**
      * Gets allowable values of the enum
@@ -157,6 +164,16 @@ class GetItemsResource
             self::RENTAL_OFFERSLISTINGSDELIVERY_INFOIS_PRIME_ELIGIBLE,
             self::RENTAL_OFFERSLISTINGSDELIVERY_INFOSHIPPING_CHARGES,
             self::RENTAL_OFFERSLISTINGSMERCHANT_INFO,
+            self::OFFERS_V2LISTINGSAVAILABILITY,
+            self::OFFERS_V2LISTINGSCONDITION,
+            self::OFFERS_V2LISTINGSDEAL_DETAILS,
+            self::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+            self::OFFERS_V2LISTINGSLOYALTY_POINTS,
+            self::OFFERS_V2LISTINGSMERCHANT_INFO,
+            self::OFFERS_V2LISTINGSPRICE,
+            self::OFFERS_V2LISTINGSTYPE,
         ];
     }
 }
+
+

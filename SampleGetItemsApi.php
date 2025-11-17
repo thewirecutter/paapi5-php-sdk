@@ -87,7 +87,7 @@ function getItems()
     # Request initialization
 
     # Choose item id(s)
-    $itemIds = ["059035342X", "B00X4WHP55", "1401263119"];
+    $itemIds = ["059035342X", "B0BFC7WQ6R", "1401263119"];
 
     /*
      * Choose resources you want from GetItemsResource enum
