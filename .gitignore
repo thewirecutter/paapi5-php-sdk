@@ -4,6 +4,7 @@
 
 # Code Editors
 .vscode/
+.idea/
 
 # OS Specific Files
 .DS_Store
