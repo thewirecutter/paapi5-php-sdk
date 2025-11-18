@@ -1,6 +1,6 @@
 # Product Advertising API 5.0 SDK for PHP
 
-[![Version](https://img.shields.io/packagist/v/thewirecutter/paapi5-php-sdk)](https://img.shields.io/packagist/v/thewirecutter/paapi5-php-sdk)
+[![Version](https://img.shields.io/packagist/v/thewirecutter/paapi5-php-sdk)](https://packagist.org/packages/thewirecutter/paapi5-php-sdk)
 [![Total Downloads](https://img.shields.io/packagist/dt/thewirecutter/paapi5-php-sdk.svg?style=flat)](https://packagist.org/packages/thewirecutter/paapi5-php-sdk)
 [![CircleCI](https://circleci.com/gh/thewirecutter/paapi5-php-sdk.svg?style=svg)](https://circleci.com/gh/thewirecutter/paapi5-php-sdk)
 
@@ -30,7 +30,7 @@ composer require thewirecutter/paapi5-php-sdk
 ```
 
 ## Usage
-> **Note:** This version of the Product Advertising API SDK for PHP requires PHP 5.5 or greater.
+> **Note:** This version of the Product Advertising API SDK for PHP requires PHP 8 or greater.
 
 Simple example for [SearchItems](https://webservices.amazon.com/paapi5/documentation/search-items.html) to discover Amazon products with the keyword 'Harry Potter' in Books category:
 
