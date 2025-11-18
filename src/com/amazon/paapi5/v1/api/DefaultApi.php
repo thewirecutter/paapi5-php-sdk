@@ -61,7 +61,7 @@ class DefaultApi
     public function __construct(
         ClientInterface $client,
         Configuration $config,
-        HeaderSelector $selector = null
+        ?HeaderSelector $selector = null
     ) {
         $this->client = $client;
         $this->config = $config;
