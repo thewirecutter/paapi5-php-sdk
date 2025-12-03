@@ -91,7 +91,14 @@ function searchItems()
      */
     $resources = [
         SearchItemsResource::ITEM_INFOTITLE,
-        SearchItemsResource::OFFERSLISTINGSPRICE];
+        SearchItemsResource::OFFERS_V2LISTINGSAVAILABILITY,
+        SearchItemsResource::OFFERS_V2LISTINGSCONDITION,
+        SearchItemsResource::OFFERS_V2LISTINGSDEAL_DETAILS,
+        SearchItemsResource::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+        SearchItemsResource::OFFERS_V2LISTINGSLOYALTY_POINTS,
+        SearchItemsResource::OFFERS_V2LISTINGSMERCHANT_INFO,
+        SearchItemsResource::OFFERS_V2LISTINGSPRICE,
+        SearchItemsResource::OFFERS_V2LISTINGSTYPE];
 
     # Forming the request
     $searchItemsRequest = new SearchItemsRequest();
@@ -136,13 +143,12 @@ function searchItems()
                     and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getOffers() !== null
-                    and $item->getOffers() !== null
-                    and $item->getOffers()->getListings() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
-                    echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
-                        ->getDisplayAmount(), PHP_EOL;
+                if ($item->getOffersV2() !== null
+                    and $item->getOffersV2() !== null
+                    and $item->getOffersV2()->getListings() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null) {
+                    echo "Buying price: ", $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
@@ -223,7 +229,14 @@ function searchItemsWithHttpInfo()
      */
     $resources = [
         SearchItemsResource::ITEM_INFOTITLE,
-        SearchItemsResource::OFFERSLISTINGSPRICE];
+        SearchItemsResource::OFFERS_V2LISTINGSAVAILABILITY,
+        SearchItemsResource::OFFERS_V2LISTINGSCONDITION,
+        SearchItemsResource::OFFERS_V2LISTINGSDEAL_DETAILS,
+        SearchItemsResource::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+        SearchItemsResource::OFFERS_V2LISTINGSLOYALTY_POINTS,
+        SearchItemsResource::OFFERS_V2LISTINGSMERCHANT_INFO,
+        SearchItemsResource::OFFERS_V2LISTINGSPRICE,
+        SearchItemsResource::OFFERS_V2LISTINGSTYPE];
 
     # Forming the request
     $searchItemsRequest = new SearchItemsRequest();
@@ -272,13 +285,12 @@ function searchItemsWithHttpInfo()
                     and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getOffers() !== null
-                    and $item->getOffers() !== null
-                    and $item->getOffers()->getListings() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
-                    echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
-                        ->getDisplayAmount(), PHP_EOL;
+                if ($item->getOffersV2() !== null
+                    and $item->getOffersV2() !== null
+                    and $item->getOffersV2()->getListings() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null) {
+                    echo "Buying price: ", $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
@@ -359,7 +371,14 @@ function searchItemsAsync()
      */
     $resources = [
         SearchItemsResource::ITEM_INFOTITLE,
-        SearchItemsResource::OFFERSLISTINGSPRICE];
+        SearchItemsResource::OFFERS_V2LISTINGSAVAILABILITY,
+        SearchItemsResource::OFFERS_V2LISTINGSCONDITION,
+        SearchItemsResource::OFFERS_V2LISTINGSDEAL_DETAILS,
+        SearchItemsResource::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+        SearchItemsResource::OFFERS_V2LISTINGSLOYALTY_POINTS,
+        SearchItemsResource::OFFERS_V2LISTINGSMERCHANT_INFO,
+        SearchItemsResource::OFFERS_V2LISTINGSPRICE,
+        SearchItemsResource::OFFERS_V2LISTINGSTYPE];
 
     # Forming the request
     $searchItemsRequest = new SearchItemsRequest();
@@ -414,13 +433,12 @@ function searchItemsAsync()
                     and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getOffers() !== null
-                    and $item->getOffers() !== null
-                    and $item->getOffers()->getListings() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
-                    echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
-                        ->getDisplayAmount(), PHP_EOL;
+                if ($item->getOffersV2() !== null
+                    and $item->getOffersV2() !== null
+                    and $item->getOffersV2()->getListings() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null) {
+                    echo "Buying price: ", $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
@@ -501,7 +519,14 @@ function searchItemsAsyncWithHttpInfo()
      */
     $resources = [
         SearchItemsResource::ITEM_INFOTITLE,
-        SearchItemsResource::OFFERSLISTINGSPRICE];
+        SearchItemsResource::OFFERS_V2LISTINGSAVAILABILITY,
+        SearchItemsResource::OFFERS_V2LISTINGSCONDITION,
+        SearchItemsResource::OFFERS_V2LISTINGSDEAL_DETAILS,
+        SearchItemsResource::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+        SearchItemsResource::OFFERS_V2LISTINGSLOYALTY_POINTS,
+        SearchItemsResource::OFFERS_V2LISTINGSMERCHANT_INFO,
+        SearchItemsResource::OFFERS_V2LISTINGSPRICE,
+        SearchItemsResource::OFFERS_V2LISTINGSTYPE];
 
     # Forming the request
     $searchItemsRequest = new SearchItemsRequest();
@@ -560,13 +585,12 @@ function searchItemsAsyncWithHttpInfo()
                     and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
                     echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
                 }
-                if ($item->getOffers() !== null
-                    and $item->getOffers() !== null
-                    and $item->getOffers()->getListings() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
-                    echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
-                        ->getDisplayAmount(), PHP_EOL;
+                if ($item->getOffersV2() !== null
+                    and $item->getOffersV2() !== null
+                    and $item->getOffersV2()->getListings() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null) {
+                    echo "Buying price: ", $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount(), PHP_EOL;
                 }
             }
         }

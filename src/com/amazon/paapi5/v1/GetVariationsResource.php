@@ -93,6 +93,14 @@ class GetVariationsResource
     const VARIATION_SUMMARYPRICEHIGHEST_PRICE = 'VariationSummary.Price.HighestPrice';
     const VARIATION_SUMMARYPRICELOWEST_PRICE = 'VariationSummary.Price.LowestPrice';
     const VARIATION_SUMMARYVARIATION_DIMENSION = 'VariationSummary.VariationDimension';
+    const OFFERS_V2LISTINGSAVAILABILITY = 'OffersV2.Listings.Availability';
+    const OFFERS_V2LISTINGSCONDITION = 'OffersV2.Listings.Condition';
+    const OFFERS_V2LISTINGSDEAL_DETAILS = 'OffersV2.Listings.DealDetails';
+    const OFFERS_V2LISTINGSIS_BUY_BOX_WINNER = 'OffersV2.Listings.IsBuyBoxWinner';
+    const OFFERS_V2LISTINGSLOYALTY_POINTS = 'OffersV2.Listings.LoyaltyPoints';
+    const OFFERS_V2LISTINGSMERCHANT_INFO = 'OffersV2.Listings.MerchantInfo';
+    const OFFERS_V2LISTINGSPRICE = 'OffersV2.Listings.Price';
+    const OFFERS_V2LISTINGSTYPE = 'OffersV2.Listings.Type';
     
     /**
      * Gets allowable values of the enum
@@ -163,6 +171,14 @@ class GetVariationsResource
             self::VARIATION_SUMMARYPRICEHIGHEST_PRICE,
             self::VARIATION_SUMMARYPRICELOWEST_PRICE,
             self::VARIATION_SUMMARYVARIATION_DIMENSION,
+            self::OFFERS_V2LISTINGSAVAILABILITY,
+            self::OFFERS_V2LISTINGSCONDITION,
+            self::OFFERS_V2LISTINGSDEAL_DETAILS,
+            self::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+            self::OFFERS_V2LISTINGSLOYALTY_POINTS,
+            self::OFFERS_V2LISTINGSMERCHANT_INFO,
+            self::OFFERS_V2LISTINGSPRICE,
+            self::OFFERS_V2LISTINGSTYPE,
         ];
     }
 }

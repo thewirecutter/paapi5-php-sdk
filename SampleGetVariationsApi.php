@@ -72,7 +72,7 @@ function getVariations()
     # Request initialization
 
     # Choose asin
-    $asin = "B079SQ5VHX";
+    $asin = "B0DLFMFBJW";
 
     /*
      * Choose resources you want from GetVariationsResource enum
@@ -81,7 +81,14 @@ function getVariations()
      */
     $resources = [
         GetVariationsResource::ITEM_INFOTITLE,
-        GetVariationsResource::OFFERSLISTINGSPRICE];
+        GetVariationsResource::OFFERS_V2LISTINGSAVAILABILITY,
+        GetVariationsResource::OFFERS_V2LISTINGSCONDITION,
+        GetVariationsResource::OFFERS_V2LISTINGSDEAL_DETAILS,
+        GetVariationsResource::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+        GetVariationsResource::OFFERS_V2LISTINGSLOYALTY_POINTS,
+        GetVariationsResource::OFFERS_V2LISTINGSMERCHANT_INFO,
+        GetVariationsResource::OFFERS_V2LISTINGSPRICE,
+        GetVariationsResource::OFFERS_V2LISTINGSTYPE];
 
     # Forming the request
     $getVariationsRequest = new GetVariationsRequest();
@@ -129,12 +136,11 @@ function getVariations()
                 if ($item->getDetailPageURL() !== null) {
                     echo 'Detail Page URL: ', $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getOffers() !== null
-                    and $item->getOffers()->getListings() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
-                    echo 'Buying price: ', $item->getOffers()->getListings()[0]->getPrice()
-                        ->getDisplayAmount(), PHP_EOL;
+                if ($item->getOffersV2() !== null
+                    and $item->getOffersV2()->getListings() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null) {
+                    echo 'Buying price: ', $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
@@ -196,7 +202,7 @@ function getVariationsWithHttpInfo()
     # Request initialization
 
     # Choose asin
-    $asin = "B079SQ5VHX";
+    $asin = "B0DLFMFBJW";
 
     /*
      * Choose resources you want from GetVariationsResource enum
@@ -205,7 +211,14 @@ function getVariationsWithHttpInfo()
      */
     $resources = [
         GetVariationsResource::ITEM_INFOTITLE,
-        GetVariationsResource::OFFERSLISTINGSPRICE];
+        GetVariationsResource::OFFERS_V2LISTINGSAVAILABILITY,
+        GetVariationsResource::OFFERS_V2LISTINGSCONDITION,
+        GetVariationsResource::OFFERS_V2LISTINGSDEAL_DETAILS,
+        GetVariationsResource::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+        GetVariationsResource::OFFERS_V2LISTINGSLOYALTY_POINTS,
+        GetVariationsResource::OFFERS_V2LISTINGSMERCHANT_INFO,
+        GetVariationsResource::OFFERS_V2LISTINGSPRICE,
+        GetVariationsResource::OFFERS_V2LISTINGSTYPE];
 
     # Forming the request
     $getVariationsRequest = new GetVariationsRequest();
@@ -257,12 +270,11 @@ function getVariationsWithHttpInfo()
                 if ($item->getDetailPageURL() !== null) {
                     echo 'Detail Page URL: ', $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getOffers() !== null
-                    and $item->getOffers()->getListings() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
-                    echo 'Buying price: ', $item->getOffers()->getListings()[0]->getPrice()
-                        ->getDisplayAmount(), PHP_EOL;
+                if ($item->getOffersV2() !== null
+                    and $item->getOffersV2()->getListings() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null) {
+                    echo 'Buying price: ', $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
@@ -324,7 +336,7 @@ function getVariationsAsync()
     # Request initialization
 
     # Choose asin
-    $asin = "B079SQ5VHX";
+    $asin = "B0DLFMFBJW";
 
     /*
      * Choose resources you want from GetVariationsResource enum
@@ -333,7 +345,14 @@ function getVariationsAsync()
      */
     $resources = [
         GetVariationsResource::ITEM_INFOTITLE,
-        GetVariationsResource::OFFERSLISTINGSPRICE];
+        GetVariationsResource::OFFERS_V2LISTINGSAVAILABILITY,
+        GetVariationsResource::OFFERS_V2LISTINGSCONDITION,
+        GetVariationsResource::OFFERS_V2LISTINGSDEAL_DETAILS,
+        GetVariationsResource::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+        GetVariationsResource::OFFERS_V2LISTINGSLOYALTY_POINTS,
+        GetVariationsResource::OFFERS_V2LISTINGSMERCHANT_INFO,
+        GetVariationsResource::OFFERS_V2LISTINGSPRICE,
+        GetVariationsResource::OFFERS_V2LISTINGSTYPE];
 
     # Forming the request
     $getVariationsRequest = new GetVariationsRequest();
@@ -391,12 +410,11 @@ function getVariationsAsync()
                 if ($item->getDetailPageURL() !== null) {
                     echo 'Detail Page URL: ', $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getOffers() !== null
-                    and $item->getOffers()->getListings() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
-                    echo 'Buying price: ', $item->getOffers()->getListings()[0]->getPrice()
-                        ->getDisplayAmount(), PHP_EOL;
+                if ($item->getOffersV2() !== null
+                    and $item->getOffersV2()->getListings() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null) {
+                    echo 'Buying price: ', $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
@@ -459,7 +477,7 @@ function getVariationsAsyncWithHttpInfo()
     # Request initialization
 
     # Choose asin
-    $asin = "B079SQ5VHX";
+    $asin = "B0DLFMFBJW";
 
     /*
      * Choose resources you want from GetVariationsResource enum
@@ -468,7 +486,14 @@ function getVariationsAsyncWithHttpInfo()
      */
     $resources = [
         GetVariationsResource::ITEM_INFOTITLE,
-        GetVariationsResource::OFFERSLISTINGSPRICE];
+        GetVariationsResource::OFFERS_V2LISTINGSAVAILABILITY,
+        GetVariationsResource::OFFERS_V2LISTINGSCONDITION,
+        GetVariationsResource::OFFERS_V2LISTINGSDEAL_DETAILS,
+        GetVariationsResource::OFFERS_V2LISTINGSIS_BUY_BOX_WINNER,
+        GetVariationsResource::OFFERS_V2LISTINGSLOYALTY_POINTS,
+        GetVariationsResource::OFFERS_V2LISTINGSMERCHANT_INFO,
+        GetVariationsResource::OFFERS_V2LISTINGSPRICE,
+        GetVariationsResource::OFFERS_V2LISTINGSTYPE];
 
     # Forming the request
     $getVariationsRequest = new GetVariationsRequest();
@@ -530,12 +555,11 @@ function getVariationsAsyncWithHttpInfo()
                 if ($item->getDetailPageURL() !== null) {
                     echo 'Detail Page URL: ', $item->getDetailPageURL(), PHP_EOL;
                 }
-                if ($item->getOffers() !== null
-                    and $item->getOffers()->getListings() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice() !== null
-                    and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
-                    echo 'Buying price: ', $item->getOffers()->getListings()[0]->getPrice()
-                        ->getDisplayAmount(), PHP_EOL;
+                if ($item->getOffersV2() !== null
+                    and $item->getOffersV2()->getListings() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null
+                    and $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount() !== null) {
+                    echo 'Buying price: ', $item->getOffersV2()->getListings()[0]->getPrice()->getMoney()->getDisplayAmount(), PHP_EOL;
                 }
             }
         }
