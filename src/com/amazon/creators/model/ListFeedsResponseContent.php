@@ -76,7 +76,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -86,7 +86,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -177,7 +177,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -187,7 +187,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -197,7 +197,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -207,7 +207,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -240,7 +240,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -254,7 +254,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -267,7 +267,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -278,7 +278,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Feed[]|null
      */
-    public function getFeeds(): ?array
+    public function getFeeds()
     {
         return $this->container['feeds'];
     }
@@ -290,7 +290,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return self
      */
-    public function setFeeds(?array $feeds): self
+    public function setFeeds($feeds)
     {
         if (is_null($feeds)) {
             throw new \InvalidArgumentException('non-nullable feeds cannot be null');
@@ -306,7 +306,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -319,7 +319,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -332,7 +332,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -348,7 +348,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -361,7 +361,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -371,7 +371,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -384,7 +384,7 @@ class ListFeedsResponseContent implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

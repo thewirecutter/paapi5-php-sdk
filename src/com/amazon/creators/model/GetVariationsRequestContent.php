@@ -102,7 +102,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -112,7 +112,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -227,7 +227,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -237,7 +237,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -247,7 +247,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -257,7 +257,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -298,7 +298,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -312,7 +312,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -375,7 +375,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -386,7 +386,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return string
      */
-    public function getPartnerTag(): string
+    public function getPartnerTag()
     {
         return $this->container['partnerTag'];
     }
@@ -398,7 +398,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setPartnerTag(string $partnerTag): self
+    public function setPartnerTag($partnerTag)
     {
         if (is_null($partnerTag)) {
             throw new \InvalidArgumentException('non-nullable partnerTag cannot be null');
@@ -420,7 +420,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return string
      */
-    public function getAsin(): string
+    public function getAsin()
     {
         return $this->container['asin'];
     }
@@ -432,7 +432,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setAsin(string $asin): self
+    public function setAsin($asin)
     {
         if (is_null($asin)) {
             throw new \InvalidArgumentException('non-nullable asin cannot be null');
@@ -452,7 +452,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Condition|null
      */
-    public function getCondition(): ?Condition
+    public function getCondition()
     {
         return $this->container['condition'];
     }
@@ -464,7 +464,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setCondition(?Condition $condition): self
+    public function setCondition($condition)
     {
         if (is_null($condition)) {
             throw new \InvalidArgumentException('non-nullable condition cannot be null');
@@ -479,7 +479,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return string|null
      */
-    public function getCurrencyOfPreference(): ?string
+    public function getCurrencyOfPreference()
     {
         return $this->container['currencyOfPreference'];
     }
@@ -491,7 +491,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setCurrencyOfPreference(?string $currencyOfPreference): self
+    public function setCurrencyOfPreference($currencyOfPreference)
     {
         if (is_null($currencyOfPreference)) {
             throw new \InvalidArgumentException('non-nullable currencyOfPreference cannot be null');
@@ -513,7 +513,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return string[]|null
      */
-    public function getLanguagesOfPreference(): ?array
+    public function getLanguagesOfPreference()
     {
         return $this->container['languagesOfPreference'];
     }
@@ -525,7 +525,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setLanguagesOfPreference(?array $languagesOfPreference): self
+    public function setLanguagesOfPreference($languagesOfPreference)
     {
         if (is_null($languagesOfPreference)) {
             throw new \InvalidArgumentException('non-nullable languagesOfPreference cannot be null');
@@ -544,7 +544,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return array<string,string>|null
      */
-    public function getProperties(): ?array
+    public function getProperties()
     {
         return $this->container['properties'];
     }
@@ -556,7 +556,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setProperties(?array $properties): self
+    public function setProperties($properties)
     {
         if (is_null($properties)) {
             throw new \InvalidArgumentException('non-nullable properties cannot be null');
@@ -575,7 +575,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsResource[]|null
      */
-    public function getResources(): ?array
+    public function getResources()
     {
         return $this->container['resources'];
     }
@@ -587,7 +587,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setResources(?array $resources): self
+    public function setResources($resources)
     {
         if (is_null($resources)) {
             throw new \InvalidArgumentException('non-nullable resources cannot be null');
@@ -606,7 +606,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return float|null
      */
-    public function getVariationCount(): ?float
+    public function getVariationCount()
     {
         return $this->container['variationCount'];
     }
@@ -618,7 +618,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setVariationCount(?float $variationCount): self
+    public function setVariationCount($variationCount)
     {
         if (is_null($variationCount)) {
             throw new \InvalidArgumentException('non-nullable variationCount cannot be null');
@@ -641,7 +641,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return float|null
      */
-    public function getVariationPage(): ?float
+    public function getVariationPage()
     {
         return $this->container['variationPage'];
     }
@@ -653,7 +653,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setVariationPage(?float $variationPage): self
+    public function setVariationPage($variationPage)
     {
         if (is_null($variationPage)) {
             throw new \InvalidArgumentException('non-nullable variationPage cannot be null');
@@ -674,7 +674,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -687,7 +687,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -700,7 +700,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -716,7 +716,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -729,7 +729,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -739,7 +739,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -752,7 +752,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

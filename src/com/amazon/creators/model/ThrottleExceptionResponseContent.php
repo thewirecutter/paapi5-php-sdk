@@ -87,7 +87,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -97,7 +97,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -197,7 +197,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -207,7 +207,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -217,7 +217,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -227,7 +227,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -263,7 +263,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -277,7 +277,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -293,7 +293,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -304,7 +304,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return string|null
      */
-    public function getType(): ?string
+    public function getType()
     {
         return $this->container['type'];
     }
@@ -316,7 +316,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return self
      */
-    public function setType(?string $type): self
+    public function setType($type)
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
@@ -331,7 +331,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->container['message'];
     }
@@ -343,7 +343,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return self
      */
-    public function setMessage(string $message): self
+    public function setMessage($message)
     {
         if (is_null($message)) {
             throw new \InvalidArgumentException('non-nullable message cannot be null');
@@ -358,7 +358,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return string|null
      */
-    public function getServiceCode(): ?string
+    public function getServiceCode()
     {
         return $this->container['serviceCode'];
     }
@@ -370,7 +370,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return self
      */
-    public function setServiceCode(?string $serviceCode): self
+    public function setServiceCode($serviceCode)
     {
         if (is_null($serviceCode)) {
             throw new \InvalidArgumentException('non-nullable serviceCode cannot be null');
@@ -385,7 +385,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return string|null
      */
-    public function getQuotaCode(): ?string
+    public function getQuotaCode()
     {
         return $this->container['quotaCode'];
     }
@@ -397,7 +397,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return self
      */
-    public function setQuotaCode(?string $quotaCode): self
+    public function setQuotaCode($quotaCode)
     {
         if (is_null($quotaCode)) {
             throw new \InvalidArgumentException('non-nullable quotaCode cannot be null');
@@ -413,7 +413,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -426,7 +426,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -439,7 +439,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -455,7 +455,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -468,7 +468,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -478,7 +478,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -491,7 +491,7 @@ class ThrottleExceptionResponseContent implements ModelInterface, ArrayAccess, \
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

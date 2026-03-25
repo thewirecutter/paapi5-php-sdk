@@ -93,7 +93,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -103,7 +103,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -209,7 +209,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -219,7 +219,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -229,7 +229,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -239,7 +239,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -277,7 +277,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -291,7 +291,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -304,7 +304,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -315,7 +315,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getColor(): ?SingleStringValuedAttribute
+    public function getColor()
     {
         return $this->container['color'];
     }
@@ -327,7 +327,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setColor(?SingleStringValuedAttribute $color): self
+    public function setColor($color)
     {
         if (is_null($color)) {
             throw new \InvalidArgumentException('non-nullable color cannot be null');
@@ -342,7 +342,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleBooleanValuedAttribute|null
      */
-    public function getIsAdultProduct(): ?SingleBooleanValuedAttribute
+    public function getIsAdultProduct()
     {
         return $this->container['isAdultProduct'];
     }
@@ -354,7 +354,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setIsAdultProduct(?SingleBooleanValuedAttribute $isAdultProduct): self
+    public function setIsAdultProduct($isAdultProduct)
     {
         if (is_null($isAdultProduct)) {
             throw new \InvalidArgumentException('non-nullable isAdultProduct cannot be null');
@@ -369,7 +369,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\DimensionBasedAttribute|null
      */
-    public function getItemDimensions(): ?DimensionBasedAttribute
+    public function getItemDimensions()
     {
         return $this->container['itemDimensions'];
     }
@@ -381,7 +381,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setItemDimensions(?DimensionBasedAttribute $itemDimensions): self
+    public function setItemDimensions($itemDimensions)
     {
         if (is_null($itemDimensions)) {
             throw new \InvalidArgumentException('non-nullable itemDimensions cannot be null');
@@ -396,7 +396,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getReleaseDate(): ?SingleStringValuedAttribute
+    public function getReleaseDate()
     {
         return $this->container['releaseDate'];
     }
@@ -408,7 +408,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setReleaseDate(?SingleStringValuedAttribute $releaseDate): self
+    public function setReleaseDate($releaseDate)
     {
         if (is_null($releaseDate)) {
             throw new \InvalidArgumentException('non-nullable releaseDate cannot be null');
@@ -423,7 +423,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getSize(): ?SingleStringValuedAttribute
+    public function getSize()
     {
         return $this->container['size'];
     }
@@ -435,7 +435,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setSize(?SingleStringValuedAttribute $size): self
+    public function setSize($size)
     {
         if (is_null($size)) {
             throw new \InvalidArgumentException('non-nullable size cannot be null');
@@ -450,7 +450,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleIntegerValuedAttribute|null
      */
-    public function getUnitCount(): ?SingleIntegerValuedAttribute
+    public function getUnitCount()
     {
         return $this->container['unitCount'];
     }
@@ -462,7 +462,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setUnitCount(?SingleIntegerValuedAttribute $unitCount): self
+    public function setUnitCount($unitCount)
     {
         if (is_null($unitCount)) {
             throw new \InvalidArgumentException('non-nullable unitCount cannot be null');
@@ -478,7 +478,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -491,7 +491,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -504,7 +504,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -520,7 +520,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -533,7 +533,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -543,7 +543,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -556,7 +556,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

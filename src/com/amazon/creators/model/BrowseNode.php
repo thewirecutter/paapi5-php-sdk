@@ -96,7 +96,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -106,7 +106,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -215,7 +215,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -225,7 +225,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -235,7 +235,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -245,7 +245,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -284,7 +284,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -298,7 +298,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -311,7 +311,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -322,7 +322,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\BrowseNodeAncestor|null
      */
-    public function getAncestor(): ?BrowseNodeAncestor
+    public function getAncestor()
     {
         return $this->container['ancestor'];
     }
@@ -334,7 +334,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAncestor(?BrowseNodeAncestor $ancestor): self
+    public function setAncestor($ancestor)
     {
         if (is_null($ancestor)) {
             throw new \InvalidArgumentException('non-nullable ancestor cannot be null');
@@ -349,7 +349,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\BrowseNodeChild[]|null
      */
-    public function getChildren(): ?array
+    public function getChildren()
     {
         return $this->container['children'];
     }
@@ -361,7 +361,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setChildren(?array $children): self
+    public function setChildren($children)
     {
         if (is_null($children)) {
             throw new \InvalidArgumentException('non-nullable children cannot be null');
@@ -376,7 +376,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getContextFreeName(): ?string
+    public function getContextFreeName()
     {
         return $this->container['contextFreeName'];
     }
@@ -388,7 +388,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setContextFreeName(?string $contextFreeName): self
+    public function setContextFreeName($contextFreeName)
     {
         if (is_null($contextFreeName)) {
             throw new \InvalidArgumentException('non-nullable contextFreeName cannot be null');
@@ -403,7 +403,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getDisplayName(): ?string
+    public function getDisplayName()
     {
         return $this->container['displayName'];
     }
@@ -415,7 +415,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setDisplayName(?string $displayName): self
+    public function setDisplayName($displayName)
     {
         if (is_null($displayName)) {
             throw new \InvalidArgumentException('non-nullable displayName cannot be null');
@@ -430,7 +430,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getId(): ?string
+    public function getId()
     {
         return $this->container['id'];
     }
@@ -442,7 +442,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setId(?string $id): self
+    public function setId($id)
     {
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
@@ -457,7 +457,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool|null
      */
-    public function getIsRoot(): ?bool
+    public function getIsRoot()
     {
         return $this->container['isRoot'];
     }
@@ -469,7 +469,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setIsRoot(?bool $isRoot): self
+    public function setIsRoot($isRoot)
     {
         if (is_null($isRoot)) {
             throw new \InvalidArgumentException('non-nullable isRoot cannot be null');
@@ -484,7 +484,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return float|null
      */
-    public function getSalesRank(): ?float
+    public function getSalesRank()
     {
         return $this->container['salesRank'];
     }
@@ -496,7 +496,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setSalesRank(?float $salesRank): self
+    public function setSalesRank($salesRank)
     {
         if (is_null($salesRank)) {
             throw new \InvalidArgumentException('non-nullable salesRank cannot be null');
@@ -512,7 +512,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -525,7 +525,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -538,7 +538,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -554,7 +554,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -567,7 +567,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -577,7 +577,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -590,7 +590,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

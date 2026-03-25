@@ -76,7 +76,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -86,7 +86,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -177,7 +177,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -187,7 +187,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -197,7 +197,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -207,7 +207,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -240,7 +240,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -254,7 +254,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -274,7 +274,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -285,7 +285,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return string
      */
-    public function getFeedName(): string
+    public function getFeedName()
     {
         return $this->container['feedName'];
     }
@@ -297,7 +297,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setFeedName(string $feedName): self
+    public function setFeedName($feedName)
     {
         if (is_null($feedName)) {
             throw new \InvalidArgumentException('non-nullable feedName cannot be null');
@@ -318,7 +318,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -331,7 +331,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -344,7 +344,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -360,7 +360,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -373,7 +373,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -383,7 +383,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -396,7 +396,7 @@ class GetFeedRequestContent implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

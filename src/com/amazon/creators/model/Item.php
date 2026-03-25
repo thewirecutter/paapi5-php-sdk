@@ -105,7 +105,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -115,7 +115,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -233,7 +233,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -243,7 +243,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -253,7 +253,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -263,7 +263,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -305,7 +305,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -319,7 +319,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -332,7 +332,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -343,7 +343,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getAsin(): ?string
+    public function getAsin()
     {
         return $this->container['asin'];
     }
@@ -355,7 +355,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAsin(?string $asin): self
+    public function setAsin($asin)
     {
         if (is_null($asin)) {
             throw new \InvalidArgumentException('non-nullable asin cannot be null');
@@ -370,7 +370,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\BrowseNodeInfo|null
      */
-    public function getBrowseNodeInfo(): ?BrowseNodeInfo
+    public function getBrowseNodeInfo()
     {
         return $this->container['browseNodeInfo'];
     }
@@ -382,7 +382,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setBrowseNodeInfo(?BrowseNodeInfo $browseNodeInfo): self
+    public function setBrowseNodeInfo($browseNodeInfo)
     {
         if (is_null($browseNodeInfo)) {
             throw new \InvalidArgumentException('non-nullable browseNodeInfo cannot be null');
@@ -397,7 +397,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\CustomerReviews|null
      */
-    public function getCustomerReviews(): ?CustomerReviews
+    public function getCustomerReviews()
     {
         return $this->container['customerReviews'];
     }
@@ -409,7 +409,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setCustomerReviews(?CustomerReviews $customerReviews): self
+    public function setCustomerReviews($customerReviews)
     {
         if (is_null($customerReviews)) {
             throw new \InvalidArgumentException('non-nullable customerReviews cannot be null');
@@ -424,7 +424,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getDetailPageURL(): ?string
+    public function getDetailPageURL()
     {
         return $this->container['detailPageURL'];
     }
@@ -436,7 +436,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setDetailPageURL(?string $detailPageURL): self
+    public function setDetailPageURL($detailPageURL)
     {
         if (is_null($detailPageURL)) {
             throw new \InvalidArgumentException('non-nullable detailPageURL cannot be null');
@@ -451,7 +451,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Images|null
      */
-    public function getImages(): ?Images
+    public function getImages()
     {
         return $this->container['images'];
     }
@@ -463,7 +463,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setImages(?Images $images): self
+    public function setImages($images)
     {
         if (is_null($images)) {
             throw new \InvalidArgumentException('non-nullable images cannot be null');
@@ -478,7 +478,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ItemInfo|null
      */
-    public function getItemInfo(): ?ItemInfo
+    public function getItemInfo()
     {
         return $this->container['itemInfo'];
     }
@@ -490,7 +490,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setItemInfo(?ItemInfo $itemInfo): self
+    public function setItemInfo($itemInfo)
     {
         if (is_null($itemInfo)) {
             throw new \InvalidArgumentException('non-nullable itemInfo cannot be null');
@@ -505,7 +505,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OffersV2|null
      */
-    public function getOffersV2(): ?OffersV2
+    public function getOffersV2()
     {
         return $this->container['offersV2'];
     }
@@ -517,7 +517,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setOffersV2(?OffersV2 $offersV2): self
+    public function setOffersV2($offersV2)
     {
         if (is_null($offersV2)) {
             throw new \InvalidArgumentException('non-nullable offersV2 cannot be null');
@@ -532,7 +532,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getParentASIN(): ?string
+    public function getParentASIN()
     {
         return $this->container['parentASIN'];
     }
@@ -544,7 +544,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setParentASIN(?string $parentASIN): self
+    public function setParentASIN($parentASIN)
     {
         if (is_null($parentASIN)) {
             throw new \InvalidArgumentException('non-nullable parentASIN cannot be null');
@@ -559,7 +559,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return float|null
      */
-    public function getScore(): ?float
+    public function getScore()
     {
         return $this->container['score'];
     }
@@ -571,7 +571,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setScore(?float $score): self
+    public function setScore($score)
     {
         if (is_null($score)) {
             throw new \InvalidArgumentException('non-nullable score cannot be null');
@@ -586,7 +586,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\VariationAttribute[]|null
      */
-    public function getVariationAttributes(): ?array
+    public function getVariationAttributes()
     {
         return $this->container['variationAttributes'];
     }
@@ -598,7 +598,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setVariationAttributes(?array $variationAttributes): self
+    public function setVariationAttributes($variationAttributes)
     {
         if (is_null($variationAttributes)) {
             throw new \InvalidArgumentException('non-nullable variationAttributes cannot be null');
@@ -614,7 +614,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -627,7 +627,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -640,7 +640,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -656,7 +656,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -669,7 +669,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -679,7 +679,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -692,7 +692,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

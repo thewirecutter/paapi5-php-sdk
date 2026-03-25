@@ -144,7 +144,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -154,7 +154,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -311,7 +311,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -321,7 +321,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -331,7 +331,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -341,7 +341,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -396,7 +396,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -410,7 +410,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -559,7 +559,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -570,7 +570,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getActor(): ?string
+    public function getActor()
     {
         return $this->container['actor'];
     }
@@ -582,7 +582,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setActor(?string $actor): self
+    public function setActor($actor)
     {
         if (is_null($actor)) {
             throw new \InvalidArgumentException('non-nullable actor cannot be null');
@@ -604,7 +604,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getArtist(): ?string
+    public function getArtist()
     {
         return $this->container['artist'];
     }
@@ -616,7 +616,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setArtist(?string $artist): self
+    public function setArtist($artist)
     {
         if (is_null($artist)) {
             throw new \InvalidArgumentException('non-nullable artist cannot be null');
@@ -638,7 +638,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getAuthor(): ?string
+    public function getAuthor()
     {
         return $this->container['author'];
     }
@@ -650,7 +650,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setAuthor(?string $author): self
+    public function setAuthor($author)
     {
         if (is_null($author)) {
             throw new \InvalidArgumentException('non-nullable author cannot be null');
@@ -672,7 +672,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Availability|null
      */
-    public function getAvailability(): ?Availability
+    public function getAvailability()
     {
         return $this->container['availability'];
     }
@@ -684,7 +684,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setAvailability(?Availability $availability): self
+    public function setAvailability($availability)
     {
         if (is_null($availability)) {
             throw new \InvalidArgumentException('non-nullable availability cannot be null');
@@ -699,7 +699,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getBrand(): ?string
+    public function getBrand()
     {
         return $this->container['brand'];
     }
@@ -711,7 +711,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setBrand(?string $brand): self
+    public function setBrand($brand)
     {
         if (is_null($brand)) {
             throw new \InvalidArgumentException('non-nullable brand cannot be null');
@@ -733,7 +733,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getBrowseNodeId(): ?string
+    public function getBrowseNodeId()
     {
         return $this->container['browseNodeId'];
     }
@@ -745,7 +745,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setBrowseNodeId(?string $browseNodeId): self
+    public function setBrowseNodeId($browseNodeId)
     {
         if (is_null($browseNodeId)) {
             throw new \InvalidArgumentException('non-nullable browseNodeId cannot be null');
@@ -767,7 +767,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Condition|null
      */
-    public function getCondition(): ?Condition
+    public function getCondition()
     {
         return $this->container['condition'];
     }
@@ -779,7 +779,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setCondition(?Condition $condition): self
+    public function setCondition($condition)
     {
         if (is_null($condition)) {
             throw new \InvalidArgumentException('non-nullable condition cannot be null');
@@ -794,7 +794,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getCurrencyOfPreference(): ?string
+    public function getCurrencyOfPreference()
     {
         return $this->container['currencyOfPreference'];
     }
@@ -806,7 +806,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setCurrencyOfPreference(?string $currencyOfPreference): self
+    public function setCurrencyOfPreference($currencyOfPreference)
     {
         if (is_null($currencyOfPreference)) {
             throw new \InvalidArgumentException('non-nullable currencyOfPreference cannot be null');
@@ -828,7 +828,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\DeliveryFlag[]|null
      */
-    public function getDeliveryFlags(): ?array
+    public function getDeliveryFlags()
     {
         return $this->container['deliveryFlags'];
     }
@@ -840,7 +840,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setDeliveryFlags(?array $deliveryFlags): self
+    public function setDeliveryFlags($deliveryFlags)
     {
         if (is_null($deliveryFlags)) {
             throw new \InvalidArgumentException('non-nullable deliveryFlags cannot be null');
@@ -859,7 +859,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return float|null
      */
-    public function getItemCount(): ?float
+    public function getItemCount()
     {
         return $this->container['itemCount'];
     }
@@ -871,7 +871,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setItemCount(?float $itemCount): self
+    public function setItemCount($itemCount)
     {
         if (is_null($itemCount)) {
             throw new \InvalidArgumentException('non-nullable itemCount cannot be null');
@@ -894,7 +894,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return float|null
      */
-    public function getItemPage(): ?float
+    public function getItemPage()
     {
         return $this->container['itemPage'];
     }
@@ -906,7 +906,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setItemPage(?float $itemPage): self
+    public function setItemPage($itemPage)
     {
         if (is_null($itemPage)) {
             throw new \InvalidArgumentException('non-nullable itemPage cannot be null');
@@ -929,7 +929,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getKeywords(): ?string
+    public function getKeywords()
     {
         return $this->container['keywords'];
     }
@@ -941,7 +941,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setKeywords(?string $keywords): self
+    public function setKeywords($keywords)
     {
         if (is_null($keywords)) {
             throw new \InvalidArgumentException('non-nullable keywords cannot be null');
@@ -963,7 +963,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string[]|null
      */
-    public function getLanguagesOfPreference(): ?array
+    public function getLanguagesOfPreference()
     {
         return $this->container['languagesOfPreference'];
     }
@@ -975,7 +975,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setLanguagesOfPreference(?array $languagesOfPreference): self
+    public function setLanguagesOfPreference($languagesOfPreference)
     {
         if (is_null($languagesOfPreference)) {
             throw new \InvalidArgumentException('non-nullable languagesOfPreference cannot be null');
@@ -994,7 +994,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return float|null
      */
-    public function getMaxPrice(): ?float
+    public function getMaxPrice()
     {
         return $this->container['maxPrice'];
     }
@@ -1006,7 +1006,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setMaxPrice(?float $maxPrice): self
+    public function setMaxPrice($maxPrice)
     {
         if (is_null($maxPrice)) {
             throw new \InvalidArgumentException('non-nullable maxPrice cannot be null');
@@ -1026,7 +1026,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return float|null
      */
-    public function getMinPrice(): ?float
+    public function getMinPrice()
     {
         return $this->container['minPrice'];
     }
@@ -1038,7 +1038,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setMinPrice(?float $minPrice): self
+    public function setMinPrice($minPrice)
     {
         if (is_null($minPrice)) {
             throw new \InvalidArgumentException('non-nullable minPrice cannot be null');
@@ -1058,7 +1058,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return float|null
      */
-    public function getMinReviewsRating(): ?float
+    public function getMinReviewsRating()
     {
         return $this->container['minReviewsRating'];
     }
@@ -1070,7 +1070,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setMinReviewsRating(?float $minReviewsRating): self
+    public function setMinReviewsRating($minReviewsRating)
     {
         if (is_null($minReviewsRating)) {
             throw new \InvalidArgumentException('non-nullable minReviewsRating cannot be null');
@@ -1093,7 +1093,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return float|null
      */
-    public function getMinSavingPercent(): ?float
+    public function getMinSavingPercent()
     {
         return $this->container['minSavingPercent'];
     }
@@ -1105,7 +1105,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setMinSavingPercent(?float $minSavingPercent): self
+    public function setMinSavingPercent($minSavingPercent)
     {
         if (is_null($minSavingPercent)) {
             throw new \InvalidArgumentException('non-nullable minSavingPercent cannot be null');
@@ -1128,7 +1128,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getPartnerTag(): ?string
+    public function getPartnerTag()
     {
         return $this->container['partnerTag'];
     }
@@ -1140,7 +1140,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setPartnerTag(?string $partnerTag): self
+    public function setPartnerTag($partnerTag)
     {
         if (is_null($partnerTag)) {
             throw new \InvalidArgumentException('non-nullable partnerTag cannot be null');
@@ -1162,7 +1162,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return array<string,string>|null
      */
-    public function getProperties(): ?array
+    public function getProperties()
     {
         return $this->container['properties'];
     }
@@ -1174,7 +1174,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setProperties(?array $properties): self
+    public function setProperties($properties)
     {
         if (is_null($properties)) {
             throw new \InvalidArgumentException('non-nullable properties cannot be null');
@@ -1193,7 +1193,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchItemsResource[]|null
      */
-    public function getResources(): ?array
+    public function getResources()
     {
         return $this->container['resources'];
     }
@@ -1205,7 +1205,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setResources(?array $resources): self
+    public function setResources($resources)
     {
         if (is_null($resources)) {
             throw new \InvalidArgumentException('non-nullable resources cannot be null');
@@ -1224,7 +1224,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getSearchIndex(): ?string
+    public function getSearchIndex()
     {
         return $this->container['searchIndex'];
     }
@@ -1236,7 +1236,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setSearchIndex(?string $searchIndex): self
+    public function setSearchIndex($searchIndex)
     {
         if (is_null($searchIndex)) {
             throw new \InvalidArgumentException('non-nullable searchIndex cannot be null');
@@ -1258,7 +1258,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SortBy|null
      */
-    public function getSortBy(): ?SortBy
+    public function getSortBy()
     {
         return $this->container['sortBy'];
     }
@@ -1270,7 +1270,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setSortBy(?SortBy $sortBy): self
+    public function setSortBy($sortBy)
     {
         if (is_null($sortBy)) {
             throw new \InvalidArgumentException('non-nullable sortBy cannot be null');
@@ -1285,7 +1285,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string|null
      */
-    public function getTitle(): ?string
+    public function getTitle()
     {
         return $this->container['title'];
     }
@@ -1297,7 +1297,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setTitle(?string $title): self
+    public function setTitle($title)
     {
         if (is_null($title)) {
             throw new \InvalidArgumentException('non-nullable title cannot be null');
@@ -1320,7 +1320,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -1333,7 +1333,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -1346,7 +1346,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -1362,7 +1362,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -1375,7 +1375,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -1385,7 +1385,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -1398,7 +1398,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

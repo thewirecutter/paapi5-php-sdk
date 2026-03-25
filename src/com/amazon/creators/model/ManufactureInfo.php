@@ -84,7 +84,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -94,7 +94,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -191,7 +191,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -201,7 +201,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -211,7 +211,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -221,7 +221,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -256,7 +256,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -270,7 +270,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -283,7 +283,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -294,7 +294,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getItemPartNumber(): ?SingleStringValuedAttribute
+    public function getItemPartNumber()
     {
         return $this->container['itemPartNumber'];
     }
@@ -306,7 +306,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setItemPartNumber(?SingleStringValuedAttribute $itemPartNumber): self
+    public function setItemPartNumber($itemPartNumber)
     {
         if (is_null($itemPartNumber)) {
             throw new \InvalidArgumentException('non-nullable itemPartNumber cannot be null');
@@ -321,7 +321,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getModel(): ?SingleStringValuedAttribute
+    public function getModel()
     {
         return $this->container['model'];
     }
@@ -333,7 +333,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setModel(?SingleStringValuedAttribute $model): self
+    public function setModel($model)
     {
         if (is_null($model)) {
             throw new \InvalidArgumentException('non-nullable model cannot be null');
@@ -348,7 +348,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getWarranty(): ?SingleStringValuedAttribute
+    public function getWarranty()
     {
         return $this->container['warranty'];
     }
@@ -360,7 +360,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setWarranty(?SingleStringValuedAttribute $warranty): self
+    public function setWarranty($warranty)
     {
         if (is_null($warranty)) {
             throw new \InvalidArgumentException('non-nullable warranty cannot be null');
@@ -376,7 +376,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -389,7 +389,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -402,7 +402,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -418,7 +418,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -431,7 +431,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -441,7 +441,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -454,7 +454,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

@@ -93,7 +93,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -103,7 +103,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -209,7 +209,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -219,7 +219,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -229,7 +229,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -239,7 +239,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -277,7 +277,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -291,7 +291,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -304,7 +304,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -315,7 +315,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getAccessType(): ?string
+    public function getAccessType()
     {
         return $this->container['accessType'];
     }
@@ -327,7 +327,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAccessType(?string $accessType): self
+    public function setAccessType($accessType)
     {
         if (is_null($accessType)) {
             throw new \InvalidArgumentException('non-nullable accessType cannot be null');
@@ -342,7 +342,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getBadge(): ?string
+    public function getBadge()
     {
         return $this->container['badge'];
     }
@@ -354,7 +354,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setBadge(?string $badge): self
+    public function setBadge($badge)
     {
         if (is_null($badge)) {
             throw new \InvalidArgumentException('non-nullable badge cannot be null');
@@ -369,7 +369,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return float|null
      */
-    public function getEarlyAccessDurationInMilliseconds(): ?float
+    public function getEarlyAccessDurationInMilliseconds()
     {
         return $this->container['earlyAccessDurationInMilliseconds'];
     }
@@ -381,7 +381,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setEarlyAccessDurationInMilliseconds(?float $earlyAccessDurationInMilliseconds): self
+    public function setEarlyAccessDurationInMilliseconds($earlyAccessDurationInMilliseconds)
     {
         if (is_null($earlyAccessDurationInMilliseconds)) {
             throw new \InvalidArgumentException('non-nullable earlyAccessDurationInMilliseconds cannot be null');
@@ -396,7 +396,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getEndTime(): ?string
+    public function getEndTime()
     {
         return $this->container['endTime'];
     }
@@ -408,7 +408,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setEndTime(?string $endTime): self
+    public function setEndTime($endTime)
     {
         if (is_null($endTime)) {
             throw new \InvalidArgumentException('non-nullable endTime cannot be null');
@@ -423,7 +423,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return float|null
      */
-    public function getPercentClaimed(): ?float
+    public function getPercentClaimed()
     {
         return $this->container['percentClaimed'];
     }
@@ -435,7 +435,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPercentClaimed(?float $percentClaimed): self
+    public function setPercentClaimed($percentClaimed)
     {
         if (is_null($percentClaimed)) {
             throw new \InvalidArgumentException('non-nullable percentClaimed cannot be null');
@@ -450,7 +450,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getStartTime(): ?string
+    public function getStartTime()
     {
         return $this->container['startTime'];
     }
@@ -462,7 +462,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setStartTime(?string $startTime): self
+    public function setStartTime($startTime)
     {
         if (is_null($startTime)) {
             throw new \InvalidArgumentException('non-nullable startTime cannot be null');
@@ -478,7 +478,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -491,7 +491,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -504,7 +504,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -520,7 +520,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -533,7 +533,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -543,7 +543,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -556,7 +556,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

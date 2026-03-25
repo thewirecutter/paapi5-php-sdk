@@ -102,7 +102,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -112,7 +112,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -227,7 +227,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -237,7 +237,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -247,7 +247,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -257,7 +257,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -298,7 +298,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -312,7 +312,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -325,7 +325,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -336,7 +336,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferAvailabilityV2|null
      */
-    public function getAvailability(): ?OfferAvailabilityV2
+    public function getAvailability()
     {
         return $this->container['availability'];
     }
@@ -348,7 +348,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAvailability(?OfferAvailabilityV2 $availability): self
+    public function setAvailability($availability)
     {
         if (is_null($availability)) {
             throw new \InvalidArgumentException('non-nullable availability cannot be null');
@@ -363,7 +363,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferConditionV2|null
      */
-    public function getCondition(): ?OfferConditionV2
+    public function getCondition()
     {
         return $this->container['condition'];
     }
@@ -375,7 +375,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setCondition(?OfferConditionV2 $condition): self
+    public function setCondition($condition)
     {
         if (is_null($condition)) {
             throw new \InvalidArgumentException('non-nullable condition cannot be null');
@@ -390,7 +390,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\DealDetails|null
      */
-    public function getDealDetails(): ?DealDetails
+    public function getDealDetails()
     {
         return $this->container['dealDetails'];
     }
@@ -402,7 +402,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setDealDetails(?DealDetails $dealDetails): self
+    public function setDealDetails($dealDetails)
     {
         if (is_null($dealDetails)) {
             throw new \InvalidArgumentException('non-nullable dealDetails cannot be null');
@@ -417,7 +417,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool|null
      */
-    public function getIsBuyBoxWinner(): ?bool
+    public function getIsBuyBoxWinner()
     {
         return $this->container['isBuyBoxWinner'];
     }
@@ -429,7 +429,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setIsBuyBoxWinner(?bool $isBuyBoxWinner): self
+    public function setIsBuyBoxWinner($isBuyBoxWinner)
     {
         if (is_null($isBuyBoxWinner)) {
             throw new \InvalidArgumentException('non-nullable isBuyBoxWinner cannot be null');
@@ -444,7 +444,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferLoyaltyPointsV2|null
      */
-    public function getLoyaltyPoints(): ?OfferLoyaltyPointsV2
+    public function getLoyaltyPoints()
     {
         return $this->container['loyaltyPoints'];
     }
@@ -456,7 +456,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setLoyaltyPoints(?OfferLoyaltyPointsV2 $loyaltyPoints): self
+    public function setLoyaltyPoints($loyaltyPoints)
     {
         if (is_null($loyaltyPoints)) {
             throw new \InvalidArgumentException('non-nullable loyaltyPoints cannot be null');
@@ -471,7 +471,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferMerchantInfoV2|null
      */
-    public function getMerchantInfo(): ?OfferMerchantInfoV2
+    public function getMerchantInfo()
     {
         return $this->container['merchantInfo'];
     }
@@ -483,7 +483,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setMerchantInfo(?OfferMerchantInfoV2 $merchantInfo): self
+    public function setMerchantInfo($merchantInfo)
     {
         if (is_null($merchantInfo)) {
             throw new \InvalidArgumentException('non-nullable merchantInfo cannot be null');
@@ -498,7 +498,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferPriceV2|null
      */
-    public function getPrice(): ?OfferPriceV2
+    public function getPrice()
     {
         return $this->container['price'];
     }
@@ -510,7 +510,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPrice(?OfferPriceV2 $price): self
+    public function setPrice($price)
     {
         if (is_null($price)) {
             throw new \InvalidArgumentException('non-nullable price cannot be null');
@@ -525,7 +525,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferType|null
      */
-    public function getType(): ?OfferType
+    public function getType()
     {
         return $this->container['type'];
     }
@@ -537,7 +537,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setType(?OfferType $type): self
+    public function setType($type)
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
@@ -552,7 +552,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool|null
      */
-    public function getViolatesMAP(): ?bool
+    public function getViolatesMAP()
     {
         return $this->container['violatesMAP'];
     }
@@ -564,7 +564,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setViolatesMAP(?bool $violatesMAP): self
+    public function setViolatesMAP($violatesMAP)
     {
         if (is_null($violatesMAP)) {
             throw new \InvalidArgumentException('non-nullable violatesMAP cannot be null');
@@ -580,7 +580,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -593,7 +593,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -606,7 +606,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -622,7 +622,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -635,7 +635,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -645,7 +645,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -658,7 +658,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

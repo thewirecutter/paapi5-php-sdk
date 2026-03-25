@@ -53,7 +53,7 @@ class ApiException extends Exception
      * @param string[][]|null       $responseHeaders HTTP response header
      * @param \stdClass|string|null $responseBody    HTTP decoded body of the server response either as \stdClass or string
      */
-    public function __construct(string $message = "", int $code = 0, ?array $responseHeaders = [], \stdClass|string|null $responseBody = null)
+    public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
     {
         parent::__construct($message, $code);
         $this->responseHeaders = $responseHeaders;
@@ -65,7 +65,7 @@ class ApiException extends Exception
      *
      * @return string[][]|null HTTP response header
      */
-    public function getResponseHeaders(): ?array
+    public function getResponseHeaders()
     {
         return $this->responseHeaders;
     }
@@ -75,7 +75,7 @@ class ApiException extends Exception
      *
      * @return \stdClass|string|null HTTP body of the server response either as \stdClass or string
      */
-    public function getResponseBody(): \stdClass|string|null
+    public function getResponseBody()
     {
         return $this->responseBody;
     }
@@ -87,7 +87,7 @@ class ApiException extends Exception
      *
      * @return void
      */
-    public function setResponseObject(mixed $obj): void
+    public function setResponseObject($obj)
     {
         $this->responseObject = $obj;
     }
@@ -97,7 +97,7 @@ class ApiException extends Exception
      *
      * @return mixed the deserialized response object
      */
-    public function getResponseObject(): mixed
+    public function getResponseObject()
     {
         return $this->responseObject;
     }

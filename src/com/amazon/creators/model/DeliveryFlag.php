@@ -16,7 +16,6 @@
 
 
 namespace Amazon\CreatorsAPI\v1\com\amazon\creators\model;
-
 use \Amazon\CreatorsAPI\v1\ObjectSerializer;
 
 /**
@@ -39,7 +38,7 @@ class DeliveryFlag
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
             self::AMAZON_GLOBAL,

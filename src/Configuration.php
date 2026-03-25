@@ -150,7 +150,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setApiKey(string $apiKeyIdentifier, string $key)
+    public function setApiKey($apiKeyIdentifier, $key)
     {
         $this->apiKeys[$apiKeyIdentifier] = $key;
         return $this;
@@ -163,7 +163,7 @@ class Configuration
      *
      * @return null|string API key or token
      */
-    public function getApiKey(string $apiKeyIdentifier): ?string
+    public function getApiKey($apiKeyIdentifier)
     {
         return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
     }
@@ -176,7 +176,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setApiKeyPrefix(string $apiKeyIdentifier, string $prefix)
+    public function setApiKeyPrefix($apiKeyIdentifier, $prefix)
     {
         $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
         return $this;
@@ -189,7 +189,7 @@ class Configuration
      *
      * @return null|string
      */
-    public function getApiKeyPrefix(string $apiKeyIdentifier): ?string
+    public function getApiKeyPrefix($apiKeyIdentifier)
     {
         return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
     }
@@ -201,7 +201,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setAccessToken(string $accessToken)
+    public function setAccessToken($accessToken)
     {
         $this->accessToken = $accessToken;
         return $this;
@@ -212,7 +212,7 @@ class Configuration
      *
      * @return string Access token for OAuth
      */
-    public function getAccessToken(): string
+    public function getAccessToken()
     {
         return $this->accessToken;
     }
@@ -248,7 +248,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setUsername(string $username)
+    public function setUsername($username)
     {
         $this->username = $username;
         return $this;
@@ -259,7 +259,7 @@ class Configuration
      *
      * @return string Username for HTTP basic authentication
      */
-    public function getUsername(): string
+    public function getUsername()
     {
         return $this->username;
     }
@@ -271,7 +271,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setPassword(string $password)
+    public function setPassword($password)
     {
         $this->password = $password;
         return $this;
@@ -282,7 +282,7 @@ class Configuration
      *
      * @return string Password for HTTP basic authentication
      */
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->password;
     }
@@ -294,7 +294,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setCredentialId(string $credentialId)
+    public function setCredentialId($credentialId)
     {
         $this->credentialId = $credentialId;
         return $this;
@@ -305,7 +305,7 @@ class Configuration
      *
      * @return string OAuth2 credential ID
      */
-    public function getCredentialId(): string
+    public function getCredentialId()
     {
         return $this->credentialId;
     }
@@ -317,7 +317,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setCredentialSecret(string $credentialSecret)
+    public function setCredentialSecret($credentialSecret)
     {
         $this->credentialSecret = $credentialSecret;
         return $this;
@@ -328,7 +328,7 @@ class Configuration
      *
      * @return string OAuth2 credential secret
      */
-    public function getCredentialSecret(): string
+    public function getCredentialSecret()
     {
         return $this->credentialSecret;
     }
@@ -340,7 +340,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setVersion(string $version)
+    public function setVersion($version)
     {
         $this->version = $version;
         return $this;
@@ -351,7 +351,7 @@ class Configuration
      *
      * @return string credential version
      */
-    public function getVersion(): string
+    public function getVersion()
     {
         return $this->version;
     }
@@ -363,7 +363,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setAuthEndpoint(string $authEndpoint)
+    public function setAuthEndpoint($authEndpoint)
     {
         $this->authEndpoint = $authEndpoint;
         return $this;
@@ -374,7 +374,7 @@ class Configuration
      *
      * @return string authentication endpoint
      */
-    public function getAuthEndpoint(): string
+    public function getAuthEndpoint()
     {
         return $this->authEndpoint;
     }
@@ -386,7 +386,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setHost(string $host)
+    public function setHost($host)
     {
         $this->host = $host;
         return $this;
@@ -397,7 +397,7 @@ class Configuration
      *
      * @return string Host
      */
-    public function getHost(): string
+    public function getHost()
     {
         return $this->host;
     }
@@ -410,7 +410,7 @@ class Configuration
      * @throws \InvalidArgumentException
      * @return $this
      */
-    public function setUserAgent(string $userAgent)
+    public function setUserAgent($userAgent)
     {
         if (!is_string($userAgent)) {
             throw new \InvalidArgumentException('User-agent must be a string.');
@@ -425,7 +425,7 @@ class Configuration
      *
      * @return string user agent
      */
-    public function getUserAgent(): string
+    public function getUserAgent()
     {
         return $this->userAgent;
     }
@@ -437,7 +437,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setDebug(bool $debug)
+    public function setDebug($debug)
     {
         $this->debug = $debug;
         return $this;
@@ -448,7 +448,7 @@ class Configuration
      *
      * @return bool
      */
-    public function getDebug(): bool
+    public function getDebug()
     {
         return $this->debug;
     }
@@ -460,7 +460,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setDebugFile(string $debugFile)
+    public function setDebugFile($debugFile)
     {
         $this->debugFile = $debugFile;
         return $this;
@@ -471,7 +471,7 @@ class Configuration
      *
      * @return string
      */
-    public function getDebugFile(): string
+    public function getDebugFile()
     {
         return $this->debugFile;
     }
@@ -483,7 +483,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setTempFolderPath(string $tempFolderPath)
+    public function setTempFolderPath($tempFolderPath)
     {
         $this->tempFolderPath = $tempFolderPath;
         return $this;
@@ -494,7 +494,7 @@ class Configuration
      *
      * @return string Temp folder path
      */
-    public function getTempFolderPath(): string
+    public function getTempFolderPath()
     {
         return $this->tempFolderPath;
     }
@@ -504,7 +504,7 @@ class Configuration
      *
      * @return Configuration
      */
-    public static function getDefaultConfiguration(): Configuration
+    public static function getDefaultConfiguration()
     {
         if (self::$defaultConfiguration === null) {
             self::$defaultConfiguration = new Configuration();
@@ -520,7 +520,7 @@ class Configuration
      *
      * @return void
      */
-    public static function setDefaultConfiguration(Configuration $config): void
+    public static function setDefaultConfiguration(Configuration $config)
     {
         self::$defaultConfiguration = $config;
     }
@@ -530,7 +530,7 @@ class Configuration
      *
      * @return string The report for debugging
      */
-    public static function toDebugReport(): string
+    public static function toDebugReport()
     {
         $report  = 'PHP SDK (Amazon\CreatorsAPI\v1) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
@@ -549,7 +549,7 @@ class Configuration
      *
      * @return null|string API key with the prefix
      */
-    public function getApiKeyWithPrefix(string $apiKeyIdentifier): ?string
+    public function getApiKeyWithPrefix($apiKeyIdentifier)
     {
         $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
         $apiKey = $this->getApiKey($apiKeyIdentifier);
@@ -572,7 +572,7 @@ class Configuration
      *
      * @return array an array of host settings
      */
-    public function getHostSettings(): array
+    public function getHostSettings()
     {
         return [
             [
@@ -590,7 +590,7 @@ class Configuration
     * @param array|null $variables    hash of variable and the corresponding value (optional)
     * @return string URL based on host settings
     */
-    public static function getHostString(array $hostSettings, int $hostIndex, ?array $variables = null): string
+    public static function getHostString(array $hostSettings, $hostIndex, ?array $variables = null)
     {
         if (null === $variables) {
             $variables = [];
@@ -628,7 +628,7 @@ class Configuration
      * @param array|null $variables hash of variable and the corresponding value (optional)
      * @return string URL based on host settings
      */
-    public function getHostFromSettings(int $index, ?array $variables = null): string
+    public function getHostFromSettings($index, $variables = null)
     {
         return self::getHostString($this->getHostSettings(), $index, $variables);
     }

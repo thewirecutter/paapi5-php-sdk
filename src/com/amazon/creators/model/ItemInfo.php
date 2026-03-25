@@ -108,7 +108,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -118,7 +118,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -239,7 +239,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -249,7 +249,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -259,7 +259,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -269,7 +269,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -312,7 +312,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -326,7 +326,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -339,7 +339,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -350,7 +350,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ByLineInfo|null
      */
-    public function getByLineInfo(): ?ByLineInfo
+    public function getByLineInfo()
     {
         return $this->container['byLineInfo'];
     }
@@ -362,7 +362,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setByLineInfo(?ByLineInfo $byLineInfo): self
+    public function setByLineInfo($byLineInfo)
     {
         if (is_null($byLineInfo)) {
             throw new \InvalidArgumentException('non-nullable byLineInfo cannot be null');
@@ -377,7 +377,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Classifications|null
      */
-    public function getClassifications(): ?Classifications
+    public function getClassifications()
     {
         return $this->container['classifications'];
     }
@@ -389,7 +389,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setClassifications(?Classifications $classifications): self
+    public function setClassifications($classifications)
     {
         if (is_null($classifications)) {
             throw new \InvalidArgumentException('non-nullable classifications cannot be null');
@@ -404,7 +404,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ContentInfo|null
      */
-    public function getContentInfo(): ?ContentInfo
+    public function getContentInfo()
     {
         return $this->container['contentInfo'];
     }
@@ -416,7 +416,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setContentInfo(?ContentInfo $contentInfo): self
+    public function setContentInfo($contentInfo)
     {
         if (is_null($contentInfo)) {
             throw new \InvalidArgumentException('non-nullable contentInfo cannot be null');
@@ -431,7 +431,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ContentRating|null
      */
-    public function getContentRating(): ?ContentRating
+    public function getContentRating()
     {
         return $this->container['contentRating'];
     }
@@ -443,7 +443,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setContentRating(?ContentRating $contentRating): self
+    public function setContentRating($contentRating)
     {
         if (is_null($contentRating)) {
             throw new \InvalidArgumentException('non-nullable contentRating cannot be null');
@@ -458,7 +458,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ExternalIds|null
      */
-    public function getExternalIds(): ?ExternalIds
+    public function getExternalIds()
     {
         return $this->container['externalIds'];
     }
@@ -470,7 +470,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setExternalIds(?ExternalIds $externalIds): self
+    public function setExternalIds($externalIds)
     {
         if (is_null($externalIds)) {
             throw new \InvalidArgumentException('non-nullable externalIds cannot be null');
@@ -485,7 +485,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\MultiValuedAttribute|null
      */
-    public function getFeatures(): ?MultiValuedAttribute
+    public function getFeatures()
     {
         return $this->container['features'];
     }
@@ -497,7 +497,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setFeatures(?MultiValuedAttribute $features): self
+    public function setFeatures($features)
     {
         if (is_null($features)) {
             throw new \InvalidArgumentException('non-nullable features cannot be null');
@@ -512,7 +512,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ManufactureInfo|null
      */
-    public function getManufactureInfo(): ?ManufactureInfo
+    public function getManufactureInfo()
     {
         return $this->container['manufactureInfo'];
     }
@@ -524,7 +524,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setManufactureInfo(?ManufactureInfo $manufactureInfo): self
+    public function setManufactureInfo($manufactureInfo)
     {
         if (is_null($manufactureInfo)) {
             throw new \InvalidArgumentException('non-nullable manufactureInfo cannot be null');
@@ -539,7 +539,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ProductInfo|null
      */
-    public function getProductInfo(): ?ProductInfo
+    public function getProductInfo()
     {
         return $this->container['productInfo'];
     }
@@ -551,7 +551,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setProductInfo(?ProductInfo $productInfo): self
+    public function setProductInfo($productInfo)
     {
         if (is_null($productInfo)) {
             throw new \InvalidArgumentException('non-nullable productInfo cannot be null');
@@ -566,7 +566,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\TechnicalInfo|null
      */
-    public function getTechnicalInfo(): ?TechnicalInfo
+    public function getTechnicalInfo()
     {
         return $this->container['technicalInfo'];
     }
@@ -578,7 +578,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setTechnicalInfo(?TechnicalInfo $technicalInfo): self
+    public function setTechnicalInfo($technicalInfo)
     {
         if (is_null($technicalInfo)) {
             throw new \InvalidArgumentException('non-nullable technicalInfo cannot be null');
@@ -593,7 +593,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getTitle(): ?SingleStringValuedAttribute
+    public function getTitle()
     {
         return $this->container['title'];
     }
@@ -605,7 +605,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setTitle(?SingleStringValuedAttribute $title): self
+    public function setTitle($title)
     {
         if (is_null($title)) {
             throw new \InvalidArgumentException('non-nullable title cannot be null');
@@ -620,7 +620,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\TradeInInfo|null
      */
-    public function getTradeInInfo(): ?TradeInInfo
+    public function getTradeInInfo()
     {
         return $this->container['tradeInInfo'];
     }
@@ -632,7 +632,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setTradeInInfo(?TradeInInfo $tradeInInfo): self
+    public function setTradeInInfo($tradeInInfo)
     {
         if (is_null($tradeInInfo)) {
             throw new \InvalidArgumentException('non-nullable tradeInInfo cannot be null');
@@ -648,7 +648,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -661,7 +661,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -674,7 +674,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -690,7 +690,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -703,7 +703,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -713,7 +713,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -726,7 +726,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

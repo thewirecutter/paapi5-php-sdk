@@ -81,7 +81,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -91,7 +91,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -185,7 +185,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -195,7 +195,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -205,7 +205,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -215,7 +215,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -249,7 +249,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -263,7 +263,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -282,7 +282,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -293,7 +293,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['name'];
     }
@@ -305,7 +305,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return self
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
@@ -320,7 +320,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->container['message'];
     }
@@ -332,7 +332,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return self
      */
-    public function setMessage(string $message): self
+    public function setMessage($message)
     {
         if (is_null($message)) {
             throw new \InvalidArgumentException('non-nullable message cannot be null');
@@ -348,7 +348,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -361,7 +361,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -374,7 +374,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -390,7 +390,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -403,7 +403,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -413,7 +413,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -426,7 +426,7 @@ class ValidationExceptionField implements ModelInterface, ArrayAccess, \JsonSeri
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

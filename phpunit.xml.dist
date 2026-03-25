@@ -6,4 +6,9 @@
             <directory suffix=".php">./src/com/amazon/creators</directory>
         </include>
     </coverage>
+    <testsuites>
+        <testsuite name="api">
+            <directory>./test/Api</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

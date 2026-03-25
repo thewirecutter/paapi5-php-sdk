@@ -85,7 +85,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -95,7 +95,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -195,7 +195,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -205,7 +205,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -215,7 +215,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -225,7 +225,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -261,7 +261,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -275,7 +275,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -300,7 +300,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -311,7 +311,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getFeedName(): string
+    public function getFeedName()
     {
         return $this->container['feedName'];
     }
@@ -323,7 +323,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setFeedName(string $feedName): self
+    public function setFeedName($feedName)
     {
         if (is_null($feedName)) {
             throw new \InvalidArgumentException('non-nullable feedName cannot be null');
@@ -338,7 +338,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return float
      */
-    public function getSize(): float
+    public function getSize()
     {
         return $this->container['size'];
     }
@@ -350,7 +350,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setSize(float $size): self
+    public function setSize($size)
     {
         if (is_null($size)) {
             throw new \InvalidArgumentException('non-nullable size cannot be null');
@@ -365,7 +365,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getMd5(): string
+    public function getMd5()
     {
         return $this->container['md5'];
     }
@@ -377,7 +377,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setMd5(string $md5): self
+    public function setMd5($md5)
     {
         if (is_null($md5)) {
             throw new \InvalidArgumentException('non-nullable md5 cannot be null');
@@ -392,7 +392,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getLastUpdated(): string
+    public function getLastUpdated()
     {
         return $this->container['lastUpdated'];
     }
@@ -404,7 +404,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setLastUpdated(string $lastUpdated): self
+    public function setLastUpdated($lastUpdated)
     {
         if (is_null($lastUpdated)) {
             throw new \InvalidArgumentException('non-nullable lastUpdated cannot be null');
@@ -420,7 +420,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -433,7 +433,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -446,7 +446,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -462,7 +462,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -475,7 +475,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -485,7 +485,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -498,7 +498,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

@@ -84,7 +84,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return array
      */
-    public static function openAPITypes(): array
+    public static function openAPITypes()
     {
         return self::$openAPITypes;
     }
@@ -94,7 +94,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return array
      */
-    public static function openAPIFormats(): array
+    public static function openAPIFormats()
     {
         return self::$openAPIFormats;
     }
@@ -191,7 +191,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -201,7 +201,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -211,7 +211,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -221,7 +221,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$openAPIModelName;
     }
@@ -256,7 +256,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -270,7 +270,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
 
@@ -289,7 +289,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -300,7 +300,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return string|null
      */
-    public function getType(): ?string
+    public function getType()
     {
         return $this->container['type'];
     }
@@ -312,7 +312,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return self
      */
-    public function setType(?string $type): self
+    public function setType($type)
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
@@ -327,7 +327,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->container['message'];
     }
@@ -339,7 +339,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return self
      */
-    public function setMessage(string $message): self
+    public function setMessage($message)
     {
         if (is_null($message)) {
             throw new \InvalidArgumentException('non-nullable message cannot be null');
@@ -354,7 +354,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedReason
      */
-    public function getReason(): AccessDeniedReason
+    public function getReason()
     {
         return $this->container['reason'];
     }
@@ -366,7 +366,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return self
      */
-    public function setReason(AccessDeniedReason $reason): self
+    public function setReason($reason)
     {
         if (is_null($reason)) {
             throw new \InvalidArgumentException('non-nullable reason cannot be null');
@@ -382,7 +382,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return boolean
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -395,7 +395,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
     }
@@ -408,7 +408,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -424,7 +424,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -437,7 +437,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -447,7 +447,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -460,7 +460,7 @@ class AccessDeniedExceptionResponseContent implements ModelInterface, ArrayAcces
      *
      * @return string
      */
-    public function toHeaderValue(): string
+    public function toHeaderValue()
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
