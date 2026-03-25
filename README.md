@@ -1,209 +1,110 @@
-# Product Advertising API 5.0 SDK for PHP
+# Amazon Creators API PHP SDK
 
 [![Version](https://img.shields.io/packagist/v/thewirecutter/paapi5-php-sdk)](https://packagist.org/packages/thewirecutter/paapi5-php-sdk)
 [![Total Downloads](https://img.shields.io/packagist/dt/thewirecutter/paapi5-php-sdk.svg?style=flat)](https://packagist.org/packages/thewirecutter/paapi5-php-sdk)
 [![CircleCI](https://circleci.com/gh/thewirecutter/paapi5-php-sdk.svg?style=svg)](https://circleci.com/gh/thewirecutter/paapi5-php-sdk)
 
-This repository contains the open source PHP SDK that allows you to access the [Product Advertising API](https://webservices.amazon.com/paapi5/documentation/index.html) from your PHP app.
+This repository contains the open source PHP SDK that allows you to access the [Amazon Creators API](https://affiliate-program.amazon.com/creatorsapi) from your PHP app.
+
+> **Note:** This package was previously the PAAPI5 PHP SDK. As of v2.0.0 it has been migrated to wrap Amazon's Creators API PHP SDK. Existing consumers should update their namespace references from `Amazon\ProductAdvertisingAPI\v1\` to `Amazon\CreatorsAPI\v1\` and switch from AWS Signature V4 credentials to OAuth 2.0 credentials (Client ID, Client Secret, Version).
 
 ## Copy of Amazon's Provided Code
 
-This is a near identical public copy of [Amazon's provided code](https://webservices.amazon.com/paapi5/documentation/quick-start/using-sdk.html), as their version is not available through Packagist as of writing.
+This is a near-identical public copy of [Amazon's provided Creators API PHP SDK](https://affiliate-program.amazon.com/creatorsapi), as their version is not available through Packagist. The Composer package name remains `thewirecutter/paapi5-php-sdk` for backwards compatibility with existing consumers.
 
-We have not changed the API in any way, however we did cleanup portions of the code and have updated dependencies. A listing of changes are provided below.
+We have not changed the API in any way. A listing of our additions and changes are provided below.
 
 ### Changes from Amazon
 
-* Replaced usage of `\GuzzleHttp\Psr7\build_query` with `\GuzzleHttp\Psr7\Query::build` https://github.com/thewirecutter/paapi5-php-sdk/pull/8
-* Added Support for Guzzle 7 https://github.com/thewirecutter/paapi5-php-sdk/pull/6
-* Removed Deprecation Warnings when using PHP 8 https://github.com/thewirecutter/paapi5-php-sdk/pull/13
-* Removed Dynamic Property Creation Warnings when using PHP 8 https://github.com/thewirecutter/paapi5-php-sdk/pull/13
-* Updated PHP Minimum Version to PHP 8 https://github.com/thewirecutter/paapi5-php-sdk/pull/13
-* CodeSniffed to PSR-2 https://github.com/thewirecutter/paapi5-php-sdk/pull/13
-* Updated Dev Dependencies to reflect PHP 8 version requirement https://github.com/thewirecutter/paapi5-php-sdk/pull/13
+* Added `squizlabs/php_codesniffer` dev dependency and PSR-2 CI linting
+* Updated CircleCI configuration for automated builds
+* Upgraded `friendsofphp/php-cs-fixer` to `^3.5` with updated `.php_cs` config
 
 ## Installation
-The Product Advertising API PHP SDK can be installed with [Composer](https://getcomposer.org/). The SDK is available via [Packagist](http://packagist.org/) under the [`thewirecutter/paapi5-php-sdk`](https://packagist.org/packages/thewirecutter/paapi5-php-sdk) package. If Composer is installed globally on your system, you can run the following in the base directory of your project to add the SDK as a dependency:
+
+The Creators API PHP SDK can be installed with [Composer](https://getcomposer.org/). The SDK is available via [Packagist](http://packagist.org/) under the [`thewirecutter/paapi5-php-sdk`](https://packagist.org/packages/thewirecutter/paapi5-php-sdk) package.
 
 ```sh
 composer require thewirecutter/paapi5-php-sdk
 ```
 
-## Usage
-> **Note:** This version of the Product Advertising API SDK for PHP requires PHP 8 or greater.
+## Requirements
 
-Simple example for [SearchItems](https://webservices.amazon.com/paapi5/documentation/search-items.html) to discover Amazon products with the keyword 'Harry Potter' in Books category:
+- PHP 8.1 or greater
+- Guzzle 7.3+
+- Amazon Creators API credentials: Client ID, Client Secret, and Version
+
+## Authentication
+
+This SDK uses **OAuth 2.0** (not AWS Signature V4). You will need:
+
+- **Credential ID** (Client ID) — from the Amazon Associates program
+- **Credential Secret** (Client Secret)
+- **Version** — the credential version string
+- **Marketplace** — e.g. `www.amazon.com`
+
+The SDK handles token caching automatically via `OAuth2TokenManager`.
+
+## Usage
+
+Simple example for [GetItems](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/operations/get-items) to retrieve product details for specific ASINs:
 
 ```php
 <?php
-/**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
 
-/*
- * ProductAdvertisingAPI
- *
- * https://webservices.amazon.com/paapi5/documentation/index.html
- */
+require_once(__DIR__ . '/vendor/autoload.php');
 
-/*
- * This sample code snippet is for ProductAdvertisingAPI 5.0's SearchItems API
- *
- * For more details, refer: https://webservices.amazon.com/paapi5/documentation/search-items.html
- */
-
-use Amazon\ProductAdvertisingAPI\v1\ApiException;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource;
-use Amazon\ProductAdvertisingAPI\v1\Configuration;
-
-require_once(__DIR__ . '/vendor/autoload.php'); // change path as needed
-
+use Amazon\CreatorsAPI\v1\Configuration;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\api\DefaultApi;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetItemsRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetItemsResource;
+use Amazon\CreatorsAPI\v1\ApiException;
 
 $config = new Configuration();
+$config->setCredentialId('<YOUR CREDENTIAL ID>');
+$config->setCredentialSecret('<YOUR CREDENTIAL SECRET>');
+$config->setVersion('<YOUR CREDENTIAL VERSION>');
 
-/*
- * Add your credentials
- */
-# Please add your access key here
-$config->setAccessKey('<YOUR ACCESS KEY>');
-# Please add your secret key here
-$config->setSecretKey('<YOUR SECRET KEY>');
+$api = new DefaultApi(null, $config);
 
-# Please add your partner tag (store/tracking id) here
-$partnerTag = '<YOUR PARTNER TAG>';
+$marketplace = 'www.amazon.com';
 
-/*
- * PAAPI host and region to which you want to send request
- * For more details refer:
- * https://webservices.amazon.com/paapi5/documentation/common-request-parameters.html#host-and-region
- */
-$config->setHost('webservices.amazon.com');
-$config->setRegion('us-east-1');
-
-$apiInstance = new DefaultApi(
-    /*
-     * If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-     * This is optional, `GuzzleHttp\Client` will be used as default.
-     */
-    new GuzzleHttp\Client(), $config);
-
-# Request initialization
-
-# Specify keywords
-$keyword = 'Harry Potter';
-
-/*
- * Specify the category in which search request is to be made
- * For more details, refer:
- * https://webservices.amazon.com/paapi5/documentation/use-cases/organization-of-items-on-amazon/search-index.html
- */
-$searchIndex = "Books";
-
-# Specify item count to be returned in search result
-$itemCount = 1;
-
-/*
- * Choose resources you want from SearchItemsResource enum
- * For more details, refer:
- * https://webservices.amazon.com/paapi5/documentation/search-items.html#resources-parameter
- */
 $resources = [
-    SearchItemsResource::ITEM_INFOTITLE,
-    SearchItemsResource::OFFERSLISTINGSPRICE];
+    GetItemsResource::IMAGES_PRIMARY_MEDIUM,
+    GetItemsResource::ITEM_INFO_TITLE,
+    GetItemsResource::OFFERS_V2_LISTINGS_PRICE,
+];
 
-# Forming the request
-$searchItemsRequest = new SearchItemsRequest();
-$searchItemsRequest->setSearchIndex($searchIndex);
-$searchItemsRequest->setKeywords($keyword);
-$searchItemsRequest->setItemCount($itemCount);
-$searchItemsRequest->setPartnerTag($partnerTag);
-$searchItemsRequest->setPartnerType(PartnerType::ASSOCIATES);
-$searchItemsRequest->setResources($resources);
+$request = new GetItemsRequestContent();
+$request->setPartnerTag('<YOUR PARTNER TAG>');
+$request->setItemIds(['B0DLFMFBJW', 'B0BFC7WQ6R']);
+$request->setResources($resources);
 
-# Validating request
-$invalidPropertyList = $searchItemsRequest->listInvalidProperties();
-$length = count($invalidPropertyList);
-if ($length > 0) {
-    echo "Error forming the request", PHP_EOL;
-    foreach ($invalidPropertyList as $invalidProperty) {
-        echo $invalidProperty, PHP_EOL;
-    }
-    return;
-}
-
-# Sending the request
 try {
-    $searchItemsResponse = $apiInstance->searchItems($searchItemsRequest);
-
-    echo 'API called successfully', PHP_EOL;
-    echo 'Complete Response: ', $searchItemsResponse, PHP_EOL;
-
-    # Parsing the response
-    if ($searchItemsResponse->getSearchResult() !== null) {
-        echo 'Printing first item information in SearchResult:', PHP_EOL;
-        $item = $searchItemsResponse->getSearchResult()->getItems()[0];
-        if ($item !== null) {
-            if ($item->getASIN() !== null) {
-                echo "ASIN: ", $item->getASIN(), PHP_EOL;
-            }
-            if ($item->getDetailPageURL() !== null) {
-                echo "DetailPageURL: ", $item->getDetailPageURL(), PHP_EOL;
-            }
-            if ($item->getItemInfo() !== null
-                and $item->getItemInfo()->getTitle() !== null
-                and $item->getItemInfo()->getTitle()->getDisplayValue() !== null) {
-                echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
-            }
-            if ($item->getOffers() !== null
-                and $item->getOffers() !== null
-                and $item->getOffers()->getListings() !== null
-                and $item->getOffers()->getListings()[0]->getPrice() !== null
-                and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() !== null) {
-                echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
-                    ->getDisplayAmount(), PHP_EOL;
-            }
-        }
-    }
-    if ($searchItemsResponse->getErrors() !== null) {
-        echo PHP_EOL, 'Printing Errors:', PHP_EOL, 'Printing first error object from list of errors', PHP_EOL;
-        echo 'Error code: ', $searchItemsResponse->getErrors()[0]->getCode(), PHP_EOL;
-        echo 'Error message: ', $searchItemsResponse->getErrors()[0]->getMessage(), PHP_EOL;
-    }
-} catch (ApiException $exception) {
-    echo "Error calling PA-API 5.0!", PHP_EOL;
-    echo "HTTP Status Code: ", $exception->getCode(), PHP_EOL;
-    echo "Error Message: ", $exception->getMessage(), PHP_EOL;
-    if ($exception->getResponseObject() instanceof ProductAdvertisingAPIClientException) {
-        $errors = $exception->getResponseObject()->getErrors();
-        foreach ($errors as $error) {
-            echo "Error Type: ", $error->getCode(), PHP_EOL;
-            echo "Error Message: ", $error->getMessage(), PHP_EOL;
-        }
-    } else {
-        echo "Error response body: ", $exception->getResponseBody(), PHP_EOL;
-    }
-} catch (Exception $exception) {
-    echo "Error Message: ", $exception->getMessage(), PHP_EOL;
+    $response = $api->getItems($marketplace, $request);
+    echo 'API called successfully' . PHP_EOL;
+    echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . PHP_EOL;
+} catch (ApiException $e) {
+    echo 'Error calling Creators API!' . PHP_EOL;
+    echo $e . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Unexpected error: ' . $e . PHP_EOL;
 }
-?>
 ```
 
-Complete documentation, installation instructions, and examples are available [here](https://webservices.amazon.com/paapi5/documentation/index.html).
+See the `examples/` directory for additional sample scripts covering all supported operations:
+
+- `SampleGetItems.php`
+- `SampleSearchItems.php`
+- `SampleGetVariations.php`
+- `SampleGetBrowseNodes.php`
+- `SampleGetFeed.php`
+- `SampleGetReport.php`
+- `SampleListFeeds.php`
+- `SampleListReports.php`
+
+Complete API documentation is available at [https://affiliate-program.amazon.com/creatorsapi](https://affiliate-program.amazon.com/creatorsapi).
 
 ## License
+
 This SDK is distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0), see LICENSE.txt and NOTICE.txt for more information.

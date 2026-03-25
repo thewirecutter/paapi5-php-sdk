@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,50 +14,46 @@
  * permissions and limitations under the License.
  */
 
-namespace Amazon\ProductAdvertisingAPI\v1;
+
+namespace Amazon\CreatorsAPI\v1;
 
 use \Exception;
 
 /**
  * ApiException Class Doc Comment
- *
- * @category Class
- * @package  Amazon\ProductAdvertisingAPI\v1
- * @author   Product Advertising API team
  */
 class ApiException extends Exception
 {
-
     /**
      * The HTTP body of the server response either as Json or string.
      *
-     * @var mixed
+     * @var \stdClass|string|null
      */
     protected $responseBody;
 
     /**
      * The HTTP header of the server response.
      *
-     * @var string[]|null
+     * @var string[][]|null
      */
     protected $responseHeaders;
 
     /**
      * The deserialized response object
      *
-     * @var $responseObject;
+     * @var \stdClass|string|null
      */
     protected $responseObject;
 
     /**
      * Constructor
      *
-     * @param string        $message         Error message
-     * @param int           $code            HTTP status code
-     * @param string[]|null $responseHeaders HTTP response header
-     * @param mixed         $responseBody    HTTP decoded body of the server response either as \stdClass or string
+     * @param string                $message         Error message
+     * @param int                   $code            HTTP status code
+     * @param string[][]|null       $responseHeaders HTTP response header
+     * @param \stdClass|string|null $responseBody    HTTP decoded body of the server response either as \stdClass or string
      */
-    public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
+    public function __construct(string $message = "", int $code = 0, ?array $responseHeaders = [], \stdClass|string|null $responseBody = null)
     {
         parent::__construct($message, $code);
         $this->responseHeaders = $responseHeaders;
@@ -68,9 +63,9 @@ class ApiException extends Exception
     /**
      * Gets the HTTP response header
      *
-     * @return string[]|null HTTP response header
+     * @return string[][]|null HTTP response header
      */
-    public function getResponseHeaders()
+    public function getResponseHeaders(): ?array
     {
         return $this->responseHeaders;
     }
@@ -78,31 +73,31 @@ class ApiException extends Exception
     /**
      * Gets the HTTP body of the server response either as Json or string
      *
-     * @return mixed HTTP body of the server response either as \stdClass or string
+     * @return \stdClass|string|null HTTP body of the server response either as \stdClass or string
      */
-    public function getResponseBody()
+    public function getResponseBody(): \stdClass|string|null
     {
         return $this->responseBody;
     }
 
     /**
-     * Sets the deseralized response object (during deserialization)
+     * Sets the deserialized response object (during deserialization)
      *
      * @param mixed $obj Deserialized response object
      *
      * @return void
      */
-    public function setResponseObject($obj)
+    public function setResponseObject(mixed $obj): void
     {
         $this->responseObject = $obj;
     }
 
     /**
-     * Gets the deseralized response object (during deserialization)
+     * Gets the deserialized response object (during deserialization)
      *
      * @return mixed the deserialized response object
      */
-    public function getResponseObject()
+    public function getResponseObject(): mixed
     {
         return $this->responseObject;
     }
