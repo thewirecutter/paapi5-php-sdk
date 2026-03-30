@@ -5,7 +5,17 @@
         "creatorsapi-php-sdk",
         "creatorsapi",
         "amazon",
-        "creators-api"
+        "creators-api",
+        "pa-api",
+        "paapi",
+        "paapi5.0",
+        "paapi5",
+        "paapi5-php-sdk",
+        "getitems",
+        "searchitems",
+        "getvariations",
+        "getbrowsenodes",
+        "ProductAdvertisingAPI"
     ],
     "homepage": "https://affiliate-program.amazon.com/creatorsapi",
     "license": "Apache-2.0",
