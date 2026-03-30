@@ -87,7 +87,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return array
      */
-    public static function openAPITypes()
+    public static function openAPITypes(): array
     {
         return self::$openAPITypes;
     }
@@ -97,7 +97,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return array
      */
-    public static function openAPIFormats()
+    public static function openAPIFormats(): array
     {
         return self::$openAPIFormats;
     }
@@ -197,7 +197,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap(): array
     {
         return self::$attributeMap;
     }
@@ -207,7 +207,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return array
      */
-    public static function setters()
+    public static function setters(): array
     {
         return self::$setters;
     }
@@ -217,7 +217,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return array
      */
-    public static function getters()
+    public static function getters(): array
     {
         return self::$getters;
     }
@@ -227,7 +227,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName(): string
     {
         return self::$openAPIModelName;
     }
@@ -263,7 +263,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -277,7 +277,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties(): array
     {
         $invalidProperties = [];
 
@@ -320,7 +320,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid(): bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -331,7 +331,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return string
      */
-    public function getPartnerTag()
+    public function getPartnerTag(): string
     {
         return $this->container['partnerTag'];
     }
@@ -343,7 +343,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return self
      */
-    public function setPartnerTag($partnerTag)
+    public function setPartnerTag(string $partnerTag): self
     {
         if (is_null($partnerTag)) {
             throw new \InvalidArgumentException('non-nullable partnerTag cannot be null');
@@ -365,7 +365,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return string[]
      */
-    public function getBrowseNodeIds()
+    public function getBrowseNodeIds(): array
     {
         return $this->container['browseNodeIds'];
     }
@@ -377,7 +377,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return self
      */
-    public function setBrowseNodeIds($browseNodeIds)
+    public function setBrowseNodeIds(array $browseNodeIds): self
     {
         if (is_null($browseNodeIds)) {
             throw new \InvalidArgumentException('non-nullable browseNodeIds cannot be null');
@@ -399,7 +399,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return string[]|null
      */
-    public function getLanguagesOfPreference()
+    public function getLanguagesOfPreference(): array|null
     {
         return $this->container['languagesOfPreference'];
     }
@@ -411,7 +411,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return self
      */
-    public function setLanguagesOfPreference($languagesOfPreference)
+    public function setLanguagesOfPreference(?array $languagesOfPreference): self
     {
         if (is_null($languagesOfPreference)) {
             throw new \InvalidArgumentException('non-nullable languagesOfPreference cannot be null');
@@ -430,7 +430,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetBrowseNodesResource[]|null
      */
-    public function getResources()
+    public function getResources(): array|null
     {
         return $this->container['resources'];
     }
@@ -442,7 +442,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return self
      */
-    public function setResources($resources)
+    public function setResources(?array $resources): self
     {
         if (is_null($resources)) {
             throw new \InvalidArgumentException('non-nullable resources cannot be null');
@@ -462,7 +462,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return boolean
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -475,7 +475,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return $this->container[$offset] ?? null;
     }
@@ -488,7 +488,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return void
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -504,7 +504,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return void
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->container[$offset]);
     }
@@ -517,7 +517,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -527,7 +527,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -540,7 +540,7 @@ class GetBrowseNodesRequestContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return string
      */
-    public function toHeaderValue()
+    public function toHeaderValue(): string
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

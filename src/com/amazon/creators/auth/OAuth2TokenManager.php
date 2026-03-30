@@ -72,7 +72,7 @@ class OAuth2TokenManager
      * @return string A valid access token
      * @throws \Exception If token acquisition fails
      */
-    public function getToken()
+    public function getToken(): string
     {
         if ($this->isTokenValid()) {
             return $this->accessToken;
@@ -86,7 +86,7 @@ class OAuth2TokenManager
      *
      * @return bool True if the token is valid, false otherwise
      */
-    public function isTokenValid()
+    public function isTokenValid(): bool
     {
         return $this->accessToken !== null &&
                $this->expiresAt !== null &&
@@ -99,7 +99,7 @@ class OAuth2TokenManager
      * @return string The new access token
      * @throws \Exception If token refresh fails
      */
-    private function refreshToken()
+    private function refreshToken(): string
     {
         try {
             if ($this->config->isLwa()) {
@@ -168,7 +168,7 @@ class OAuth2TokenManager
      *
      * @return void
      */
-    public function clearToken()
+    public function clearToken(): void
     {
         $this->accessToken = null;
         $this->expiresAt = null;
@@ -179,7 +179,7 @@ class OAuth2TokenManager
      *
      * @return array Token information
      */
-    public function getTokenInfo()
+    public function getTokenInfo(): array
     {
         return [
             'hasToken' => $this->accessToken !== null,

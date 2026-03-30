@@ -87,7 +87,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return array
      */
-    public static function openAPITypes()
+    public static function openAPITypes(): array
     {
         return self::$openAPITypes;
     }
@@ -97,7 +97,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return array
      */
-    public static function openAPIFormats()
+    public static function openAPIFormats(): array
     {
         return self::$openAPIFormats;
     }
@@ -197,7 +197,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap(): array
     {
         return self::$attributeMap;
     }
@@ -207,7 +207,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return array
      */
-    public static function setters()
+    public static function setters(): array
     {
         return self::$setters;
     }
@@ -217,7 +217,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return array
      */
-    public static function getters()
+    public static function getters(): array
     {
         return self::$getters;
     }
@@ -227,7 +227,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName(): string
     {
         return self::$openAPIModelName;
     }
@@ -263,7 +263,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -277,7 +277,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties(): array
     {
         $invalidProperties = [];
 
@@ -290,7 +290,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid(): bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -301,7 +301,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnitBasedAttribute|null
      */
-    public function getHeight()
+    public function getHeight(): UnitBasedAttribute|null
     {
         return $this->container['height'];
     }
@@ -313,7 +313,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setHeight($height)
+    public function setHeight(?UnitBasedAttribute $height): self
     {
         if (is_null($height)) {
             throw new \InvalidArgumentException('non-nullable height cannot be null');
@@ -328,7 +328,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnitBasedAttribute|null
      */
-    public function getLength()
+    public function getLength(): UnitBasedAttribute|null
     {
         return $this->container['length'];
     }
@@ -340,7 +340,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setLength($length)
+    public function setLength(?UnitBasedAttribute $length): self
     {
         if (is_null($length)) {
             throw new \InvalidArgumentException('non-nullable length cannot be null');
@@ -355,7 +355,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnitBasedAttribute|null
      */
-    public function getWeight()
+    public function getWeight(): UnitBasedAttribute|null
     {
         return $this->container['weight'];
     }
@@ -367,7 +367,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setWeight($weight)
+    public function setWeight(?UnitBasedAttribute $weight): self
     {
         if (is_null($weight)) {
             throw new \InvalidArgumentException('non-nullable weight cannot be null');
@@ -382,7 +382,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnitBasedAttribute|null
      */
-    public function getWidth()
+    public function getWidth(): UnitBasedAttribute|null
     {
         return $this->container['width'];
     }
@@ -394,7 +394,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setWidth($width)
+    public function setWidth(?UnitBasedAttribute $width): self
     {
         if (is_null($width)) {
             throw new \InvalidArgumentException('non-nullable width cannot be null');
@@ -410,7 +410,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return boolean
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -423,7 +423,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return $this->container[$offset] ?? null;
     }
@@ -436,7 +436,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return void
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -452,7 +452,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return void
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->container[$offset]);
     }
@@ -465,7 +465,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -475,7 +475,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -488,7 +488,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return string
      */
-    public function toHeaderValue()
+    public function toHeaderValue(): string
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

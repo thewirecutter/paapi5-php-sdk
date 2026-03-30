@@ -75,7 +75,7 @@ class OAuth2Config
      * @param string $version credential version
      * @param string|null $authEndpoint Authentication endpoint
      */
-    public function __construct($clientId, $clientSecret, $version, $authEndpoint)
+    public function __construct(string $clientId, string $clientSecret, string $version, ?string $authEndpoint)
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
@@ -88,7 +88,7 @@ class OAuth2Config
      *
      * @return string OAuth2 client ID
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->clientId;
     }
@@ -98,7 +98,7 @@ class OAuth2Config
      *
      * @return string OAuth2 client secret
      */
-    public function getClientSecret()
+    public function getClientSecret(): string
     {
         return $this->clientSecret;
     }
@@ -108,7 +108,7 @@ class OAuth2Config
      *
      * @return string credential version
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return $this->version;
     }
@@ -118,7 +118,7 @@ class OAuth2Config
      *
      * @return string Grant type
      */
-    public function getGrantType()
+    public function getGrantType(): string
     {
         return $this->grantType;
     }
@@ -128,7 +128,7 @@ class OAuth2Config
      *
      * @return string OAuth2 scope
      */
-    public function getScope()
+    public function getScope(): string
     {
         return $this->isLwa() ? self::LWA_SCOPE : self::COGNITO_SCOPE;
     }
@@ -139,7 +139,7 @@ class OAuth2Config
      * @return string Token endpoint URL
      * @throws \InvalidArgumentException If the version is not supported
      */
-    public function getTokenEndpoint()
+    public function getTokenEndpoint(): string
     {
         // Custom authEndpoint used for testing
         if ($this->authEndpoint !== null && trim($this->authEndpoint) !== '') {
@@ -171,7 +171,7 @@ class OAuth2Config
      *
      * @return bool True if using LWA authentication
      */
-    public function isLwa()
+    public function isLwa(): bool
     {
         return str_starts_with($this->version, "3.");
     }
@@ -182,7 +182,7 @@ class OAuth2Config
      * @param string $grantType Grant type
      * @return $this
      */
-    public function setGrantType($grantType)
+    public function setGrantType(string $grantType)
     {
         $this->grantType = $grantType;
         return $this;

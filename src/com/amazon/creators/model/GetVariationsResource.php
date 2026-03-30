@@ -16,6 +16,7 @@
 
 
 namespace Amazon\CreatorsAPI\v1\com\amazon\creators\model;
+
 use \Amazon\CreatorsAPI\v1\ObjectSerializer;
 
 /**
@@ -104,7 +105,7 @@ class GetVariationsResource
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
         return [
             self::BROWSE_NODE_INFO_BROWSE_NODES,

@@ -81,7 +81,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return array
      */
-    public static function openAPITypes()
+    public static function openAPITypes(): array
     {
         return self::$openAPITypes;
     }
@@ -91,7 +91,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return array
      */
-    public static function openAPIFormats()
+    public static function openAPIFormats(): array
     {
         return self::$openAPIFormats;
     }
@@ -185,7 +185,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap(): array
     {
         return self::$attributeMap;
     }
@@ -195,7 +195,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return array
      */
-    public static function setters()
+    public static function setters(): array
     {
         return self::$setters;
     }
@@ -205,7 +205,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return array
      */
-    public static function getters()
+    public static function getters(): array
     {
         return self::$getters;
     }
@@ -215,7 +215,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName(): string
     {
         return self::$openAPIModelName;
     }
@@ -249,7 +249,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -263,7 +263,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties(): array
     {
         $invalidProperties = [];
 
@@ -276,7 +276,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid(): bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -287,7 +287,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return string|null
      */
-    public function getName()
+    public function getName(): string|null
     {
         return $this->container['name'];
     }
@@ -299,7 +299,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return self
      */
-    public function setName($name)
+    public function setName(?string $name): self
     {
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
@@ -314,7 +314,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): string|null
     {
         return $this->container['value'];
     }
@@ -326,7 +326,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return self
      */
-    public function setValue($value)
+    public function setValue(?string $value): self
     {
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
@@ -342,7 +342,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return boolean
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -355,7 +355,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return $this->container[$offset] ?? null;
     }
@@ -368,7 +368,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return void
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -384,7 +384,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return void
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->container[$offset]);
     }
@@ -397,7 +397,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -407,7 +407,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -420,7 +420,7 @@ class VariationAttribute implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return string
      */
-    public function toHeaderValue()
+    public function toHeaderValue(): string
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

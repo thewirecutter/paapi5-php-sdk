@@ -33,6 +33,28 @@ use Amazon\CreatorsAPI\v1\HeaderSelector;
 use Amazon\CreatorsAPI\v1\ObjectSerializer;
 use Amazon\CreatorsAPI\v1\com\amazon\creators\auth\OAuth2Config;
 use Amazon\CreatorsAPI\v1\com\amazon\creators\auth\OAuth2TokenManager;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetBrowseNodesRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetBrowseNodesResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetFeedRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetFeedResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetItemsRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetItemsResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetReportRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetReportResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\ListFeedsResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\ListReportsResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchItemsRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchItemsResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent;
+use GuzzleHttp\Promise\PromiseInterface;
+use GuzzleHttp\Utils;
 
 /**
  * DefaultApi Class Doc Comment
@@ -136,7 +158,7 @@ class DefaultApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex(int $hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -146,7 +168,7 @@ class DefaultApi
      *
      * @return int Host index
      */
-    public function getHostIndex()
+    public function getHostIndex(): int
     {
         return $this->hostIndex;
     }
@@ -154,7 +176,7 @@ class DefaultApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -244,7 +266,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetBrowseNodesResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent
      */
-    public function getBrowseNodes($xMarketplace, $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0])
+    public function getBrowseNodes(string $xMarketplace, GetBrowseNodesRequestContent $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0]): mixed
     {
         list($response) = $this->getBrowseNodesWithHttpInfo($xMarketplace, $getBrowseNodesRequestContent, $contentType);
         return $response;
@@ -261,7 +283,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetBrowseNodesResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBrowseNodesWithHttpInfo($xMarketplace, $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0])
+    public function getBrowseNodesWithHttpInfo(string $xMarketplace, GetBrowseNodesRequestContent $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0]): array
     {
         $request = $this->getBrowseNodesRequest($xMarketplace, $getBrowseNodesRequestContent, $contentType);
 
@@ -428,7 +450,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBrowseNodesAsync($xMarketplace, $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0])
+    public function getBrowseNodesAsync(string $xMarketplace, GetBrowseNodesRequestContent $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0]): PromiseInterface
     {
         return $this->getBrowseNodesAsyncWithHttpInfo($xMarketplace, $getBrowseNodesRequestContent, $contentType)
             ->then(
@@ -448,7 +470,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBrowseNodesAsyncWithHttpInfo($xMarketplace, $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0])
+    public function getBrowseNodesAsyncWithHttpInfo(string $xMarketplace, GetBrowseNodesRequestContent $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0]): PromiseInterface
     {
         $returnType = '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetBrowseNodesResponseContent';
         $request = $this->getBrowseNodesRequest($xMarketplace, $getBrowseNodesRequestContent, $contentType);
@@ -499,7 +521,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBrowseNodesRequest($xMarketplace, $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0])
+    public function getBrowseNodesRequest(string $xMarketplace, GetBrowseNodesRequestContent $getBrowseNodesRequestContent, string $contentType = self::contentTypes['getBrowseNodes'][0]): Request
     {
 
         // verify the required parameter 'xMarketplace' is set
@@ -551,7 +573,7 @@ class DefaultApi
         if (isset($getBrowseNodesRequestContent)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getBrowseNodesRequestContent));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getBrowseNodesRequestContent));
             } else {
                 $httpBody = $getBrowseNodesRequestContent;
             }
@@ -571,7 +593,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -612,7 +634,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetFeedResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent
      */
-    public function getFeed($xMarketplace, $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0])
+    public function getFeed(string $xMarketplace, GetFeedRequestContent $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0]): mixed
     {
         list($response) = $this->getFeedWithHttpInfo($xMarketplace, $getFeedRequestContent, $contentType);
         return $response;
@@ -629,7 +651,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetFeedResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFeedWithHttpInfo($xMarketplace, $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0])
+    public function getFeedWithHttpInfo(string $xMarketplace, GetFeedRequestContent $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0]): array
     {
         $request = $this->getFeedRequest($xMarketplace, $getFeedRequestContent, $contentType);
 
@@ -796,7 +818,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedAsync($xMarketplace, $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0])
+    public function getFeedAsync(string $xMarketplace, GetFeedRequestContent $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0]): PromiseInterface
     {
         return $this->getFeedAsyncWithHttpInfo($xMarketplace, $getFeedRequestContent, $contentType)
             ->then(
@@ -816,7 +838,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedAsyncWithHttpInfo($xMarketplace, $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0])
+    public function getFeedAsyncWithHttpInfo(string $xMarketplace, GetFeedRequestContent $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0]): PromiseInterface
     {
         $returnType = '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetFeedResponseContent';
         $request = $this->getFeedRequest($xMarketplace, $getFeedRequestContent, $contentType);
@@ -867,7 +889,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFeedRequest($xMarketplace, $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0])
+    public function getFeedRequest(string $xMarketplace, GetFeedRequestContent $getFeedRequestContent, string $contentType = self::contentTypes['getFeed'][0]): Request
     {
 
         // verify the required parameter 'xMarketplace' is set
@@ -919,7 +941,7 @@ class DefaultApi
         if (isset($getFeedRequestContent)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getFeedRequestContent));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getFeedRequestContent));
             } else {
                 $httpBody = $getFeedRequestContent;
             }
@@ -939,7 +961,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -980,7 +1002,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetItemsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent
      */
-    public function getItems($xMarketplace, $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0])
+    public function getItems(string $xMarketplace, GetItemsRequestContent $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0]): mixed
     {
         list($response) = $this->getItemsWithHttpInfo($xMarketplace, $getItemsRequestContent, $contentType);
         return $response;
@@ -997,7 +1019,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetItemsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemsWithHttpInfo($xMarketplace, $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0])
+    public function getItemsWithHttpInfo(string $xMarketplace, GetItemsRequestContent $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0]): array
     {
         $request = $this->getItemsRequest($xMarketplace, $getItemsRequestContent, $contentType);
 
@@ -1164,7 +1186,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemsAsync($xMarketplace, $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0])
+    public function getItemsAsync(string $xMarketplace, GetItemsRequestContent $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0]): PromiseInterface
     {
         return $this->getItemsAsyncWithHttpInfo($xMarketplace, $getItemsRequestContent, $contentType)
             ->then(
@@ -1184,7 +1206,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemsAsyncWithHttpInfo($xMarketplace, $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0])
+    public function getItemsAsyncWithHttpInfo(string $xMarketplace, GetItemsRequestContent $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0]): PromiseInterface
     {
         $returnType = '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetItemsResponseContent';
         $request = $this->getItemsRequest($xMarketplace, $getItemsRequestContent, $contentType);
@@ -1235,7 +1257,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemsRequest($xMarketplace, $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0])
+    public function getItemsRequest(string $xMarketplace, GetItemsRequestContent $getItemsRequestContent, string $contentType = self::contentTypes['getItems'][0]): Request
     {
 
         // verify the required parameter 'xMarketplace' is set
@@ -1287,7 +1309,7 @@ class DefaultApi
         if (isset($getItemsRequestContent)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getItemsRequestContent));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getItemsRequestContent));
             } else {
                 $httpBody = $getItemsRequestContent;
             }
@@ -1307,7 +1329,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1348,7 +1370,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetReportResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent
      */
-    public function getReport($xMarketplace, $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0])
+    public function getReport(string $xMarketplace, GetReportRequestContent $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0]): mixed
     {
         list($response) = $this->getReportWithHttpInfo($xMarketplace, $getReportRequestContent, $contentType);
         return $response;
@@ -1365,7 +1387,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetReportResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportWithHttpInfo($xMarketplace, $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0])
+    public function getReportWithHttpInfo(string $xMarketplace, GetReportRequestContent $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0]): array
     {
         $request = $this->getReportRequest($xMarketplace, $getReportRequestContent, $contentType);
 
@@ -1532,7 +1554,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportAsync($xMarketplace, $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0])
+    public function getReportAsync(string $xMarketplace, GetReportRequestContent $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0]): PromiseInterface
     {
         return $this->getReportAsyncWithHttpInfo($xMarketplace, $getReportRequestContent, $contentType)
             ->then(
@@ -1552,7 +1574,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportAsyncWithHttpInfo($xMarketplace, $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0])
+    public function getReportAsyncWithHttpInfo(string $xMarketplace, GetReportRequestContent $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0]): PromiseInterface
     {
         $returnType = '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetReportResponseContent';
         $request = $this->getReportRequest($xMarketplace, $getReportRequestContent, $contentType);
@@ -1603,7 +1625,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReportRequest($xMarketplace, $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0])
+    public function getReportRequest(string $xMarketplace, GetReportRequestContent $getReportRequestContent, string $contentType = self::contentTypes['getReport'][0]): Request
     {
 
         // verify the required parameter 'xMarketplace' is set
@@ -1655,7 +1677,7 @@ class DefaultApi
         if (isset($getReportRequestContent)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getReportRequestContent));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getReportRequestContent));
             } else {
                 $httpBody = $getReportRequestContent;
             }
@@ -1675,7 +1697,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1716,7 +1738,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent
      */
-    public function getVariations($xMarketplace, $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0])
+    public function getVariations(string $xMarketplace, GetVariationsRequestContent $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0]): mixed
     {
         list($response) = $this->getVariationsWithHttpInfo($xMarketplace, $getVariationsRequestContent, $contentType);
         return $response;
@@ -1733,7 +1755,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVariationsWithHttpInfo($xMarketplace, $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0])
+    public function getVariationsWithHttpInfo(string $xMarketplace, GetVariationsRequestContent $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0]): array
     {
         $request = $this->getVariationsRequest($xMarketplace, $getVariationsRequestContent, $contentType);
 
@@ -1900,7 +1922,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVariationsAsync($xMarketplace, $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0])
+    public function getVariationsAsync(string $xMarketplace, GetVariationsRequestContent $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0]): PromiseInterface
     {
         return $this->getVariationsAsyncWithHttpInfo($xMarketplace, $getVariationsRequestContent, $contentType)
             ->then(
@@ -1920,7 +1942,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVariationsAsyncWithHttpInfo($xMarketplace, $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0])
+    public function getVariationsAsyncWithHttpInfo(string $xMarketplace, GetVariationsRequestContent $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0]): PromiseInterface
     {
         $returnType = '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsResponseContent';
         $request = $this->getVariationsRequest($xMarketplace, $getVariationsRequestContent, $contentType);
@@ -1971,7 +1993,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVariationsRequest($xMarketplace, $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0])
+    public function getVariationsRequest(string $xMarketplace, GetVariationsRequestContent $getVariationsRequestContent, string $contentType = self::contentTypes['getVariations'][0]): Request
     {
 
         // verify the required parameter 'xMarketplace' is set
@@ -2023,7 +2045,7 @@ class DefaultApi
         if (isset($getVariationsRequestContent)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getVariationsRequestContent));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($getVariationsRequestContent));
             } else {
                 $httpBody = $getVariationsRequestContent;
             }
@@ -2043,7 +2065,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2083,7 +2105,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ListFeedsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent
      */
-    public function listFeeds($xMarketplace, string $contentType = self::contentTypes['listFeeds'][0])
+    public function listFeeds(string $xMarketplace, string $contentType = self::contentTypes['listFeeds'][0]): mixed
     {
         list($response) = $this->listFeedsWithHttpInfo($xMarketplace, $contentType);
         return $response;
@@ -2099,7 +2121,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ListFeedsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFeedsWithHttpInfo($xMarketplace, string $contentType = self::contentTypes['listFeeds'][0])
+    public function listFeedsWithHttpInfo(string $xMarketplace, string $contentType = self::contentTypes['listFeeds'][0]): array
     {
         $request = $this->listFeedsRequest($xMarketplace, $contentType);
 
@@ -2265,7 +2287,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFeedsAsync($xMarketplace, string $contentType = self::contentTypes['listFeeds'][0])
+    public function listFeedsAsync(string $xMarketplace, string $contentType = self::contentTypes['listFeeds'][0]): PromiseInterface
     {
         return $this->listFeedsAsyncWithHttpInfo($xMarketplace, $contentType)
             ->then(
@@ -2284,7 +2306,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFeedsAsyncWithHttpInfo($xMarketplace, string $contentType = self::contentTypes['listFeeds'][0])
+    public function listFeedsAsyncWithHttpInfo(string $xMarketplace, string $contentType = self::contentTypes['listFeeds'][0]): PromiseInterface
     {
         $returnType = '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ListFeedsResponseContent';
         $request = $this->listFeedsRequest($xMarketplace, $contentType);
@@ -2334,7 +2356,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listFeedsRequest($xMarketplace, string $contentType = self::contentTypes['listFeeds'][0])
+    public function listFeedsRequest(string $xMarketplace, string $contentType = self::contentTypes['listFeeds'][0]): Request
     {
 
         // verify the required parameter 'xMarketplace' is set
@@ -2392,7 +2414,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2432,7 +2454,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ListReportsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent
      */
-    public function listReports($xMarketplace, string $contentType = self::contentTypes['listReports'][0])
+    public function listReports(string $xMarketplace, string $contentType = self::contentTypes['listReports'][0]): mixed
     {
         list($response) = $this->listReportsWithHttpInfo($xMarketplace, $contentType);
         return $response;
@@ -2448,7 +2470,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ListReportsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsWithHttpInfo($xMarketplace, string $contentType = self::contentTypes['listReports'][0])
+    public function listReportsWithHttpInfo(string $xMarketplace, string $contentType = self::contentTypes['listReports'][0]): array
     {
         $request = $this->listReportsRequest($xMarketplace, $contentType);
 
@@ -2614,7 +2636,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsAsync($xMarketplace, string $contentType = self::contentTypes['listReports'][0])
+    public function listReportsAsync(string $xMarketplace, string $contentType = self::contentTypes['listReports'][0]): PromiseInterface
     {
         return $this->listReportsAsyncWithHttpInfo($xMarketplace, $contentType)
             ->then(
@@ -2633,7 +2655,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsAsyncWithHttpInfo($xMarketplace, string $contentType = self::contentTypes['listReports'][0])
+    public function listReportsAsyncWithHttpInfo(string $xMarketplace, string $contentType = self::contentTypes['listReports'][0]): PromiseInterface
     {
         $returnType = '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ListReportsResponseContent';
         $request = $this->listReportsRequest($xMarketplace, $contentType);
@@ -2683,7 +2705,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsRequest($xMarketplace, string $contentType = self::contentTypes['listReports'][0])
+    public function listReportsRequest(string $xMarketplace, string $contentType = self::contentTypes['listReports'][0]): Request
     {
 
         // verify the required parameter 'xMarketplace' is set
@@ -2741,7 +2763,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2782,7 +2804,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchItemsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent
      */
-    public function searchItems($xMarketplace, $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0])
+    public function searchItems(string $xMarketplace, ?SearchItemsRequestContent $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0]): mixed
     {
         list($response) = $this->searchItemsWithHttpInfo($xMarketplace, $searchItemsRequestContent, $contentType);
         return $response;
@@ -2799,7 +2821,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchItemsResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\AccessDeniedExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ResourceNotFoundExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ThrottleExceptionResponseContent|\Amazon\CreatorsAPI\v1\com\amazon\creators\model\InternalServerExceptionResponseContent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchItemsWithHttpInfo($xMarketplace, $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0])
+    public function searchItemsWithHttpInfo(string $xMarketplace, ?SearchItemsRequestContent $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0]): array
     {
         $request = $this->searchItemsRequest($xMarketplace, $searchItemsRequestContent, $contentType);
 
@@ -2966,7 +2988,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchItemsAsync($xMarketplace, $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0])
+    public function searchItemsAsync(string $xMarketplace, ?SearchItemsRequestContent $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0]): PromiseInterface
     {
         return $this->searchItemsAsyncWithHttpInfo($xMarketplace, $searchItemsRequestContent, $contentType)
             ->then(
@@ -2986,7 +3008,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchItemsAsyncWithHttpInfo($xMarketplace, $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0])
+    public function searchItemsAsyncWithHttpInfo(string $xMarketplace, ?SearchItemsRequestContent $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0]): PromiseInterface
     {
         $returnType = '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchItemsResponseContent';
         $request = $this->searchItemsRequest($xMarketplace, $searchItemsRequestContent, $contentType);
@@ -3037,7 +3059,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchItemsRequest($xMarketplace, $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0])
+    public function searchItemsRequest(string $xMarketplace, ?SearchItemsRequestContent $searchItemsRequestContent = null, string $contentType = self::contentTypes['searchItems'][0]): Request
     {
 
         // verify the required parameter 'xMarketplace' is set
@@ -3083,7 +3105,7 @@ class DefaultApi
         if (isset($searchItemsRequestContent)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($searchItemsRequestContent));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($searchItemsRequestContent));
             } else {
                 $httpBody = $searchItemsRequestContent;
             }
@@ -3103,7 +3125,7 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -3139,7 +3161,7 @@ class DefaultApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

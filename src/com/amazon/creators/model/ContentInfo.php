@@ -87,7 +87,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPITypes()
+    public static function openAPITypes(): array
     {
         return self::$openAPITypes;
     }
@@ -97,7 +97,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function openAPIFormats()
+    public static function openAPIFormats(): array
     {
         return self::$openAPIFormats;
     }
@@ -197,7 +197,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap(): array
     {
         return self::$attributeMap;
     }
@@ -207,7 +207,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters()
+    public static function setters(): array
     {
         return self::$setters;
     }
@@ -217,7 +217,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters()
+    public static function getters(): array
     {
         return self::$getters;
     }
@@ -227,7 +227,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName(): string
     {
         return self::$openAPIModelName;
     }
@@ -263,7 +263,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -277,7 +277,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties(): array
     {
         $invalidProperties = [];
 
@@ -290,7 +290,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid(): bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -301,7 +301,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getEdition()
+    public function getEdition(): SingleStringValuedAttribute|null
     {
         return $this->container['edition'];
     }
@@ -313,7 +313,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setEdition($edition)
+    public function setEdition(?SingleStringValuedAttribute $edition): self
     {
         if (is_null($edition)) {
             throw new \InvalidArgumentException('non-nullable edition cannot be null');
@@ -328,7 +328,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Languages|null
      */
-    public function getLanguages()
+    public function getLanguages(): Languages|null
     {
         return $this->container['languages'];
     }
@@ -340,7 +340,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setLanguages($languages)
+    public function setLanguages(?Languages $languages): self
     {
         if (is_null($languages)) {
             throw new \InvalidArgumentException('non-nullable languages cannot be null');
@@ -355,7 +355,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleIntegerValuedAttribute|null
      */
-    public function getPagesCount()
+    public function getPagesCount(): SingleIntegerValuedAttribute|null
     {
         return $this->container['pagesCount'];
     }
@@ -367,7 +367,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPagesCount($pagesCount)
+    public function setPagesCount(?SingleIntegerValuedAttribute $pagesCount): self
     {
         if (is_null($pagesCount)) {
             throw new \InvalidArgumentException('non-nullable pagesCount cannot be null');
@@ -382,7 +382,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getPublicationDate()
+    public function getPublicationDate(): SingleStringValuedAttribute|null
     {
         return $this->container['publicationDate'];
     }
@@ -394,7 +394,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPublicationDate($publicationDate)
+    public function setPublicationDate(?SingleStringValuedAttribute $publicationDate): self
     {
         if (is_null($publicationDate)) {
             throw new \InvalidArgumentException('non-nullable publicationDate cannot be null');
@@ -410,7 +410,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return boolean
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -423,7 +423,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return $this->container[$offset] ?? null;
     }
@@ -436,7 +436,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -452,7 +452,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return void
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->container[$offset]);
     }
@@ -465,7 +465,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -475,7 +475,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -488,7 +488,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function toHeaderValue()
+    public function toHeaderValue(): string
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

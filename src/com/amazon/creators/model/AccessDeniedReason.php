@@ -16,6 +16,7 @@
 
 
 namespace Amazon\CreatorsAPI\v1\com\amazon\creators\model;
+
 use \Amazon\CreatorsAPI\v1\ObjectSerializer;
 
 /**
@@ -38,7 +39,7 @@ class AccessDeniedReason
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
         return [
             self::ASSOCIATE_NOT_ELIGIBLE,

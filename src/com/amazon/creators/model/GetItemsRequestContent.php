@@ -94,7 +94,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return array
      */
-    public static function openAPITypes()
+    public static function openAPITypes(): array
     {
         return self::$openAPITypes;
     }
@@ -104,7 +104,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return array
      */
-    public static function openAPIFormats()
+    public static function openAPIFormats(): array
     {
         return self::$openAPIFormats;
     }
@@ -213,7 +213,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap(): array
     {
         return self::$attributeMap;
     }
@@ -223,7 +223,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return array
      */
-    public static function setters()
+    public static function setters(): array
     {
         return self::$setters;
     }
@@ -233,7 +233,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return array
      */
-    public static function getters()
+    public static function getters(): array
     {
         return self::$getters;
     }
@@ -243,7 +243,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName(): string
     {
         return self::$openAPIModelName;
     }
@@ -282,7 +282,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
     * @param array  $fields
     * @param mixed  $defaultValue
     */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -296,7 +296,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties(): array
     {
         $invalidProperties = [];
 
@@ -351,7 +351,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid(): bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -362,7 +362,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return string
      */
-    public function getPartnerTag()
+    public function getPartnerTag(): string
     {
         return $this->container['partnerTag'];
     }
@@ -374,7 +374,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setPartnerTag($partnerTag)
+    public function setPartnerTag(string $partnerTag): self
     {
         if (is_null($partnerTag)) {
             throw new \InvalidArgumentException('non-nullable partnerTag cannot be null');
@@ -396,7 +396,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return string[]
      */
-    public function getItemIds()
+    public function getItemIds(): array
     {
         return $this->container['itemIds'];
     }
@@ -408,7 +408,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setItemIds($itemIds)
+    public function setItemIds(array $itemIds): self
     {
         if (is_null($itemIds)) {
             throw new \InvalidArgumentException('non-nullable itemIds cannot be null');
@@ -430,7 +430,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Condition|null
      */
-    public function getCondition()
+    public function getCondition(): Condition|null
     {
         return $this->container['condition'];
     }
@@ -442,7 +442,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setCondition($condition)
+    public function setCondition(?Condition $condition): self
     {
         if (is_null($condition)) {
             throw new \InvalidArgumentException('non-nullable condition cannot be null');
@@ -457,7 +457,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return string|null
      */
-    public function getCurrencyOfPreference()
+    public function getCurrencyOfPreference(): string|null
     {
         return $this->container['currencyOfPreference'];
     }
@@ -469,7 +469,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setCurrencyOfPreference($currencyOfPreference)
+    public function setCurrencyOfPreference(?string $currencyOfPreference): self
     {
         if (is_null($currencyOfPreference)) {
             throw new \InvalidArgumentException('non-nullable currencyOfPreference cannot be null');
@@ -491,7 +491,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return string[]|null
      */
-    public function getLanguagesOfPreference()
+    public function getLanguagesOfPreference(): array|null
     {
         return $this->container['languagesOfPreference'];
     }
@@ -503,7 +503,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setLanguagesOfPreference($languagesOfPreference)
+    public function setLanguagesOfPreference(?array $languagesOfPreference): self
     {
         if (is_null($languagesOfPreference)) {
             throw new \InvalidArgumentException('non-nullable languagesOfPreference cannot be null');
@@ -522,7 +522,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return array<string,string>|null
      */
-    public function getProperties()
+    public function getProperties(): array|null
     {
         return $this->container['properties'];
     }
@@ -534,7 +534,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setProperties($properties)
+    public function setProperties(?array $properties): self
     {
         if (is_null($properties)) {
             throw new \InvalidArgumentException('non-nullable properties cannot be null');
@@ -553,7 +553,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetItemsResource[]|null
      */
-    public function getResources()
+    public function getResources(): array|null
     {
         return $this->container['resources'];
     }
@@ -565,7 +565,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setResources($resources)
+    public function setResources(?array $resources): self
     {
         if (is_null($resources)) {
             throw new \InvalidArgumentException('non-nullable resources cannot be null');
@@ -585,7 +585,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return boolean
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -598,7 +598,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      * @return mixed|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return $this->container[$offset] ?? null;
     }
@@ -611,7 +611,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return void
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -627,7 +627,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return void
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->container[$offset]);
     }
@@ -640,7 +640,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      * of any type other than a resource.
      */
     #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
@@ -650,7 +650,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -663,7 +663,7 @@ class GetItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return string
      */
-    public function toHeaderValue()
+    public function toHeaderValue(): string
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }

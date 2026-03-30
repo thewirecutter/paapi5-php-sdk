@@ -55,7 +55,7 @@ class HeaderSelector
      *
      * @return null|string Accept (e.g. application/json)
      */
-    private function selectAcceptHeader(array $accept): ?string
+    private function selectAcceptHeader(array $accept): string|null
     {
         # filter out empty entries
         $accept = array_filter($accept);
