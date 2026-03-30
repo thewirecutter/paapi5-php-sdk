@@ -69,8 +69,8 @@ class OAuth2TokenManager
     /**
      * Gets a valid OAuth2 access token, refreshing if necessary
      *
-     * @return string A valid access token
      * @throws \Exception If token acquisition fails
+     * @return string A valid access token
      */
     public function getToken(): string
     {
@@ -96,8 +96,8 @@ class OAuth2TokenManager
     /**
      * Refreshes the OAuth2 access token using client credentials grant
      *
-     * @return string The new access token
      * @throws \Exception If token refresh fails
+     * @return string The new access token
      */
     private function refreshToken(): string
     {

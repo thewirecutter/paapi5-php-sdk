@@ -23,10 +23,10 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Amazon\CreatorsAPI\v1\Configuration;
+use Amazon\CreatorsAPI\v1\ApiException;
 use Amazon\CreatorsAPI\v1\com\amazon\creators\api\DefaultApi;
 use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetReportRequestContent;
-use Amazon\CreatorsAPI\v1\ApiException;
+use Amazon\CreatorsAPI\v1\Configuration;
 
 function getReport()
 {

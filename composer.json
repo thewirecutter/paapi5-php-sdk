@@ -46,7 +46,7 @@
         "test": "vendor/bin/phpunit",
         "phpcs": "vendor/bin/phpcs --standard=phpcs.xml.dist -n examples src",
         "phpcbf": "vendor/bin/phpcbf --standard=phpcs.xml.dist -n examples src",
-        "php-cs-fixer": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes --using-cache=no --config=.php_cs examples src/com/amazon/creators/auth/"
+        "php-cs-fixer": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes --using-cache=no --config=.php-cs-fixer.php examples src/com/amazon/creators/auth/"
     },
     "autoload": {
         "psr-4": { "Amazon\\CreatorsAPI\\v1\\" : "src/" }

@@ -136,8 +136,8 @@ class OAuth2Config
     /**
      * Gets the appropriate OAuth2 token endpoint based on the credential version
      *
-     * @return string Token endpoint URL
      * @throws \InvalidArgumentException If the version is not supported
+     * @return string Token endpoint URL
      */
     public function getTokenEndpoint(): string
     {
@@ -154,7 +154,7 @@ class OAuth2Config
                 return "https://creatorsapi.auth.eu-south-2.amazoncognito.com/oauth2/token";
             case "2.3":
                 return "https://creatorsapi.auth.us-west-2.amazoncognito.com/oauth2/token";
-            // LWA endpoints (v3.x)
+                // LWA endpoints (v3.x)
             case "3.1":
                 return "https://api.amazon.com/auth/o2/token";
             case "3.2":

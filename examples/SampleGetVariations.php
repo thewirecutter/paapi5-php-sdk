@@ -24,11 +24,11 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Amazon\CreatorsAPI\v1\Configuration;
+use Amazon\CreatorsAPI\v1\ApiException;
 use Amazon\CreatorsAPI\v1\com\amazon\creators\api\DefaultApi;
 use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsRequestContent;
 use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsResource;
-use Amazon\CreatorsAPI\v1\ApiException;
+use Amazon\CreatorsAPI\v1\Configuration;
 
 function getVariations()
 {
