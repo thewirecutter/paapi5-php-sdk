@@ -12,7 +12,7 @@ This repository contains the open source PHP SDK that allows you to access the [
 
 This is a near-identical public copy of [Amazon's provided Creators API PHP SDK](https://affiliate-program.amazon.com/creatorsapi), as their version is not available through Packagist. The Composer package name remains `thewirecutter/paapi5-php-sdk` for backwards compatibility with existing consumers.
 
-We have not changed the API in any way. A listing of our additions and changes are provided below.
+We have not changed the API behavior in any way. A listing of our additions and changes are provided below, which primarily enforce a code-sniff standard and support running an continuous integration pipeline.
 
 ### Changes from Amazon
 
