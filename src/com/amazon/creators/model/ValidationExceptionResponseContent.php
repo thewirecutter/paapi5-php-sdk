@@ -45,7 +45,7 @@ class ValidationExceptionResponseContent implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'type' => 'string',
         'message' => 'string',
-        'reason' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionReason',
+        'reason' => 'string',
         'fieldList' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionField[]'
     ];
 
@@ -359,9 +359,9 @@ class ValidationExceptionResponseContent implements ModelInterface, ArrayAccess,
     /**
      * Gets reason
      *
-     * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionReason
+     * @return string
      */
-    public function getReason(): ValidationExceptionReason
+    public function getReason(): string
     {
         return $this->container['reason'];
     }
@@ -369,11 +369,11 @@ class ValidationExceptionResponseContent implements ModelInterface, ArrayAccess,
     /**
      * Sets reason
      *
-     * @param \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ValidationExceptionReason $reason reason
+     * @param string $reason reason
      *
      * @return self
      */
-    public function setReason(ValidationExceptionReason $reason): self
+    public function setReason(string $reason): self
     {
         if (is_null($reason)) {
             throw new \InvalidArgumentException('non-nullable reason cannot be null');

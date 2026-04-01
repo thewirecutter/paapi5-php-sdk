@@ -45,7 +45,7 @@ class UnauthorizedExceptionResponseContent implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'type' => 'string',
         'message' => 'string',
-        'reason' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionReason'
+        'reason' => 'string'
     ];
 
     /**
@@ -349,9 +349,9 @@ class UnauthorizedExceptionResponseContent implements ModelInterface, ArrayAcces
     /**
      * Gets reason
      *
-     * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionReason
+     * @return string
      */
-    public function getReason(): UnauthorizedExceptionReason
+    public function getReason(): string
     {
         return $this->container['reason'];
     }
@@ -359,11 +359,11 @@ class UnauthorizedExceptionResponseContent implements ModelInterface, ArrayAcces
     /**
      * Sets reason
      *
-     * @param \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnauthorizedExceptionReason $reason reason
+     * @param string $reason reason
      *
      * @return self
      */
-    public function setReason(UnauthorizedExceptionReason $reason): self
+    public function setReason(string $reason): self
     {
         if (is_null($reason)) {
             throw new \InvalidArgumentException('non-nullable reason cannot be null');
