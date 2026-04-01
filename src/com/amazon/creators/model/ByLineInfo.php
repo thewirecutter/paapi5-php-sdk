@@ -294,7 +294,7 @@ class ByLineInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getBrand(): SingleStringValuedAttribute|null
+    public function getBrand(): mixed
     {
         return $this->container['brand'];
     }
@@ -306,7 +306,7 @@ class ByLineInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setBrand(?SingleStringValuedAttribute $brand): self
+    public function setBrand(mixed $brand): self
     {
         if (is_null($brand)) {
             throw new \InvalidArgumentException('non-nullable brand cannot be null');
@@ -348,7 +348,7 @@ class ByLineInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getManufacturer(): SingleStringValuedAttribute|null
+    public function getManufacturer(): mixed
     {
         return $this->container['manufacturer'];
     }
@@ -360,7 +360,7 @@ class ByLineInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setManufacturer(?SingleStringValuedAttribute $manufacturer): self
+    public function setManufacturer(mixed $manufacturer): self
     {
         if (is_null($manufacturer)) {
             throw new \InvalidArgumentException('non-nullable manufacturer cannot be null');

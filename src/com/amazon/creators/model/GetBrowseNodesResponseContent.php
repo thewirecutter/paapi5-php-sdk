@@ -287,7 +287,7 @@ class GetBrowseNodesResponseContent implements ModelInterface, ArrayAccess, \Jso
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\BrowseNodesResult|null
      */
-    public function getBrowseNodesResult(): BrowseNodesResult|null
+    public function getBrowseNodesResult(): mixed
     {
         return $this->container['browseNodesResult'];
     }
@@ -299,7 +299,7 @@ class GetBrowseNodesResponseContent implements ModelInterface, ArrayAccess, \Jso
      *
      * @return self
      */
-    public function setBrowseNodesResult(?BrowseNodesResult $browseNodesResult): self
+    public function setBrowseNodesResult(mixed $browseNodesResult): self
     {
         if (is_null($browseNodesResult)) {
             throw new \InvalidArgumentException('non-nullable browseNodesResult cannot be null');

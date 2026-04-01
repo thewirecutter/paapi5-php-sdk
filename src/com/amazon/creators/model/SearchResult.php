@@ -382,7 +382,7 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchRefinements|null
      */
-    public function getSearchRefinements(): SearchRefinements|null
+    public function getSearchRefinements(): mixed
     {
         return $this->container['searchRefinements'];
     }
@@ -394,7 +394,7 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setSearchRefinements(?SearchRefinements $searchRefinements): self
+    public function setSearchRefinements(mixed $searchRefinements): self
     {
         if (is_null($searchRefinements)) {
             throw new \InvalidArgumentException('non-nullable searchRefinements cannot be null');

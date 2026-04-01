@@ -301,7 +301,7 @@ class ImageType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ImageSize|null
      */
-    public function getSmall(): ImageSize|null
+    public function getSmall(): mixed
     {
         return $this->container['small'];
     }
@@ -313,7 +313,7 @@ class ImageType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setSmall(?ImageSize $small): self
+    public function setSmall(mixed $small): self
     {
         if (is_null($small)) {
             throw new \InvalidArgumentException('non-nullable small cannot be null');
@@ -328,7 +328,7 @@ class ImageType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ImageSize|null
      */
-    public function getMedium(): ImageSize|null
+    public function getMedium(): mixed
     {
         return $this->container['medium'];
     }
@@ -340,7 +340,7 @@ class ImageType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setMedium(?ImageSize $medium): self
+    public function setMedium(mixed $medium): self
     {
         if (is_null($medium)) {
             throw new \InvalidArgumentException('non-nullable medium cannot be null');
@@ -355,7 +355,7 @@ class ImageType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ImageSize|null
      */
-    public function getLarge(): ImageSize|null
+    public function getLarge(): mixed
     {
         return $this->container['large'];
     }
@@ -367,7 +367,7 @@ class ImageType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setLarge(?ImageSize $large): self
+    public function setLarge(mixed $large): self
     {
         if (is_null($large)) {
             throw new \InvalidArgumentException('non-nullable large cannot be null');
@@ -382,7 +382,7 @@ class ImageType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ImageSize|null
      */
-    public function getHiRes(): ImageSize|null
+    public function getHiRes(): mixed
     {
         return $this->container['hiRes'];
     }
@@ -394,7 +394,7 @@ class ImageType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setHiRes(?ImageSize $hiRes): self
+    public function setHiRes(mixed $hiRes): self
     {
         if (is_null($hiRes)) {
             throw new \InvalidArgumentException('non-nullable hiRes cannot be null');

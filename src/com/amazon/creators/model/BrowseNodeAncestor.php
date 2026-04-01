@@ -301,7 +301,7 @@ class BrowseNodeAncestor implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\BrowseNodeAncestor|null
      */
-    public function getAncestor(): BrowseNodeAncestor|null
+    public function getAncestor(): mixed
     {
         return $this->container['ancestor'];
     }
@@ -313,7 +313,7 @@ class BrowseNodeAncestor implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @return self
      */
-    public function setAncestor(?BrowseNodeAncestor $ancestor): self
+    public function setAncestor(mixed $ancestor): self
     {
         if (is_null($ancestor)) {
             throw new \InvalidArgumentException('non-nullable ancestor cannot be null');

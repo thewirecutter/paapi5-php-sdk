@@ -314,7 +314,7 @@ class TradeInInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\TradeInPrice|null
      */
-    public function getPrice(): TradeInPrice|null
+    public function getPrice(): mixed
     {
         return $this->container['price'];
     }
@@ -326,7 +326,7 @@ class TradeInInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPrice(?TradeInPrice $price): self
+    public function setPrice(mixed $price): self
     {
         if (is_null($price)) {
             throw new \InvalidArgumentException('non-nullable price cannot be null');

@@ -350,7 +350,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ByLineInfo|null
      */
-    public function getByLineInfo(): ByLineInfo|null
+    public function getByLineInfo(): mixed
     {
         return $this->container['byLineInfo'];
     }
@@ -362,7 +362,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setByLineInfo(?ByLineInfo $byLineInfo): self
+    public function setByLineInfo(mixed $byLineInfo): self
     {
         if (is_null($byLineInfo)) {
             throw new \InvalidArgumentException('non-nullable byLineInfo cannot be null');
@@ -377,7 +377,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Classifications|null
      */
-    public function getClassifications(): Classifications|null
+    public function getClassifications(): mixed
     {
         return $this->container['classifications'];
     }
@@ -389,7 +389,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setClassifications(?Classifications $classifications): self
+    public function setClassifications(mixed $classifications): self
     {
         if (is_null($classifications)) {
             throw new \InvalidArgumentException('non-nullable classifications cannot be null');
@@ -404,7 +404,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ContentInfo|null
      */
-    public function getContentInfo(): ContentInfo|null
+    public function getContentInfo(): mixed
     {
         return $this->container['contentInfo'];
     }
@@ -416,7 +416,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setContentInfo(?ContentInfo $contentInfo): self
+    public function setContentInfo(mixed $contentInfo): self
     {
         if (is_null($contentInfo)) {
             throw new \InvalidArgumentException('non-nullable contentInfo cannot be null');
@@ -431,7 +431,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ContentRating|null
      */
-    public function getContentRating(): ContentRating|null
+    public function getContentRating(): mixed
     {
         return $this->container['contentRating'];
     }
@@ -443,7 +443,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setContentRating(?ContentRating $contentRating): self
+    public function setContentRating(mixed $contentRating): self
     {
         if (is_null($contentRating)) {
             throw new \InvalidArgumentException('non-nullable contentRating cannot be null');
@@ -458,7 +458,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ExternalIds|null
      */
-    public function getExternalIds(): ExternalIds|null
+    public function getExternalIds(): mixed
     {
         return $this->container['externalIds'];
     }
@@ -470,7 +470,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setExternalIds(?ExternalIds $externalIds): self
+    public function setExternalIds(mixed $externalIds): self
     {
         if (is_null($externalIds)) {
             throw new \InvalidArgumentException('non-nullable externalIds cannot be null');
@@ -485,7 +485,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\MultiValuedAttribute|null
      */
-    public function getFeatures(): MultiValuedAttribute|null
+    public function getFeatures(): mixed
     {
         return $this->container['features'];
     }
@@ -497,7 +497,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setFeatures(?MultiValuedAttribute $features): self
+    public function setFeatures(mixed $features): self
     {
         if (is_null($features)) {
             throw new \InvalidArgumentException('non-nullable features cannot be null');
@@ -512,7 +512,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ManufactureInfo|null
      */
-    public function getManufactureInfo(): ManufactureInfo|null
+    public function getManufactureInfo(): mixed
     {
         return $this->container['manufactureInfo'];
     }
@@ -524,7 +524,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setManufactureInfo(?ManufactureInfo $manufactureInfo): self
+    public function setManufactureInfo(mixed $manufactureInfo): self
     {
         if (is_null($manufactureInfo)) {
             throw new \InvalidArgumentException('non-nullable manufactureInfo cannot be null');
@@ -539,7 +539,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ProductInfo|null
      */
-    public function getProductInfo(): ProductInfo|null
+    public function getProductInfo(): mixed
     {
         return $this->container['productInfo'];
     }
@@ -551,7 +551,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setProductInfo(?ProductInfo $productInfo): self
+    public function setProductInfo(mixed $productInfo): self
     {
         if (is_null($productInfo)) {
             throw new \InvalidArgumentException('non-nullable productInfo cannot be null');
@@ -566,7 +566,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\TechnicalInfo|null
      */
-    public function getTechnicalInfo(): TechnicalInfo|null
+    public function getTechnicalInfo(): mixed
     {
         return $this->container['technicalInfo'];
     }
@@ -578,7 +578,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setTechnicalInfo(?TechnicalInfo $technicalInfo): self
+    public function setTechnicalInfo(mixed $technicalInfo): self
     {
         if (is_null($technicalInfo)) {
             throw new \InvalidArgumentException('non-nullable technicalInfo cannot be null');
@@ -593,7 +593,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getTitle(): SingleStringValuedAttribute|null
+    public function getTitle(): mixed
     {
         return $this->container['title'];
     }
@@ -605,7 +605,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setTitle(?SingleStringValuedAttribute $title): self
+    public function setTitle(mixed $title): self
     {
         if (is_null($title)) {
             throw new \InvalidArgumentException('non-nullable title cannot be null');
@@ -620,7 +620,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\TradeInInfo|null
      */
-    public function getTradeInInfo(): TradeInInfo|null
+    public function getTradeInInfo(): mixed
     {
         return $this->container['tradeInInfo'];
     }
@@ -632,7 +632,7 @@ class ItemInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setTradeInInfo(?TradeInInfo $tradeInInfo): self
+    public function setTradeInInfo(mixed $tradeInInfo): self
     {
         if (is_null($tradeInInfo)) {
             throw new \InvalidArgumentException('non-nullable tradeInInfo cannot be null');

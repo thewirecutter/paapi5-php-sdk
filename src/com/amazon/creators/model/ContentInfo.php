@@ -301,7 +301,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getEdition(): SingleStringValuedAttribute|null
+    public function getEdition(): mixed
     {
         return $this->container['edition'];
     }
@@ -313,7 +313,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setEdition(?SingleStringValuedAttribute $edition): self
+    public function setEdition(mixed $edition): self
     {
         if (is_null($edition)) {
             throw new \InvalidArgumentException('non-nullable edition cannot be null');
@@ -328,7 +328,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Languages|null
      */
-    public function getLanguages(): Languages|null
+    public function getLanguages(): mixed
     {
         return $this->container['languages'];
     }
@@ -340,7 +340,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setLanguages(?Languages $languages): self
+    public function setLanguages(mixed $languages): self
     {
         if (is_null($languages)) {
             throw new \InvalidArgumentException('non-nullable languages cannot be null');
@@ -355,7 +355,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleIntegerValuedAttribute|null
      */
-    public function getPagesCount(): SingleIntegerValuedAttribute|null
+    public function getPagesCount(): mixed
     {
         return $this->container['pagesCount'];
     }
@@ -367,7 +367,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPagesCount(?SingleIntegerValuedAttribute $pagesCount): self
+    public function setPagesCount(mixed $pagesCount): self
     {
         if (is_null($pagesCount)) {
             throw new \InvalidArgumentException('non-nullable pagesCount cannot be null');
@@ -382,7 +382,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getPublicationDate(): SingleStringValuedAttribute|null
+    public function getPublicationDate(): mixed
     {
         return $this->container['publicationDate'];
     }
@@ -394,7 +394,7 @@ class ContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPublicationDate(?SingleStringValuedAttribute $publicationDate): self
+    public function setPublicationDate(mixed $publicationDate): self
     {
         if (is_null($publicationDate)) {
             throw new \InvalidArgumentException('non-nullable publicationDate cannot be null');

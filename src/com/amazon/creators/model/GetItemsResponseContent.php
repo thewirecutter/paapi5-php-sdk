@@ -287,7 +287,7 @@ class GetItemsResponseContent implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ItemsResult|null
      */
-    public function getItemsResult(): ItemsResult|null
+    public function getItemsResult(): mixed
     {
         return $this->container['itemsResult'];
     }
@@ -299,7 +299,7 @@ class GetItemsResponseContent implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setItemsResult(?ItemsResult $itemsResult): self
+    public function setItemsResult(mixed $itemsResult): self
     {
         if (is_null($itemsResult)) {
             throw new \InvalidArgumentException('non-nullable itemsResult cannot be null');

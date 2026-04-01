@@ -315,7 +315,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getColor(): SingleStringValuedAttribute|null
+    public function getColor(): mixed
     {
         return $this->container['color'];
     }
@@ -327,7 +327,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setColor(?SingleStringValuedAttribute $color): self
+    public function setColor(mixed $color): self
     {
         if (is_null($color)) {
             throw new \InvalidArgumentException('non-nullable color cannot be null');
@@ -342,7 +342,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleBooleanValuedAttribute|null
      */
-    public function getIsAdultProduct(): SingleBooleanValuedAttribute|null
+    public function getIsAdultProduct(): mixed
     {
         return $this->container['isAdultProduct'];
     }
@@ -354,7 +354,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setIsAdultProduct(?SingleBooleanValuedAttribute $isAdultProduct): self
+    public function setIsAdultProduct(mixed $isAdultProduct): self
     {
         if (is_null($isAdultProduct)) {
             throw new \InvalidArgumentException('non-nullable isAdultProduct cannot be null');
@@ -369,7 +369,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\DimensionBasedAttribute|null
      */
-    public function getItemDimensions(): DimensionBasedAttribute|null
+    public function getItemDimensions(): mixed
     {
         return $this->container['itemDimensions'];
     }
@@ -381,7 +381,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setItemDimensions(?DimensionBasedAttribute $itemDimensions): self
+    public function setItemDimensions(mixed $itemDimensions): self
     {
         if (is_null($itemDimensions)) {
             throw new \InvalidArgumentException('non-nullable itemDimensions cannot be null');
@@ -396,7 +396,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getReleaseDate(): SingleStringValuedAttribute|null
+    public function getReleaseDate(): mixed
     {
         return $this->container['releaseDate'];
     }
@@ -408,7 +408,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setReleaseDate(?SingleStringValuedAttribute $releaseDate): self
+    public function setReleaseDate(mixed $releaseDate): self
     {
         if (is_null($releaseDate)) {
             throw new \InvalidArgumentException('non-nullable releaseDate cannot be null');
@@ -423,7 +423,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getSize(): SingleStringValuedAttribute|null
+    public function getSize(): mixed
     {
         return $this->container['size'];
     }
@@ -435,7 +435,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setSize(?SingleStringValuedAttribute $size): self
+    public function setSize(mixed $size): self
     {
         if (is_null($size)) {
             throw new \InvalidArgumentException('non-nullable size cannot be null');
@@ -450,7 +450,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleIntegerValuedAttribute|null
      */
-    public function getUnitCount(): SingleIntegerValuedAttribute|null
+    public function getUnitCount(): mixed
     {
         return $this->container['unitCount'];
     }
@@ -462,7 +462,7 @@ class ProductInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setUnitCount(?SingleIntegerValuedAttribute $unitCount): self
+    public function setUnitCount(mixed $unitCount): self
     {
         if (is_null($unitCount)) {
             throw new \InvalidArgumentException('non-nullable unitCount cannot be null');

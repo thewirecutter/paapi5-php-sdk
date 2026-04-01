@@ -301,7 +301,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnitBasedAttribute|null
      */
-    public function getHeight(): UnitBasedAttribute|null
+    public function getHeight(): mixed
     {
         return $this->container['height'];
     }
@@ -313,7 +313,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setHeight(?UnitBasedAttribute $height): self
+    public function setHeight(mixed $height): self
     {
         if (is_null($height)) {
             throw new \InvalidArgumentException('non-nullable height cannot be null');
@@ -328,7 +328,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnitBasedAttribute|null
      */
-    public function getLength(): UnitBasedAttribute|null
+    public function getLength(): mixed
     {
         return $this->container['length'];
     }
@@ -340,7 +340,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setLength(?UnitBasedAttribute $length): self
+    public function setLength(mixed $length): self
     {
         if (is_null($length)) {
             throw new \InvalidArgumentException('non-nullable length cannot be null');
@@ -355,7 +355,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnitBasedAttribute|null
      */
-    public function getWeight(): UnitBasedAttribute|null
+    public function getWeight(): mixed
     {
         return $this->container['weight'];
     }
@@ -367,7 +367,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setWeight(?UnitBasedAttribute $weight): self
+    public function setWeight(mixed $weight): self
     {
         if (is_null($weight)) {
             throw new \InvalidArgumentException('non-nullable weight cannot be null');
@@ -382,7 +382,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\UnitBasedAttribute|null
      */
-    public function getWidth(): UnitBasedAttribute|null
+    public function getWidth(): mixed
     {
         return $this->container['width'];
     }
@@ -394,7 +394,7 @@ class DimensionBasedAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setWidth(?UnitBasedAttribute $width): self
+    public function setWidth(mixed $width): self
     {
         if (is_null($width)) {
             throw new \InvalidArgumentException('non-nullable width cannot be null');

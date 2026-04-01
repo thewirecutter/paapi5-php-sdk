@@ -287,7 +287,7 @@ class OfferSavings implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Money|null
      */
-    public function getMoney(): Money|null
+    public function getMoney(): mixed
     {
         return $this->container['money'];
     }
@@ -299,7 +299,7 @@ class OfferSavings implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setMoney(?Money $money): self
+    public function setMoney(mixed $money): self
     {
         if (is_null($money)) {
             throw new \InvalidArgumentException('non-nullable money cannot be null');

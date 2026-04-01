@@ -287,7 +287,7 @@ class Classifications implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getBinding(): SingleStringValuedAttribute|null
+    public function getBinding(): mixed
     {
         return $this->container['binding'];
     }
@@ -299,7 +299,7 @@ class Classifications implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setBinding(?SingleStringValuedAttribute $binding): self
+    public function setBinding(mixed $binding): self
     {
         if (is_null($binding)) {
             throw new \InvalidArgumentException('non-nullable binding cannot be null');
@@ -314,7 +314,7 @@ class Classifications implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getProductGroup(): SingleStringValuedAttribute|null
+    public function getProductGroup(): mixed
     {
         return $this->container['productGroup'];
     }
@@ -326,7 +326,7 @@ class Classifications implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setProductGroup(?SingleStringValuedAttribute $productGroup): self
+    public function setProductGroup(mixed $productGroup): self
     {
         if (is_null($productGroup)) {
             throw new \InvalidArgumentException('non-nullable productGroup cannot be null');

@@ -301,7 +301,7 @@ class OfferPriceV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Money|null
      */
-    public function getMoney(): Money|null
+    public function getMoney(): mixed
     {
         return $this->container['money'];
     }
@@ -313,7 +313,7 @@ class OfferPriceV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setMoney(?Money $money): self
+    public function setMoney(mixed $money): self
     {
         if (is_null($money)) {
             throw new \InvalidArgumentException('non-nullable money cannot be null');
@@ -328,7 +328,7 @@ class OfferPriceV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Money|null
      */
-    public function getPricePerUnit(): Money|null
+    public function getPricePerUnit(): mixed
     {
         return $this->container['pricePerUnit'];
     }
@@ -340,7 +340,7 @@ class OfferPriceV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPricePerUnit(?Money $pricePerUnit): self
+    public function setPricePerUnit(mixed $pricePerUnit): self
     {
         if (is_null($pricePerUnit)) {
             throw new \InvalidArgumentException('non-nullable pricePerUnit cannot be null');
@@ -355,7 +355,7 @@ class OfferPriceV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferSavings|null
      */
-    public function getSavings(): OfferSavings|null
+    public function getSavings(): mixed
     {
         return $this->container['savings'];
     }
@@ -367,7 +367,7 @@ class OfferPriceV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setSavings(?OfferSavings $savings): self
+    public function setSavings(mixed $savings): self
     {
         if (is_null($savings)) {
             throw new \InvalidArgumentException('non-nullable savings cannot be null');
@@ -382,7 +382,7 @@ class OfferPriceV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferSavingBasis|null
      */
-    public function getSavingBasis(): OfferSavingBasis|null
+    public function getSavingBasis(): mixed
     {
         return $this->container['savingBasis'];
     }
@@ -394,7 +394,7 @@ class OfferPriceV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setSavingBasis(?OfferSavingBasis $savingBasis): self
+    public function setSavingBasis(mixed $savingBasis): self
     {
         if (is_null($savingBasis)) {
             throw new \InvalidArgumentException('non-nullable savingBasis cannot be null');

@@ -34,18 +34,18 @@ function searchItems()
 {
     // Initialize configuration with credential details
     $config = new Configuration();
-    $config->setCredentialId("<YOUR CREDENTIAL ID>");
-    $config->setCredentialSecret("<YOUR CREDENTIAL SECRET>");
-    $config->setVersion("<YOUR CREDENTIAL VERSION>");
-    
+    $config->setCredentialId(getenv('CREATORS_API_CREDENTIAL_ID') ?: '<YOUR CREDENTIAL ID>');
+    $config->setCredentialSecret(getenv('CREATORS_API_CREDENTIAL_SECRET') ?: '<YOUR CREDENTIAL SECRET>');
+    $config->setVersion(getenv('CREATORS_API_CREDENTIAL_VERSION') ?: '<YOUR CREDENTIAL VERSION>');
+
     // Initialize API
     $api = new DefaultApi(null, $config);
-    
+
     /**
      * Add marketplace. For more details, refer: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/common-request-headers-and-parameters#marketplace-locale-reference
      */
-    $marketplace = "<YOUR MARKETPLACE>";
-    
+    $marketplace = getenv('CREATORS_API_MARKETPLACE') ?: '<YOUR MARKETPLACE>';
+
     /**
      * Choose resources you want from SearchItemsResource enum
      * For more details, refer: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/operations/search-items#resources-parameter
@@ -62,10 +62,10 @@ function searchItems()
         SearchItemsResource::OFFERS_V2_LISTINGS_PRICE,
         SearchItemsResource::OFFERS_V2_LISTINGS_TYPE
     ];
-    
+
     // Create SearchItems request
     $searchItemsRequest = new SearchItemsRequestContent();
-    $searchItemsRequest->setPartnerTag("<YOUR PARTNER TAG>");
+    $searchItemsRequest->setPartnerTag(getenv('CREATORS_API_PARTNER_TAG') ?: '<YOUR PARTNER TAG>');
     $searchItemsRequest->setKeywords("Harry Potter");
     $searchItemsRequest->setSearchIndex("Books");
     $searchItemsRequest->setItemCount(2);

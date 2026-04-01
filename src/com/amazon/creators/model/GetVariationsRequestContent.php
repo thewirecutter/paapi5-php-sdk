@@ -452,7 +452,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Condition|null
      */
-    public function getCondition(): Condition|null
+    public function getCondition(): mixed
     {
         return $this->container['condition'];
     }
@@ -464,7 +464,7 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
      *
      * @return self
      */
-    public function setCondition(?Condition $condition): self
+    public function setCondition(mixed $condition): self
     {
         if (is_null($condition)) {
             throw new \InvalidArgumentException('non-nullable condition cannot be null');

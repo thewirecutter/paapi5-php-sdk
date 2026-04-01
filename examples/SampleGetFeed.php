@@ -32,22 +32,22 @@ function getFeed()
 {
     // Initialize configuration with credential details
     $config = new Configuration();
-    $config->setCredentialId("<YOUR CREDENTIAL ID>");
-    $config->setCredentialSecret("<YOUR CREDENTIAL SECRET>");
-    $config->setVersion("<YOUR CREDENTIAL VERSION>");
-    
+    $config->setCredentialId(getenv('CREATORS_API_CREDENTIAL_ID') ?: '<YOUR CREDENTIAL ID>');
+    $config->setCredentialSecret(getenv('CREATORS_API_CREDENTIAL_SECRET') ?: '<YOUR CREDENTIAL SECRET>');
+    $config->setVersion(getenv('CREATORS_API_CREDENTIAL_VERSION') ?: '<YOUR CREDENTIAL VERSION>');
+
     // Initialize API
     $api = new DefaultApi(null, $config);
-    
+
     /**
      * Add marketplace. For more details, refer: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/common-request-headers-and-parameters#marketplace-locale-reference
      */
-    $marketplace = "<YOUR MARKETPLACE>";
-    
+    $marketplace = getenv('CREATORS_API_MARKETPLACE') ?: '<YOUR MARKETPLACE>';
+
     // Create GetFeed request
     // Add Feed name (can be found from ListFeeds API response)
     $getFeedRequest = new GetFeedRequestContent();
-    $getFeedRequest->setFeedName("<YOUR FILENAME>");
+    $getFeedRequest->setFeedName(getenv('CREATORS_API_FEED_NAME') ?: '<YOUR FILENAME>');
     
     try {
         // Call the GetFeed API

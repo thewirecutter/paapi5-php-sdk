@@ -314,7 +314,7 @@ class CustomerReviews implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Rating|null
      */
-    public function getStarRating(): Rating|null
+    public function getStarRating(): mixed
     {
         return $this->container['starRating'];
     }
@@ -326,7 +326,7 @@ class CustomerReviews implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setStarRating(?Rating $starRating): self
+    public function setStarRating(mixed $starRating): self
     {
         if (is_null($starRating)) {
             throw new \InvalidArgumentException('non-nullable starRating cannot be null');

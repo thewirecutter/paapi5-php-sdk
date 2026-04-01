@@ -280,7 +280,7 @@ class ContentRating implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getAudienceRating(): SingleStringValuedAttribute|null
+    public function getAudienceRating(): mixed
     {
         return $this->container['audienceRating'];
     }
@@ -292,7 +292,7 @@ class ContentRating implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAudienceRating(?SingleStringValuedAttribute $audienceRating): self
+    public function setAudienceRating(mixed $audienceRating): self
     {
         if (is_null($audienceRating)) {
             throw new \InvalidArgumentException('non-nullable audienceRating cannot be null');

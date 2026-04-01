@@ -672,7 +672,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Availability|null
      */
-    public function getAvailability(): Availability|null
+    public function getAvailability(): mixed
     {
         return $this->container['availability'];
     }
@@ -684,7 +684,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setAvailability(?Availability $availability): self
+    public function setAvailability(mixed $availability): self
     {
         if (is_null($availability)) {
             throw new \InvalidArgumentException('non-nullable availability cannot be null');
@@ -767,7 +767,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Condition|null
      */
-    public function getCondition(): Condition|null
+    public function getCondition(): mixed
     {
         return $this->container['condition'];
     }
@@ -779,7 +779,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setCondition(?Condition $condition): self
+    public function setCondition(mixed $condition): self
     {
         if (is_null($condition)) {
             throw new \InvalidArgumentException('non-nullable condition cannot be null');
@@ -1258,7 +1258,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SortBy|null
      */
-    public function getSortBy(): SortBy|null
+    public function getSortBy(): mixed
     {
         return $this->container['sortBy'];
     }
@@ -1270,7 +1270,7 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @return self
      */
-    public function setSortBy(?SortBy $sortBy): self
+    public function setSortBy(mixed $sortBy): self
     {
         if (is_null($sortBy)) {
             throw new \InvalidArgumentException('non-nullable sortBy cannot be null');

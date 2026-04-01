@@ -314,7 +314,7 @@ class VariationsResult implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\VariationSummary|null
      */
-    public function getVariationSummary(): VariationSummary|null
+    public function getVariationSummary(): mixed
     {
         return $this->container['variationSummary'];
     }
@@ -326,7 +326,7 @@ class VariationsResult implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setVariationSummary(?VariationSummary $variationSummary): self
+    public function setVariationSummary(mixed $variationSummary): self
     {
         if (is_null($variationSummary)) {
             throw new \InvalidArgumentException('non-nullable variationSummary cannot be null');

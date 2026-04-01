@@ -287,7 +287,7 @@ class GetVariationsResponseContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\VariationsResult|null
      */
-    public function getVariationsResult(): VariationsResult|null
+    public function getVariationsResult(): mixed
     {
         return $this->container['variationsResult'];
     }
@@ -299,7 +299,7 @@ class GetVariationsResponseContent implements ModelInterface, ArrayAccess, \Json
      *
      * @return self
      */
-    public function setVariationsResult(?VariationsResult $variationsResult): self
+    public function setVariationsResult(mixed $variationsResult): self
     {
         if (is_null($variationsResult)) {
             throw new \InvalidArgumentException('non-nullable variationsResult cannot be null');

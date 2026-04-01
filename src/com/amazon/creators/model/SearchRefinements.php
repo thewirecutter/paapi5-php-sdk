@@ -294,7 +294,7 @@ class SearchRefinements implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Refinement|null
      */
-    public function getBrowseNode(): Refinement|null
+    public function getBrowseNode(): mixed
     {
         return $this->container['browseNode'];
     }
@@ -306,7 +306,7 @@ class SearchRefinements implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return self
      */
-    public function setBrowseNode(?Refinement $browseNode): self
+    public function setBrowseNode(mixed $browseNode): self
     {
         if (is_null($browseNode)) {
             throw new \InvalidArgumentException('non-nullable browseNode cannot be null');
@@ -348,7 +348,7 @@ class SearchRefinements implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Refinement|null
      */
-    public function getSearchIndex(): Refinement|null
+    public function getSearchIndex(): mixed
     {
         return $this->container['searchIndex'];
     }
@@ -360,7 +360,7 @@ class SearchRefinements implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return self
      */
-    public function setSearchIndex(?Refinement $searchIndex): self
+    public function setSearchIndex(mixed $searchIndex): self
     {
         if (is_null($searchIndex)) {
             throw new \InvalidArgumentException('non-nullable searchIndex cannot be null');

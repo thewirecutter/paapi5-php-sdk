@@ -294,7 +294,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getItemPartNumber(): SingleStringValuedAttribute|null
+    public function getItemPartNumber(): mixed
     {
         return $this->container['itemPartNumber'];
     }
@@ -306,7 +306,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setItemPartNumber(?SingleStringValuedAttribute $itemPartNumber): self
+    public function setItemPartNumber(mixed $itemPartNumber): self
     {
         if (is_null($itemPartNumber)) {
             throw new \InvalidArgumentException('non-nullable itemPartNumber cannot be null');
@@ -321,7 +321,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getModel(): SingleStringValuedAttribute|null
+    public function getModel(): mixed
     {
         return $this->container['model'];
     }
@@ -333,7 +333,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setModel(?SingleStringValuedAttribute $model): self
+    public function setModel(mixed $model): self
     {
         if (is_null($model)) {
             throw new \InvalidArgumentException('non-nullable model cannot be null');
@@ -348,7 +348,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getWarranty(): SingleStringValuedAttribute|null
+    public function getWarranty(): mixed
     {
         return $this->container['warranty'];
     }
@@ -360,7 +360,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setWarranty(?SingleStringValuedAttribute $warranty): self
+    public function setWarranty(mixed $warranty): self
     {
         if (is_null($warranty)) {
             throw new \InvalidArgumentException('non-nullable warranty cannot be null');

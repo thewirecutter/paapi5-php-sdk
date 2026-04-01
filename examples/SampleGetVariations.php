@@ -34,18 +34,18 @@ function getVariations()
 {
     // Initialize configuration with credential details
     $config = new Configuration();
-    $config->setCredentialId("<YOUR CREDENTIAL ID>");
-    $config->setCredentialSecret("<YOUR CREDENTIAL SECRET>");
-    $config->setVersion("<YOUR CREDENTIAL VERSION>");
-    
+    $config->setCredentialId(getenv('CREATORS_API_CREDENTIAL_ID') ?: '<YOUR CREDENTIAL ID>');
+    $config->setCredentialSecret(getenv('CREATORS_API_CREDENTIAL_SECRET') ?: '<YOUR CREDENTIAL SECRET>');
+    $config->setVersion(getenv('CREATORS_API_CREDENTIAL_VERSION') ?: '<YOUR CREDENTIAL VERSION>');
+
     // Initialize API
     $api = new DefaultApi(null, $config);
-    
+
     /**
      * Add marketplace. For more details, refer: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/common-request-headers-and-parameters#marketplace-locale-reference
      */
-    $marketplace = "<YOUR MARKETPLACE>";
-    
+    $marketplace = getenv('CREATORS_API_MARKETPLACE') ?: '<YOUR MARKETPLACE>';
+
     /**
      * Choose resources you want from GetVariationsResource enum
      * For more details, refer: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/operations/get-variations#resources-parameter
@@ -63,10 +63,10 @@ function getVariations()
         GetVariationsResource::OFFERS_V2_LISTINGS_TYPE,
         GetVariationsResource::VARIATION_SUMMARY_VARIATION_DIMENSION
     ];
-    
+
     // Create GetVariations request
     $getVariationsRequest = new GetVariationsRequestContent();
-    $getVariationsRequest->setPartnerTag("<YOUR PARTNER TAG>");
+    $getVariationsRequest->setPartnerTag(getenv('CREATORS_API_PARTNER_TAG') ?: '<YOUR PARTNER TAG>');
     $getVariationsRequest->setAsin("B0DLFMFBJW");
     $getVariationsRequest->setResources($resources);
     

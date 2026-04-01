@@ -43,7 +43,8 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
+        "test": "vendor/bin/phpunit --testsuite api",
+        "test:integration": "vendor/bin/phpunit --configuration phpunit.integration.xml",
         "phpcs": "vendor/bin/phpcs --standard=phpcs.xml.dist -n examples src",
         "phpcbf": "vendor/bin/phpcbf --standard=phpcs.xml.dist -n examples src",
         "php-cs-fixer": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes --using-cache=no --config=.php-cs-fixer.php examples src/com/amazon/creators/auth/"

@@ -294,7 +294,7 @@ class ExternalIds implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\MultiValuedAttribute|null
      */
-    public function getEans(): MultiValuedAttribute|null
+    public function getEans(): mixed
     {
         return $this->container['eans'];
     }
@@ -306,7 +306,7 @@ class ExternalIds implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setEans(?MultiValuedAttribute $eans): self
+    public function setEans(mixed $eans): self
     {
         if (is_null($eans)) {
             throw new \InvalidArgumentException('non-nullable eans cannot be null');
@@ -321,7 +321,7 @@ class ExternalIds implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\MultiValuedAttribute|null
      */
-    public function getIsbns(): MultiValuedAttribute|null
+    public function getIsbns(): mixed
     {
         return $this->container['isbns'];
     }
@@ -333,7 +333,7 @@ class ExternalIds implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setIsbns(?MultiValuedAttribute $isbns): self
+    public function setIsbns(mixed $isbns): self
     {
         if (is_null($isbns)) {
             throw new \InvalidArgumentException('non-nullable isbns cannot be null');
@@ -348,7 +348,7 @@ class ExternalIds implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\MultiValuedAttribute|null
      */
-    public function getUpcs(): MultiValuedAttribute|null
+    public function getUpcs(): mixed
     {
         return $this->container['upcs'];
     }
@@ -360,7 +360,7 @@ class ExternalIds implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setUpcs(?MultiValuedAttribute $upcs): self
+    public function setUpcs(mixed $upcs): self
     {
         if (is_null($upcs)) {
             throw new \InvalidArgumentException('non-nullable upcs cannot be null');

@@ -34,18 +34,18 @@ function getBrowseNodes()
 {
     // Initialize configuration with credential details
     $config = new Configuration();
-    $config->setCredentialId("<YOUR CREDENTIAL ID>");
-    $config->setCredentialSecret("<YOUR CREDENTIAL SECRET>");
-    $config->setVersion("<YOUR CREDENTIAL VERSION>");
-    
+    $config->setCredentialId(getenv('CREATORS_API_CREDENTIAL_ID') ?: '<YOUR CREDENTIAL ID>');
+    $config->setCredentialSecret(getenv('CREATORS_API_CREDENTIAL_SECRET') ?: '<YOUR CREDENTIAL SECRET>');
+    $config->setVersion(getenv('CREATORS_API_CREDENTIAL_VERSION') ?: '<YOUR CREDENTIAL VERSION>');
+
     // Initialize API
     $api = new DefaultApi(null, $config);
-    
+
     /**
      * Add marketplace. For more details, refer: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/common-request-headers-and-parameters#marketplace-locale-reference
      */
-    $marketplace = "<YOUR MARKETPLACE>";
-    
+    $marketplace = getenv('CREATORS_API_MARKETPLACE') ?: '<YOUR MARKETPLACE>';
+
     /**
      * Choose resources you want from GetBrowseNodesResource enum
      * For more details, refer: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/operations/get-browse-nodes#resources-parameter
@@ -54,10 +54,10 @@ function getBrowseNodes()
         GetBrowseNodesResource::ANCESTOR,
         GetBrowseNodesResource::CHILDREN
     ];
-    
+
     // Create GetBrowseNodes request
     $getBrowseNodesRequest = new GetBrowseNodesRequestContent();
-    $getBrowseNodesRequest->setPartnerTag("<YOUR PARTNER TAG>");
+    $getBrowseNodesRequest->setPartnerTag(getenv('CREATORS_API_PARTNER_TAG') ?: '<YOUR PARTNER TAG>');
     $getBrowseNodesRequest->setBrowseNodeIds(['3040', '1', '3045']);
     $getBrowseNodesRequest->setResources($resources);
     

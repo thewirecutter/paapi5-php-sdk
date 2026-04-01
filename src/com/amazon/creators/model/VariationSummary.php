@@ -328,7 +328,7 @@ class VariationSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\VariationSummaryPrice|null
      */
-    public function getPrice(): VariationSummaryPrice|null
+    public function getPrice(): mixed
     {
         return $this->container['price'];
     }
@@ -340,7 +340,7 @@ class VariationSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPrice(?VariationSummaryPrice $price): self
+    public function setPrice(mixed $price): self
     {
         if (is_null($price)) {
             throw new \InvalidArgumentException('non-nullable price cannot be null');

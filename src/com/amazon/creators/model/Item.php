@@ -370,7 +370,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\BrowseNodeInfo|null
      */
-    public function getBrowseNodeInfo(): BrowseNodeInfo|null
+    public function getBrowseNodeInfo(): mixed
     {
         return $this->container['browseNodeInfo'];
     }
@@ -382,7 +382,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setBrowseNodeInfo(?BrowseNodeInfo $browseNodeInfo): self
+    public function setBrowseNodeInfo(mixed $browseNodeInfo): self
     {
         if (is_null($browseNodeInfo)) {
             throw new \InvalidArgumentException('non-nullable browseNodeInfo cannot be null');
@@ -397,7 +397,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\CustomerReviews|null
      */
-    public function getCustomerReviews(): CustomerReviews|null
+    public function getCustomerReviews(): mixed
     {
         return $this->container['customerReviews'];
     }
@@ -409,7 +409,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setCustomerReviews(?CustomerReviews $customerReviews): self
+    public function setCustomerReviews(mixed $customerReviews): self
     {
         if (is_null($customerReviews)) {
             throw new \InvalidArgumentException('non-nullable customerReviews cannot be null');
@@ -451,7 +451,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Images|null
      */
-    public function getImages(): Images|null
+    public function getImages(): mixed
     {
         return $this->container['images'];
     }
@@ -463,7 +463,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setImages(?Images $images): self
+    public function setImages(mixed $images): self
     {
         if (is_null($images)) {
             throw new \InvalidArgumentException('non-nullable images cannot be null');
@@ -478,7 +478,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ItemInfo|null
      */
-    public function getItemInfo(): ItemInfo|null
+    public function getItemInfo(): mixed
     {
         return $this->container['itemInfo'];
     }
@@ -490,7 +490,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setItemInfo(?ItemInfo $itemInfo): self
+    public function setItemInfo(mixed $itemInfo): self
     {
         if (is_null($itemInfo)) {
             throw new \InvalidArgumentException('non-nullable itemInfo cannot be null');
@@ -517,7 +517,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setOffersV2(?OffersV2 $offersV2): self
+    public function setOffersV2(mixed $offersV2): self
     {
         if (is_null($offersV2)) {
             throw new \InvalidArgumentException('non-nullable offersV2 cannot be null');

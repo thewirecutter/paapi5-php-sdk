@@ -287,7 +287,7 @@ class VariationSummaryPrice implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Money|null
      */
-    public function getHighestPrice(): Money|null
+    public function getHighestPrice(): mixed
     {
         return $this->container['highestPrice'];
     }
@@ -299,7 +299,7 @@ class VariationSummaryPrice implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setHighestPrice(?Money $highestPrice): self
+    public function setHighestPrice(mixed $highestPrice): self
     {
         if (is_null($highestPrice)) {
             throw new \InvalidArgumentException('non-nullable highestPrice cannot be null');
@@ -314,7 +314,7 @@ class VariationSummaryPrice implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\Money|null
      */
-    public function getLowestPrice(): Money|null
+    public function getLowestPrice(): mixed
     {
         return $this->container['lowestPrice'];
     }
@@ -326,7 +326,7 @@ class VariationSummaryPrice implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setLowestPrice(?Money $lowestPrice): self
+    public function setLowestPrice(mixed $lowestPrice): self
     {
         if (is_null($lowestPrice)) {
             throw new \InvalidArgumentException('non-nullable lowestPrice cannot be null');

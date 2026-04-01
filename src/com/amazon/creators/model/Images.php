@@ -287,7 +287,7 @@ class Images implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\ImageType|null
      */
-    public function getPrimary(): ImageType|null
+    public function getPrimary(): mixed
     {
         return $this->container['primary'];
     }
@@ -299,7 +299,7 @@ class Images implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPrimary(?ImageType $primary): self
+    public function setPrimary(mixed $primary): self
     {
         if (is_null($primary)) {
             throw new \InvalidArgumentException('non-nullable primary cannot be null');

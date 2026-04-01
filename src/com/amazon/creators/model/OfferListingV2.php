@@ -348,7 +348,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAvailability(?OfferAvailabilityV2 $availability): self
+    public function setAvailability(mixed $availability): self
     {
         if (is_null($availability)) {
             throw new \InvalidArgumentException('non-nullable availability cannot be null');
@@ -375,7 +375,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setCondition(?OfferConditionV2 $condition): self
+    public function setCondition(mixed $condition): self
     {
         if (is_null($condition)) {
             throw new \InvalidArgumentException('non-nullable condition cannot be null');
@@ -390,7 +390,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\DealDetails|null
      */
-    public function getDealDetails(): DealDetails|null
+    public function getDealDetails(): mixed
     {
         return $this->container['dealDetails'];
     }
@@ -402,7 +402,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setDealDetails(?DealDetails $dealDetails): self
+    public function setDealDetails(mixed $dealDetails): self
     {
         if (is_null($dealDetails)) {
             throw new \InvalidArgumentException('non-nullable dealDetails cannot be null');
@@ -456,7 +456,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setLoyaltyPoints(?OfferLoyaltyPointsV2 $loyaltyPoints): self
+    public function setLoyaltyPoints(mixed $loyaltyPoints): self
     {
         if (is_null($loyaltyPoints)) {
             throw new \InvalidArgumentException('non-nullable loyaltyPoints cannot be null');
@@ -483,7 +483,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setMerchantInfo(?OfferMerchantInfoV2 $merchantInfo): self
+    public function setMerchantInfo(mixed $merchantInfo): self
     {
         if (is_null($merchantInfo)) {
             throw new \InvalidArgumentException('non-nullable merchantInfo cannot be null');
@@ -510,7 +510,7 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPrice(?OfferPriceV2 $price): self
+    public function setPrice(mixed $price): self
     {
         if (is_null($price)) {
             throw new \InvalidArgumentException('non-nullable price cannot be null');
@@ -523,9 +523,9 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferType|null
+     * @return string|null
      */
-    public function getType(): OfferType|null
+    public function getType(): ?string
     {
         return $this->container['type'];
     }
@@ -533,11 +533,11 @@ class OfferListingV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \Amazon\CreatorsAPI\v1\com\amazon\creators\model\OfferType|null $type type
+     * @param string|null $type type
      *
      * @return self
      */
-    public function setType(?OfferType $type): self
+    public function setType(?string $type): self
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');

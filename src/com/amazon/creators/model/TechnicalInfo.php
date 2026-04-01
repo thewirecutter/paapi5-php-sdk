@@ -287,7 +287,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SingleStringValuedAttribute|null
      */
-    public function getEnergyEfficiencyClass(): SingleStringValuedAttribute|null
+    public function getEnergyEfficiencyClass(): mixed
     {
         return $this->container['energyEfficiencyClass'];
     }
@@ -299,7 +299,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setEnergyEfficiencyClass(?SingleStringValuedAttribute $energyEfficiencyClass): self
+    public function setEnergyEfficiencyClass(mixed $energyEfficiencyClass): self
     {
         if (is_null($energyEfficiencyClass)) {
             throw new \InvalidArgumentException('non-nullable energyEfficiencyClass cannot be null');
@@ -314,7 +314,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\MultiValuedAttribute|null
      */
-    public function getFormats(): MultiValuedAttribute|null
+    public function getFormats(): mixed
     {
         return $this->container['formats'];
     }
@@ -326,7 +326,7 @@ class TechnicalInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setFormats(?MultiValuedAttribute $formats): self
+    public function setFormats(mixed $formats): self
     {
         if (is_null($formats)) {
             throw new \InvalidArgumentException('non-nullable formats cannot be null');

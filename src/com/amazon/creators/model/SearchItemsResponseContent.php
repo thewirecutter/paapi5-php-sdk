@@ -287,7 +287,7 @@ class SearchItemsResponseContent implements ModelInterface, ArrayAccess, \JsonSe
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchResult|null
      */
-    public function getSearchResult(): SearchResult|null
+    public function getSearchResult(): mixed
     {
         return $this->container['searchResult'];
     }
@@ -299,7 +299,7 @@ class SearchItemsResponseContent implements ModelInterface, ArrayAccess, \JsonSe
      *
      * @return self
      */
-    public function setSearchResult(?SearchResult $searchResult): self
+    public function setSearchResult(mixed $searchResult): self
     {
         if (is_null($searchResult)) {
             throw new \InvalidArgumentException('non-nullable searchResult cannot be null');

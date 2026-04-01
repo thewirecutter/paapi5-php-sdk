@@ -314,7 +314,7 @@ class BrowseNodeInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \Amazon\CreatorsAPI\v1\com\amazon\creators\model\WebsiteSalesRank|null
      */
-    public function getWebsiteSalesRank(): WebsiteSalesRank|null
+    public function getWebsiteSalesRank(): mixed
     {
         return $this->container['websiteSalesRank'];
     }
@@ -326,7 +326,7 @@ class BrowseNodeInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setWebsiteSalesRank(?WebsiteSalesRank $websiteSalesRank): self
+    public function setWebsiteSalesRank(mixed $websiteSalesRank): self
     {
         if (is_null($websiteSalesRank)) {
             throw new \InvalidArgumentException('non-nullable websiteSalesRank cannot be null');
