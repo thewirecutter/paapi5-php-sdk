@@ -16,9 +16,11 @@ We have not changed the API behavior in any way. A listing of our additions and 
 
 ### Changes from Amazon
 
-* Added `squizlabs/php_codesniffer` dev dependency and PSR-2 CI linting
-* Updated CircleCI configuration for automated builds
-* Upgraded `friendsofphp/php-cs-fixer` to `^3.5` with updated `.php_cs` config
+* Added `squizlabs/php_codesniffer` dev dependency and PSR-2 CI linting.
+* Updated CircleCI configuration for automated builds.
+* Upgraded `friendsofphp/php-cs-fixer` to `^3.5` with updated `.php_cs` config.
+* Added integration tests that run the example scripts and verify they execute without any errors.
+* Added typehints to method signatures where possible (without breaking backwards compatibility).
 
 ## Installation
 
