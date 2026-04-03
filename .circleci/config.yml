@@ -30,7 +30,7 @@ jobs:
 
         # Docker Container/PHP Version to Use.
         docker:
-            - image: cimg/php:8.4
+            - image: cimg/php:8.5
 
         resource_class: small
 
