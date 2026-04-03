@@ -42,8 +42,9 @@ This SDK uses **OAuth 2.0** (not AWS Signature V4). You will need:
 - **Credential Secret** (Client Secret)
 - **Version** — the credential version string
 - **Marketplace** — e.g. `www.amazon.com`
+- **Partner Tag** — your Amazon Associates tracking ID
 
-The SDK handles token caching automatically via `OAuth2TokenManager`.
+The SDK handles token caching automatically via `OAuth2TokenManager`. This caching only persists as long as the same instance of `DefaultApi` is used.
 
 ## Usage
 
