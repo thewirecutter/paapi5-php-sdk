@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Integration test configuration template.
+    Copy this file to phpunit.integration.xml and fill in your credentials.
+    phpunit.integration.xml is gitignored and must never be committed.
+
+    Run integration tests with: composer test:integration
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         bootstrap="./vendor/autoload.php"
+         colors="true"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+    <testsuites>
+        <testsuite name="integration">
+            <directory>./test/Integration</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="CREATORS_API_CREDENTIAL_ID" value=""/>
+        <env name="CREATORS_API_CREDENTIAL_SECRET" value=""/>
+        <env name="CREATORS_API_CREDENTIAL_VERSION" value=""/>
+        <env name="CREATORS_API_MARKETPLACE" value="www.amazon.com"/>
+        <env name="CREATORS_API_PARTNER_TAG" value=""/>
+    </php>
+</phpunit>

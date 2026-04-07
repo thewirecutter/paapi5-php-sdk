@@ -1,8 +1,11 @@
 {
     "name": "thewirecutter/paapi5-php-sdk",
-    "description": "ProductAdvertisingAPI 5.0 PHP SDK",
+    "description": "Amazon Creators API PHP SDK",
     "keywords": [
+        "creatorsapi-php-sdk",
+        "creatorsapi",
         "amazon",
+        "creators-api",
         "pa-api",
         "paapi",
         "paapi5.0",
@@ -14,40 +17,42 @@
         "getbrowsenodes",
         "ProductAdvertisingAPI"
     ],
-    "homepage": "https://webservices.amazon.com/paapi5/documentation/index.html",
+    "homepage": "https://affiliate-program.amazon.com/creatorsapi",
     "license": "Apache-2.0",
     "authors": [
         {
-            "name" : "Product Advertising API Team",
-            "homepage": "https://webservices.amazon.com/paapi5/documentation/index.html"
+            "name": "Amazon Creators",
+            "homepage": "https://affiliate-program.amazon.com/creatorsapi"
         },
         {
-            "name": "Justin Yost",
-            "email": "justin.yost@wirecutter.com"
+            "name": "Wirecutter Affiliate Platforms Teamr",
+            "email": "affiliate-platforms@wirecutter.com"
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2|^7.0"
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0",
         "squizlabs/php_codesniffer": "^3.0",
-        "friendsofphp/php-cs-fixer": "~2.12"
+        "friendsofphp/php-cs-fixer": "^3.5"
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
-        "phpcs": "vendor/bin/phpcs --standard=PSR2 -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src",
-        "phpcbf": "vendor/bin/phpcbf --standard=PSR2 -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src",
-        "php-cs-fixer": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes --using-cache=no --config=.php_cs SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php"
+        "test": "vendor/bin/phpunit --testsuite api",
+        "test:integration": "vendor/bin/phpunit --configuration phpunit.integration.xml",
+        "phpcs": "vendor/bin/phpcs --standard=phpcs.xml.dist -n examples src",
+        "phpcbf": "vendor/bin/phpcbf --standard=phpcs.xml.dist -n examples src",
+        "php-cs-fixer": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes --using-cache=no --config=.php-cs-fixer.php examples src/com/amazon/creators/auth/"
     },
     "autoload": {
-        "psr-4": { "Amazon\\ProductAdvertisingAPI\\v1\\" : "src/" }
+        "psr-4": { "Amazon\\CreatorsAPI\\v1\\" : "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "Amazon\\ProductAdvertisingAPI\\v1\\" : "test/" }
+        "psr-4": { "Amazon\\CreatorsAPI\\v1\\Test\\" : "test/" }
     }
 }

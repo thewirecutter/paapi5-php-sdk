@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,650 +15,467 @@
  * permissions and limitations under the License.
  */
 
-namespace Amazon\ProductAdvertisingAPI\v1;
+namespace Amazon\CreatorsAPI\v1\Test\Api;
 
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest;
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
-use GuzzleHttp;
+use Amazon\CreatorsAPI\v1\Configuration;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\api\DefaultApi;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetBrowseNodesRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetFeedRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetItemsRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetReportRequestContent;
+use Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsRequestContent;
+use GuzzleHttp\Client;
+use PHPUnit\Framework\TestCase;
 
-/**
- * DefaultApiTest Class Doc Comment
- *
- * @category Class
- * @package  Amazon\ProductAdvertisingAPI\v1
- * @author   Product Advertising API team
- */
-class DefaultApiTest extends \PHPUnit\Framework\TestCase
+class DefaultApiTest extends TestCase
 {
-    const DUMMY_ACCESS_KEY = 'DUMMY_ACCESS_KEY';
-    const DUMMY_SECRET_KEY = 'DUMMY_SECRET_KEY';
-    const INVALID_SIGNATURE = 'InvalidSignature';
-    const UNRECOGNIZED_CLIENT = 'UnrecognizedClient';
-    const ANY_HOST = 'webservices.amazon.com';
-    const ANY_REGION = 'us-east-1';
+    const ANY_MARKETPLACE = 'www.amazon.com';
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+    // --- getBrowseNodes ---
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
-
-    public function testGetBrowseNodes_InvalidSignature()
+    public function testGetBrowseNodes_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getBrowseNodesRequest = new GetBrowseNodesRequest();
-            $apiInstance->getBrowseNodes($getBrowseNodesRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+            $apiInstance->getBrowseNodes(self::ANY_MARKETPLACE, new GetBrowseNodesRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetBrowseNodes_UnrecognizedClient()
+    public function testGetBrowseNodesWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getBrowseNodesRequest = new GetBrowseNodesRequest();
-            $apiInstance->getBrowseNodes($getBrowseNodesRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+            $apiInstance->getBrowseNodesWithHttpInfo(self::ANY_MARKETPLACE, new GetBrowseNodesRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetBrowseNodesWithHttpInfo_InvalidSignature()
+    public function testGetBrowseNodesAsync_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getBrowseNodesRequest = new GetBrowseNodesRequest();
-            $apiInstance->getBrowseNodesWithHttpInfo($getBrowseNodesRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
-        }
-    }
-
-    public function testGetBrowseNodesWithHttpInfo_UnrecognizedClient()
-    {
-        $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
-        try {
-            $getBrowseNodesRequest = new GetBrowseNodesRequest();
-            $apiInstance->getBrowseNodesWithHttpInfo($getBrowseNodesRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
-        }
-    }
-
-    public function testGetBrowseNodesAsync_InvalidSignature()
-    {
-        $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
-        try {
-            $getBrowseNodesRequest = new GetBrowseNodesRequest();
-            $promise = $apiInstance->getBrowseNodesAsync($getBrowseNodesRequest);
+            $promise = $apiInstance->getBrowseNodesAsync(self::ANY_MARKETPLACE, new GetBrowseNodesRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetBrowseNodesAsync_UnrecognizedClient()
+    public function testGetBrowseNodesAsyncWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_SECRET_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getBrowseNodesRequest = new GetBrowseNodesRequest();
-            $promise = $apiInstance->getBrowseNodesAsync($getBrowseNodesRequest);
+            $promise = $apiInstance->getBrowseNodesAsyncWithHttpInfo(self::ANY_MARKETPLACE, new GetBrowseNodesRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetBrowseNodesAsyncWithHttpInfo_InvalidSignature()
+    // --- getFeed ---
+
+    public function testGetFeed_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getBrowseNodesRequest = new GetBrowseNodesRequest();
-            $promise = $apiInstance->getBrowseNodesAsyncWithHttpInfo($getBrowseNodesRequest);
+            $apiInstance->getFeed(self::ANY_MARKETPLACE, new GetFeedRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
+        }
+        $this->fail('Expected InvalidArgumentException was not thrown');
+    }
+
+    public function testGetFeedWithHttpInfo_MissingCredentials(): void
+    {
+        $config = new Configuration();
+        $apiInstance = new DefaultApi(new Client(), $config);
+        try {
+            $apiInstance->getFeedWithHttpInfo(self::ANY_MARKETPLACE, new GetFeedRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
+        }
+        $this->fail('Expected InvalidArgumentException was not thrown');
+    }
+
+    public function testGetFeedAsync_MissingCredentials(): void
+    {
+        $config = new Configuration();
+        $apiInstance = new DefaultApi(new Client(), $config);
+        try {
+            $promise = $apiInstance->getFeedAsync(self::ANY_MARKETPLACE, new GetFeedRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetBrowseNodesAsyncWithHttpInfo_UnrecognizedClient()
+    public function testGetFeedAsyncWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getBrowseNodesRequest = new GetBrowseNodesRequest();
-            $promise = $apiInstance->getBrowseNodesAsyncWithHttpInfo($getBrowseNodesRequest);
+            $promise = $apiInstance->getFeedAsyncWithHttpInfo(self::ANY_MARKETPLACE, new GetFeedRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetItems_InvalidSignature()
+    // --- getItems ---
+
+    public function testGetItems_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getItemsRequest = new GetItemsRequest();
-            $apiInstance->getItems($getItemsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+            $apiInstance->getItems(self::ANY_MARKETPLACE, new GetItemsRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetItems_UnrecognizedClient()
+    public function testGetItemsWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getItemsRequest = new GetItemsRequest();
-            $apiInstance->getItems($getItemsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+            $apiInstance->getItemsWithHttpInfo(self::ANY_MARKETPLACE, new GetItemsRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-
-    public function testGetItemsWithHttpInfo_InvalidSignature()
+    public function testGetItemsAsync_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getItemsRequest = new GetItemsRequest();
-            $apiInstance->getItemsWithHttpInfo($getItemsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
-        }
-    }
-
-    public function testGetItemsWithHttpInfo_UnrecognizedClient()
-    {
-        $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
-        try {
-            $getItemsRequest = new GetItemsRequest();
-            $apiInstance->getItemsWithHttpInfo($getItemsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
-        }
-    }
-
-    public function testGetItemsAsync_InvalidSignature()
-    {
-        $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
-        try {
-            $getItemsRequest = new GetItemsRequest();
-            $promise = $apiInstance->getItemsAsync($getItemsRequest);
+            $promise = $apiInstance->getItemsAsync(self::ANY_MARKETPLACE, new GetItemsRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetItemsAsync_UnrecognizedClient()
+    public function testGetItemsAsyncWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getItemsRequest = new GetItemsRequest();
-            $promise = $apiInstance->getItemsAsync($getItemsRequest);
+            $promise = $apiInstance->getItemsAsyncWithHttpInfo(self::ANY_MARKETPLACE, new GetItemsRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetItemsAsyncWithHttpInfo_InvalidSignature()
+    // --- getReport ---
+
+    public function testGetReport_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getItemsRequest = new GetItemsRequest();
-            $promise = $apiInstance->getItemsAsyncWithHttpInfo($getItemsRequest);
+            $apiInstance->getReport(self::ANY_MARKETPLACE, new GetReportRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
+        }
+        $this->fail('Expected InvalidArgumentException was not thrown');
+    }
+
+    public function testGetReportWithHttpInfo_MissingCredentials(): void
+    {
+        $config = new Configuration();
+        $apiInstance = new DefaultApi(new Client(), $config);
+        try {
+            $apiInstance->getReportWithHttpInfo(self::ANY_MARKETPLACE, new GetReportRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
+        }
+        $this->fail('Expected InvalidArgumentException was not thrown');
+    }
+
+    public function testGetReportAsync_MissingCredentials(): void
+    {
+        $config = new Configuration();
+        $apiInstance = new DefaultApi(new Client(), $config);
+        try {
+            $promise = $apiInstance->getReportAsync(self::ANY_MARKETPLACE, new GetReportRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetItemsAsyncWithHttpInfo_UnrecognizedClient()
+    public function testGetReportAsyncWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getItemsRequest = new GetItemsRequest();
-            $promise = $apiInstance->getItemsAsyncWithHttpInfo($getItemsRequest);
+            $promise = $apiInstance->getReportAsyncWithHttpInfo(self::ANY_MARKETPLACE, new GetReportRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
+    // --- getVariations ---
 
-    public function testGetVariations_InvalidSignature()
+    public function testGetVariations_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getVariationsRequest = new GetVariationsRequest();
-            $apiInstance->getVariations($getVariationsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+            $apiInstance->getVariations(self::ANY_MARKETPLACE, new GetVariationsRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetVariations_UnrecognizedClient()
+    public function testGetVariationsWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getVariationsRequest = new GetVariationsRequest();
-            $apiInstance->getVariations($getVariationsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+            $apiInstance->getVariationsWithHttpInfo(self::ANY_MARKETPLACE, new GetVariationsRequestContent());
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetVariationsWithHttpInfo_InvalidSignature()
+    public function testGetVariationsAsync_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getVariationsRequest = new GetVariationsRequest();
-            $apiInstance->getVariationsWithHttpInfo($getVariationsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
-        }
-    }
-
-    public function testGetVariationsWithHttpInfo_UnrecognizedClient()
-    {
-        $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
-        try {
-            $getVariationsRequest = new GetVariationsRequest();
-            $apiInstance->getVariationsWithHttpInfo($getVariationsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
-        }
-    }
-
-    public function testGetVariationsAsync_InvalidSignature()
-    {
-        $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
-        try {
-            $getVariationsRequest = new GetVariationsRequest();
-            $promise = $apiInstance->getVariationsAsync($getVariationsRequest);
+            $promise = $apiInstance->getVariationsAsync(self::ANY_MARKETPLACE, new GetVariationsRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetVariationsAsync_UnrecognizedClient()
+    public function testGetVariationsAsyncWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getVariationsRequest = new GetVariationsRequest();
-            $promise = $apiInstance->getVariationsAsync($getVariationsRequest);
+            $promise = $apiInstance->getVariationsAsyncWithHttpInfo(self::ANY_MARKETPLACE, new GetVariationsRequestContent());
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetVariationsAsyncWithHttpInfo_InvalidSignature()
+    // --- searchItems ---
+
+    public function testSearchItems_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getVariationsRequest = new GetVariationsRequest();
-            $promise = $apiInstance->getVariationsAsyncWithHttpInfo($getVariationsRequest);
+            $apiInstance->searchItems(self::ANY_MARKETPLACE, null);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
+        }
+        $this->fail('Expected InvalidArgumentException was not thrown');
+    }
+
+    public function testSearchItemsWithHttpInfo_MissingCredentials(): void
+    {
+        $config = new Configuration();
+        $apiInstance = new DefaultApi(new Client(), $config);
+        try {
+            $apiInstance->searchItemsWithHttpInfo(self::ANY_MARKETPLACE, null);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
+        }
+        $this->fail('Expected InvalidArgumentException was not thrown');
+    }
+
+    public function testSearchItemsAsync_MissingCredentials(): void
+    {
+        $config = new Configuration();
+        $apiInstance = new DefaultApi(new Client(), $config);
+        try {
+            $promise = $apiInstance->searchItemsAsync(self::ANY_MARKETPLACE, null);
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testGetVariationsAsyncWithHttpInfo_UnrecognizedClient()
+    public function testSearchItemsAsyncWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $getVariationsRequest = new GetVariationsRequest();
-            $promise = $apiInstance->getVariationsAsyncWithHttpInfo($getVariationsRequest);
+            $promise = $apiInstance->searchItemsAsyncWithHttpInfo(self::ANY_MARKETPLACE, null);
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testSearchItems_InvalidSignature()
+    // --- listFeeds ---
+
+    public function testListFeeds_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $searchItemsRequest = new SearchItemsRequest();
-            $apiInstance->searchItems($searchItemsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+            $apiInstance->listFeeds(self::ANY_MARKETPLACE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testSearchItems_UnrecognizedClient()
+    public function testListFeedsWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $searchItemsRequest = new SearchItemsRequest();
-            $apiInstance->searchItems($searchItemsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+            $apiInstance->listFeedsWithHttpInfo(self::ANY_MARKETPLACE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testSearchItemsWithHttpInfo_InvalidSignature()
+    public function testListFeedsAsync_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $searchItemsRequest = new SearchItemsRequest();
-            $apiInstance->searchItemsWithHttpInfo($searchItemsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
-        }
-    }
-
-    public function testSearchItemsWithHttpInfo_UnrecognizedClient()
-    {
-        $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
-        try {
-            $searchItemsRequest = new SearchItemsRequest();
-            $apiInstance->searchItemsWithHttpInfo($searchItemsRequest);
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
-        }
-    }
-
-    public function testSearchItemsAsync_InvalidSignature()
-    {
-        $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
-        try {
-            $searchItemsRequest = new searchItemsRequest();
-            $promise = $apiInstance->searchItemsAsync($searchItemsRequest);
+            $promise = $apiInstance->listFeedsAsync(self::ANY_MARKETPLACE);
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testSearchItemsAsync_UnrecognizedClient()
+    public function testListFeedsAsyncWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $searchItemsRequest = new searchItemsRequest();
-            $promise = $apiInstance->searchItemsAsync($searchItemsRequest);
+            $promise = $apiInstance->listFeedsAsyncWithHttpInfo(self::ANY_MARKETPLACE);
             $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testSearchItemsAsyncWithHttpInfo_InvalidSignature()
+    // --- listReports ---
+
+    public function testListReports_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setHost(self::ANY_HOST);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $searchItemsRequest = new searchItemsRequest();
-            $promise = $apiInstance->searchItemsAsyncWithHttpInfo($searchItemsRequest);
-            $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::INVALID_SIGNATURE);
+            $apiInstance->listReports(self::ANY_MARKETPLACE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 
-    public function testSearchItemsAsyncWithHttpInfo_UnrecognizedClient()
+    public function testListReportsWithHttpInfo_MissingCredentials(): void
     {
         $config = new Configuration();
-        $config->setAccessKey(self::DUMMY_ACCESS_KEY);
-        $config->setSecretKey(self::DUMMY_SECRET_KEY);
-        $config->setHost(self::ANY_HOST);
-        $config->setRegion(self::ANY_REGION);
-        $apiInstance = new DefaultApi(new GuzzleHttp\Client(), $config);
+        $apiInstance = new DefaultApi(new Client(), $config);
         try {
-            $searchItemsRequest = new searchItemsRequest();
-            $promise = $apiInstance->searchItemsAsyncWithHttpInfo($searchItemsRequest);
-            $promise->wait();
-            $promise->then(
-                function (\Exception $exception) {
-                    throw $exception;
-                }
-            );
-        } catch (ApiException $exception) {
-            assert($exception->getCode() === 401);
-            assert($exception->getResponseObject()->getErrors()[0]->getCode() === self::UNRECOGNIZED_CLIENT);
+            $apiInstance->listReportsWithHttpInfo(self::ANY_MARKETPLACE);
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
         }
+        $this->fail('Expected InvalidArgumentException was not thrown');
+    }
+
+    public function testListReportsAsync_MissingCredentials(): void
+    {
+        $config = new Configuration();
+        $apiInstance = new DefaultApi(new Client(), $config);
+        try {
+            $promise = $apiInstance->listReportsAsync(self::ANY_MARKETPLACE);
+            $promise->wait();
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
+        }
+        $this->fail('Expected InvalidArgumentException was not thrown');
+    }
+
+    public function testListReportsAsyncWithHttpInfo_MissingCredentials(): void
+    {
+        $config = new Configuration();
+        $apiInstance = new DefaultApi(new Client(), $config);
+        try {
+            $promise = $apiInstance->listReportsAsyncWithHttpInfo(self::ANY_MARKETPLACE);
+            $promise->wait();
+        } catch (\InvalidArgumentException $exception) {
+            $this->assertStringContainsString('Missing OAuth2 configuration', $exception->getMessage());
+            return;
+        }
+        $this->fail('Expected InvalidArgumentException was not thrown');
     }
 }

@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,54 +14,104 @@
  * permissions and limitations under the License.
  */
 
-namespace Amazon\ProductAdvertisingAPI\v1;
+namespace Amazon\CreatorsAPI\v1;
 
 /**
  * Configuration Class Doc Comment
- * PHP version 5
- *
- * @category Class
- * @package  Amazon\ProductAdvertisingAPI\v1
- * @author   Product Advertising API team
  */
 class Configuration
 {
+    public const BOOLEAN_FORMAT_INT = 'int';
+    public const BOOLEAN_FORMAT_STRING = 'string';
+
+    /**
+     * @var Configuration
+     */
     private static $defaultConfiguration;
 
     /**
-     * Access Key for AWS V4 authentication
+     * Associate array to store API key(s)
      *
-     * @var string
+     * @var string[]
      */
-    protected $accessKey = '';
+    protected $apiKeys = [];
 
     /**
-     * Secret Key for AWS V4 authentication
+     * Associate array to store API prefix (e.g. Bearer)
+     *
+     * @var string[]
+     */
+    protected $apiKeyPrefixes = [];
+
+    /**
+     * Access token for OAuth/Bearer authentication
      *
      * @var string
      */
-    protected $secretKey = '';
+    protected $accessToken = '';
+
+    /**
+     * Boolean format for query string
+     *
+     * @var string
+     */
+    protected $booleanFormatForQueryString = self::BOOLEAN_FORMAT_INT;
+
+    /**
+     * Username for HTTP basic authentication
+     *
+     * @var string
+     */
+    protected $username = '';
+
+    /**
+     * Password for HTTP basic authentication
+     *
+     * @var string
+     */
+    protected $password = '';
+
+    /**
+     * OAuth2 credential ID
+     *
+     * @var string
+     */
+    protected $credentialId = '';
+
+    /**
+     * OAuth2 credential secret
+     *
+     * @var string
+     */
+    protected $credentialSecret = '';
+
+    /**
+     * credential version
+     *
+     * @var string
+     */
+    protected $version = '';
+
+    /**
+     * Custom authentication endpoint
+     *
+     * @var string
+     */
+    protected $authEndpoint = '';
 
     /**
      * The host
      *
      * @var string
      */
-    protected $host = '';
+    protected $host = 'https://creatorsapi.amazon';
 
     /**
-     * The region
+     * User agent of the HTTP request, set to "creatorsapi-php-sdk/1.0.0" by default
      *
      * @var string
      */
-    protected $region = '';
-
-    /**
-     * User agent of the HTTP request
-     *
-     * @var string
-     */
-    protected $userAgent = 'paapi5-php-sdk-1.2.3';
+    protected $userAgent = 'creatorsapi-php-sdk/1.2.0';
 
     /**
      * Debug switch (default set to false)
@@ -94,49 +143,240 @@ class Configuration
     }
 
     /**
-     * Sets the access key for AWS V4 authentication
+     * Sets API key
      *
-     * @param string $accessKey Access Key for AWS V4 authentication
+     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
+     * @param string $key              API key or token
      *
      * @return $this
      */
-    public function setAccessKey($accessKey)
+    public function setApiKey(string $apiKeyIdentifier, string $key)
     {
-        $this->accessKey = $accessKey;
+        $this->apiKeys[$apiKeyIdentifier] = $key;
         return $this;
     }
 
     /**
-     * Gets the access key for AWS V4 authentication
+     * Gets API key
      *
-     * @return string Access Key for AWS V4 authentication
+     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
+     *
+     * @return null|string API key or token
      */
-    public function getAccessKey()
+    public function getApiKey(string $apiKeyIdentifier): string|null
     {
-        return $this->accessKey;
+        return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
     }
 
     /**
-     * Sets the secret key for AWS V4 authentication
+     * Sets the prefix for API key (e.g. Bearer)
      *
-     * @param string $secretKey Secret Key for AWS V4 authentication
+     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
+     * @param string $prefix           API key prefix, e.g. Bearer
      *
      * @return $this
      */
-    public function setSecretKey($secretKey)
+    public function setApiKeyPrefix(string $apiKeyIdentifier, string $prefix)
     {
-        $this->secretKey = $secretKey;
+        $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
         return $this;
     }
 
     /**
-     * Gets the secret key for AWS V4 authentication
+     * Gets API key prefix
      *
-     * @return string Secret Key for AWS V4 authentication
+     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
+     *
+     * @return null|string
      */
-    public function getSecretKey()
+    public function getApiKeyPrefix(string $apiKeyIdentifier): string|null
     {
-        return $this->secretKey;
+        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
+    }
+
+    /**
+     * Sets the access token for OAuth
+     *
+     * @param string $accessToken Token for OAuth
+     *
+     * @return $this
+     */
+    public function setAccessToken(string $accessToken)
+    {
+        $this->accessToken = $accessToken;
+        return $this;
+    }
+
+    /**
+     * Gets the access token for OAuth
+     *
+     * @return string Access token for OAuth
+     */
+    public function getAccessToken(): string
+    {
+        return $this->accessToken;
+    }
+
+    /**
+     * Sets boolean format for query string.
+     *
+     * @param string $booleanFormat Boolean format for query string
+     *
+     * @return $this
+     */
+    public function setBooleanFormatForQueryString(string $booleanFormat)
+    {
+        $this->booleanFormatForQueryString = $booleanFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets boolean format for query string.
+     *
+     * @return string Boolean format for query string
+     */
+    public function getBooleanFormatForQueryString(): string
+    {
+        return $this->booleanFormatForQueryString;
+    }
+
+    /**
+     * Sets the username for HTTP basic authentication
+     *
+     * @param string $username Username for HTTP basic authentication
+     *
+     * @return $this
+     */
+    public function setUsername(string $username)
+    {
+        $this->username = $username;
+        return $this;
+    }
+
+    /**
+     * Gets the username for HTTP basic authentication
+     *
+     * @return string Username for HTTP basic authentication
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    /**
+     * Sets the password for HTTP basic authentication
+     *
+     * @param string $password Password for HTTP basic authentication
+     *
+     * @return $this
+     */
+    public function setPassword(string $password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+
+    /**
+     * Gets the password for HTTP basic authentication
+     *
+     * @return string Password for HTTP basic authentication
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    /**
+     * Sets the OAuth2 credential ID
+     *
+     * @param string $credentialId OAuth2 credential ID
+     *
+     * @return $this
+     */
+    public function setCredentialId(string $credentialId)
+    {
+        $this->credentialId = $credentialId;
+        return $this;
+    }
+
+    /**
+     * Gets the OAuth2 credential ID
+     *
+     * @return string OAuth2 credential ID
+     */
+    public function getCredentialId(): string
+    {
+        return $this->credentialId;
+    }
+
+    /**
+     * Sets the OAuth2 credential secret
+     *
+     * @param string $credentialSecret OAuth2 credential secret
+     *
+     * @return $this
+     */
+    public function setCredentialSecret(string $credentialSecret)
+    {
+        $this->credentialSecret = $credentialSecret;
+        return $this;
+    }
+
+    /**
+     * Gets the OAuth2 credential secret
+     *
+     * @return string OAuth2 credential secret
+     */
+    public function getCredentialSecret(): string
+    {
+        return $this->credentialSecret;
+    }
+
+    /**
+     * Sets the credential version
+     *
+     * @param string $version credential version
+     *
+     * @return $this
+     */
+    public function setVersion(string $version)
+    {
+        $this->version = $version;
+        return $this;
+    }
+
+    /**
+     * Gets the credential version
+     *
+     * @return string credential version
+     */
+    public function getVersion(): string
+    {
+        return $this->version;
+    }
+
+    /**
+     * Sets the authentication endpoint
+     *
+     * @param string $authEndpoint authentication endpoint
+     *
+     * @return $this
+     */
+    public function setAuthEndpoint(string $authEndpoint)
+    {
+        $this->authEndpoint = $authEndpoint;
+        return $this;
+    }
+
+    /**
+     * Gets the authentication endpoint
+     *
+     * @return string authentication endpoint
+     */
+    public function getAuthEndpoint(): string
+    {
+        return $this->authEndpoint;
     }
 
     /**
@@ -146,9 +386,9 @@ class Configuration
      *
      * @return $this
      */
-    public function setHost($host)
+    public function setHost(string $host)
     {
-        $this->host = 'https://' . $host;
+        $this->host = $host;
         return $this;
     }
 
@@ -157,32 +397,27 @@ class Configuration
      *
      * @return string Host
      */
-    public function getHost()
+    public function getHost(): string
     {
         return $this->host;
     }
 
     /**
-     * Sets the region
+     * Sets the user agent of the api client
      *
-     * @param string $region Region
+     * @param string $userAgent the user agent of the api client
      *
+     * @throws \InvalidArgumentException
      * @return $this
      */
-    public function setRegion($region)
+    public function setUserAgent(string $userAgent)
     {
-        $this->region = $region;
-        return $this;
-    }
+        if (!is_string($userAgent)) {
+            throw new \InvalidArgumentException('User-agent must be a string.');
+        }
 
-    /**
-     * Gets the region
-     *
-     * @return string Region
-     */
-    public function getRegion()
-    {
-        return $this->region;
+        $this->userAgent = $userAgent;
+        return $this;
     }
 
     /**
@@ -190,7 +425,7 @@ class Configuration
      *
      * @return string user agent
      */
-    public function getUserAgent()
+    public function getUserAgent(): string
     {
         return $this->userAgent;
     }
@@ -202,7 +437,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setDebug($debug)
+    public function setDebug(bool $debug)
     {
         $this->debug = $debug;
         return $this;
@@ -213,7 +448,7 @@ class Configuration
      *
      * @return bool
      */
-    public function getDebug()
+    public function getDebug(): bool
     {
         return $this->debug;
     }
@@ -225,7 +460,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setDebugFile($debugFile)
+    public function setDebugFile(string $debugFile)
     {
         $this->debugFile = $debugFile;
         return $this;
@@ -236,7 +471,7 @@ class Configuration
      *
      * @return string
      */
-    public function getDebugFile()
+    public function getDebugFile(): string
     {
         return $this->debugFile;
     }
@@ -248,7 +483,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setTempFolderPath($tempFolderPath)
+    public function setTempFolderPath(string $tempFolderPath)
     {
         $this->tempFolderPath = $tempFolderPath;
         return $this;
@@ -259,7 +494,7 @@ class Configuration
      *
      * @return string Temp folder path
      */
-    public function getTempFolderPath()
+    public function getTempFolderPath(): string
     {
         return $this->tempFolderPath;
     }
@@ -269,7 +504,7 @@ class Configuration
      *
      * @return Configuration
      */
-    public static function getDefaultConfiguration()
+    public static function getDefaultConfiguration(): Configuration
     {
         if (self::$defaultConfiguration === null) {
             self::$defaultConfiguration = new Configuration();
@@ -279,13 +514,13 @@ class Configuration
     }
 
     /**
-     * Sets the detault configuration instance
+     * Sets the default configuration instance
      *
      * @param Configuration $config An instance of the Configuration Object
      *
      * @return void
      */
-    public static function setDefaultConfiguration(Configuration $config)
+    public static function setDefaultConfiguration(Configuration $config): void
     {
         self::$defaultConfiguration = $config;
     }
@@ -295,15 +530,106 @@ class Configuration
      *
      * @return string The report for debugging
      */
-    public static function toDebugReport()
+    public static function toDebugReport(): string
     {
-        $report  = 'PHP SDK (Amazon\ProductAdvertisingAPI\v1) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (Amazon\CreatorsAPI\v1) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 1.0.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 1.2.3' . PHP_EOL;
+        $report .= '    The version of the OpenAPI document: 2024-08-16' . PHP_EOL;
+        $report .= '    SDK Package Version: 1.0.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
+    }
+
+    /**
+     * Get API key (with prefix if set)
+     *
+     * @param  string $apiKeyIdentifier name of apikey
+     *
+     * @return null|string API key with the prefix
+     */
+    public function getApiKeyWithPrefix(string $apiKeyIdentifier): string|null
+    {
+        $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
+        $apiKey = $this->getApiKey($apiKeyIdentifier);
+
+        if ($apiKey === null) {
+            return null;
+        }
+
+        if ($prefix === null) {
+            $keyWithPrefix = $apiKey;
+        } else {
+            $keyWithPrefix = $prefix . ' ' . $apiKey;
+        }
+
+        return $keyWithPrefix;
+    }
+
+    /**
+     * Returns an array of host settings
+     *
+     * @return array an array of host settings
+     */
+    public function getHostSettings(): array
+    {
+        return [
+            [
+                "url" => "",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+    * Returns URL based on host settings, index and variables
+    *
+    * @param array      $hostSettings array of host settings, generated from getHostSettings() or equivalent from the API clients
+    * @param int        $hostIndex    index of the host settings
+    * @param array|null $variables    hash of variable and the corresponding value (optional)
+    * @return string URL based on host settings
+    */
+    public static function getHostString(array $hostSettings, int $hostIndex, ?array $variables = null): string
+    {
+        if (null === $variables) {
+            $variables = [];
+        }
+
+        // check array index out of bound
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index $hostIndex when selecting the host. Must be less than ".count($hostSettings));
+        }
+
+        $host = $hostSettings[$hostIndex];
+        $url = $host["url"];
+
+        // go through variable and assign a value
+        foreach ($host["variables"] ?? [] as $name => $variable) {
+            if (array_key_exists($name, $variables)) { // check to see if it's in the variables provided by the user
+                if (!isset($variable['enum_values']) || in_array($variables[$name], $variable["enum_values"], true)) { // check to see if the value is in the enum
+                    $url = str_replace("{".$name."}", $variables[$name], $url);
+                } else {
+                    throw new \InvalidArgumentException("The variable `$name` in the host URL has invalid value ".$variables[$name].". Must be ".join(',', $variable["enum_values"]).".");
+                }
+            } else {
+                // use default value
+                $url = str_replace("{".$name."}", $variable["default_value"], $url);
+            }
+        }
+
+        return $url;
+    }
+
+    /**
+     * Returns URL based on the index and variables
+     *
+     * @param int        $index     index of the host settings
+     * @param array|null $variables hash of variable and the corresponding value (optional)
+     * @return string URL based on host settings
+     */
+    public function getHostFromSettings(int $index, ?array $variables = null): string
+    {
+        return self::getHostString($this->getHostSettings(), $index, $variables);
     }
 }
