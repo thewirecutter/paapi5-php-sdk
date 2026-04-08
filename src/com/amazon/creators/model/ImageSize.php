@@ -44,8 +44,8 @@ class ImageSize implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'url' => 'string',
-        'height' => 'int',
-        'width' => 'int'
+        'height' => 'float',
+        'width' => 'float'
     ];
 
     /**

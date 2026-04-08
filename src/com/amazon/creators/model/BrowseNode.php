@@ -49,7 +49,7 @@ class BrowseNode implements ModelInterface, ArrayAccess, \JsonSerializable
         'displayName' => 'string',
         'id' => 'string',
         'isRoot' => 'bool',
-        'salesRank' => 'int'
+        'salesRank' => 'float'
     ];
 
     /**

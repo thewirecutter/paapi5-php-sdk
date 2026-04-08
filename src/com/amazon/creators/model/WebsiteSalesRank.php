@@ -46,7 +46,7 @@ class WebsiteSalesRank implements ModelInterface, ArrayAccess, \JsonSerializable
         'contextFreeName' => 'string',
         'displayName' => 'string',
         'id' => 'string',
-        'salesRank' => 'int'
+        'salesRank' => 'float'
     ];
 
     /**

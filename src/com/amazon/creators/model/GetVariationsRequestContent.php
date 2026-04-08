@@ -50,8 +50,8 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
         'languagesOfPreference' => 'string[]',
         'properties' => 'array<string,string>',
         'resources' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsResource[]',
-        'variationCount' => 'int',
-        'variationPage' => 'int'
+        'variationCount' => 'float',
+        'variationPage' => 'float'
     ];
 
     /**

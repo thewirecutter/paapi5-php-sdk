@@ -43,7 +43,7 @@ class SingleIntegerValuedAttribute implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'displayValue' => 'int',
+        'displayValue' => 'float',
         'label' => 'string',
         'locale' => 'string'
     ];

@@ -44,7 +44,7 @@ class OfferSavings implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'money' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\Money',
-        'percentage' => 'int'
+        'percentage' => 'float'
     ];
 
     /**

@@ -43,7 +43,7 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalResultCount' => 'int',
+        'totalResultCount' => 'float',
         'searchURL' => 'string',
         'items' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\Item[]',
         'searchRefinements' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchRefinements'

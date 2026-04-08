@@ -42,7 +42,7 @@ class Feed implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'feedName' => 'string',
-        'size' => 'int',
+        'size' => 'float',
         'md5' => 'string',
         'lastUpdated' => 'string'
     ];

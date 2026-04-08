@@ -43,7 +43,7 @@ class CustomerReviews implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'count' => 'int',
+        'count' => 'float',
         'starRating' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\Rating'
     ];
 

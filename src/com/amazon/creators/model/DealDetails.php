@@ -45,7 +45,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'accessType' => 'string',
         'badge' => 'string',
-        'earlyAccessDurationInMilliseconds' => 'int',
+        'earlyAccessDurationInMilliseconds' => 'float',
         'endTime' => 'string',
         'percentClaimed' => 'float',
         'startTime' => 'string'

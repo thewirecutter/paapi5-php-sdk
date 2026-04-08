@@ -44,8 +44,8 @@ class OfferAvailabilityV2 implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'message' => 'string',
-        'maxOrderQuantity' => 'int',
-        'minOrderQuantity' => 'int',
+        'maxOrderQuantity' => 'float',
+        'minOrderQuantity' => 'float',
         'type' => 'string'
     ];
 

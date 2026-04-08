@@ -43,9 +43,9 @@ class VariationSummary implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pageCount' => 'int',
+        'pageCount' => 'float',
         'price' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\VariationSummaryPrice',
-        'variationCount' => 'int',
+        'variationCount' => 'float',
         'variationDimensions' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\VariationDimension[]'
     ];
 

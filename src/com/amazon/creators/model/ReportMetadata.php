@@ -43,7 +43,7 @@ class ReportMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'filename' => 'string',
         'md5' => 'string',
-        'size' => 'int',
+        'size' => 'float',
         'lastModified' => 'string'
     ];
 

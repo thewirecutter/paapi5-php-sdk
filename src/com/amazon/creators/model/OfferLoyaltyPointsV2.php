@@ -43,7 +43,7 @@ class OfferLoyaltyPointsV2 implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'points' => 'int'
+        'points' => 'float'
     ];
 
     /**
