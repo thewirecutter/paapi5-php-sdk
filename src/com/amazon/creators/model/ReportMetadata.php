@@ -43,7 +43,7 @@ class ReportMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'filename' => 'string',
         'md5' => 'string',
-        'size' => 'float',
+        'size' => 'int',
         'lastModified' => 'string'
     ];
 
@@ -363,9 +363,9 @@ class ReportMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets size
      *
-     * @return float
+     * @return int
      */
-    public function getSize(): float
+    public function getSize(): int
     {
         return $this->container['size'];
     }
@@ -373,11 +373,11 @@ class ReportMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets size
      *
-     * @param float $size size
+     * @param int $size size
      *
      * @return self
      */
-    public function setSize(float $size): self
+    public function setSize(int $size): self
     {
         if (is_null($size)) {
             throw new \InvalidArgumentException('non-nullable size cannot be null');

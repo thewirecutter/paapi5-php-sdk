@@ -44,8 +44,8 @@ class ImageSize implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'url' => 'string',
-        'height' => 'float',
-        'width' => 'float'
+        'height' => 'int',
+        'width' => 'int'
     ];
 
     /**
@@ -319,9 +319,9 @@ class ImageSize implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets height
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getHeight(): float|null
+    public function getHeight(): int|null
     {
         return $this->container['height'];
     }
@@ -329,11 +329,11 @@ class ImageSize implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets height
      *
-     * @param float|null $height height
+     * @param int|null $height height
      *
      * @return self
      */
-    public function setHeight(?float $height): self
+    public function setHeight(?int $height): self
     {
         if (is_null($height)) {
             throw new \InvalidArgumentException('non-nullable height cannot be null');
@@ -346,9 +346,9 @@ class ImageSize implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets width
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getWidth(): float|null
+    public function getWidth(): int|null
     {
         return $this->container['width'];
     }
@@ -356,11 +356,11 @@ class ImageSize implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets width
      *
-     * @param float|null $width width
+     * @param int|null $width width
      *
      * @return self
      */
-    public function setWidth(?float $width): self
+    public function setWidth(?int $width): self
     {
         if (is_null($width)) {
             throw new \InvalidArgumentException('non-nullable width cannot be null');

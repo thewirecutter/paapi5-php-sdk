@@ -45,7 +45,7 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'accessType' => 'string',
         'badge' => 'string',
-        'earlyAccessDurationInMilliseconds' => 'float',
+        'earlyAccessDurationInMilliseconds' => 'int',
         'endTime' => 'string',
         'percentClaimed' => 'float',
         'startTime' => 'string'
@@ -367,9 +367,9 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets earlyAccessDurationInMilliseconds
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getEarlyAccessDurationInMilliseconds(): float|null
+    public function getEarlyAccessDurationInMilliseconds(): int|null
     {
         return $this->container['earlyAccessDurationInMilliseconds'];
     }
@@ -377,11 +377,11 @@ class DealDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets earlyAccessDurationInMilliseconds
      *
-     * @param float|null $earlyAccessDurationInMilliseconds earlyAccessDurationInMilliseconds
+     * @param int|null $earlyAccessDurationInMilliseconds earlyAccessDurationInMilliseconds
      *
      * @return self
      */
-    public function setEarlyAccessDurationInMilliseconds(?float $earlyAccessDurationInMilliseconds): self
+    public function setEarlyAccessDurationInMilliseconds(?int $earlyAccessDurationInMilliseconds): self
     {
         if (is_null($earlyAccessDurationInMilliseconds)) {
             throw new \InvalidArgumentException('non-nullable earlyAccessDurationInMilliseconds cannot be null');

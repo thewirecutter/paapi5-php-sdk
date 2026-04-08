@@ -44,8 +44,8 @@ class OfferAvailabilityV2 implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'message' => 'string',
-        'maxOrderQuantity' => 'float',
-        'minOrderQuantity' => 'float',
+        'maxOrderQuantity' => 'int',
+        'minOrderQuantity' => 'int',
         'type' => 'string'
     ];
 
@@ -326,9 +326,9 @@ class OfferAvailabilityV2 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets maxOrderQuantity
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getMaxOrderQuantity(): float|null
+    public function getMaxOrderQuantity(): int|null
     {
         return $this->container['maxOrderQuantity'];
     }
@@ -336,11 +336,11 @@ class OfferAvailabilityV2 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets maxOrderQuantity
      *
-     * @param float|null $maxOrderQuantity maxOrderQuantity
+     * @param int|null $maxOrderQuantity maxOrderQuantity
      *
      * @return self
      */
-    public function setMaxOrderQuantity(?float $maxOrderQuantity): self
+    public function setMaxOrderQuantity(?int $maxOrderQuantity): self
     {
         if (is_null($maxOrderQuantity)) {
             throw new \InvalidArgumentException('non-nullable maxOrderQuantity cannot be null');
@@ -353,9 +353,9 @@ class OfferAvailabilityV2 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets minOrderQuantity
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getMinOrderQuantity(): float|null
+    public function getMinOrderQuantity(): int|null
     {
         return $this->container['minOrderQuantity'];
     }
@@ -363,11 +363,11 @@ class OfferAvailabilityV2 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets minOrderQuantity
      *
-     * @param float|null $minOrderQuantity minOrderQuantity
+     * @param int|null $minOrderQuantity minOrderQuantity
      *
      * @return self
      */
-    public function setMinOrderQuantity(?float $minOrderQuantity): self
+    public function setMinOrderQuantity(?int $minOrderQuantity): self
     {
         if (is_null($minOrderQuantity)) {
             throw new \InvalidArgumentException('non-nullable minOrderQuantity cannot be null');

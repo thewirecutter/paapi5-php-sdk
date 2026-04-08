@@ -44,7 +44,7 @@ class OfferSavings implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'money' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\Money',
-        'percentage' => 'float'
+        'percentage' => 'int'
     ];
 
     /**
@@ -312,9 +312,9 @@ class OfferSavings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets percentage
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getPercentage(): float|null
+    public function getPercentage(): int|null
     {
         return $this->container['percentage'];
     }
@@ -322,11 +322,11 @@ class OfferSavings implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets percentage
      *
-     * @param float|null $percentage percentage
+     * @param int|null $percentage percentage
      *
      * @return self
      */
-    public function setPercentage(?float $percentage): self
+    public function setPercentage(?int $percentage): self
     {
         if (is_null($percentage)) {
             throw new \InvalidArgumentException('non-nullable percentage cannot be null');

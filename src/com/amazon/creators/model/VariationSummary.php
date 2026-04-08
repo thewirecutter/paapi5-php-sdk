@@ -43,9 +43,9 @@ class VariationSummary implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pageCount' => 'float',
+        'pageCount' => 'int',
         'price' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\VariationSummaryPrice',
-        'variationCount' => 'float',
+        'variationCount' => 'int',
         'variationDimensions' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\VariationDimension[]'
     ];
 
@@ -299,9 +299,9 @@ class VariationSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pageCount
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getPageCount(): float|null
+    public function getPageCount(): int|null
     {
         return $this->container['pageCount'];
     }
@@ -309,11 +309,11 @@ class VariationSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pageCount
      *
-     * @param float|null $pageCount Number of pages in the variation result set.
+     * @param int|null $pageCount Number of pages in the variation result set.
      *
      * @return self
      */
-    public function setPageCount(?float $pageCount): self
+    public function setPageCount(?int $pageCount): self
     {
         if (is_null($pageCount)) {
             throw new \InvalidArgumentException('non-nullable pageCount cannot be null');
@@ -353,9 +353,9 @@ class VariationSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets variationCount
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getVariationCount(): float|null
+    public function getVariationCount(): int|null
     {
         return $this->container['variationCount'];
     }
@@ -363,11 +363,11 @@ class VariationSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets variationCount
      *
-     * @param float|null $variationCount Total number of variations available for the product. This represents the complete count of all child ASINs across all pages. Use this value along with pageCount to understand the full scope of available variations.
+     * @param int|null $variationCount Total number of variations available for the product. This represents the complete count of all child ASINs across all pages. Use this value along with pageCount to understand the full scope of available variations.
      *
      * @return self
      */
-    public function setVariationCount(?float $variationCount): self
+    public function setVariationCount(?int $variationCount): self
     {
         if (is_null($variationCount)) {
             throw new \InvalidArgumentException('non-nullable variationCount cannot be null');

@@ -43,7 +43,7 @@ class CustomerReviews implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'count' => 'float',
+        'count' => 'int',
         'starRating' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\Rating'
     ];
 
@@ -285,9 +285,9 @@ class CustomerReviews implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets count
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getCount(): float|null
+    public function getCount(): int|null
     {
         return $this->container['count'];
     }
@@ -295,11 +295,11 @@ class CustomerReviews implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets count
      *
-     * @param float|null $count count
+     * @param int|null $count count
      *
      * @return self
      */
-    public function setCount(?float $count): self
+    public function setCount(?int $count): self
     {
         if (is_null($count)) {
             throw new \InvalidArgumentException('non-nullable count cannot be null');

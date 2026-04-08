@@ -43,7 +43,7 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'totalResultCount' => 'float',
+        'totalResultCount' => 'int',
         'searchURL' => 'string',
         'items' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\Item[]',
         'searchRefinements' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\SearchRefinements'
@@ -299,9 +299,9 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets totalResultCount
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getTotalResultCount(): float|null
+    public function getTotalResultCount(): int|null
     {
         return $this->container['totalResultCount'];
     }
@@ -309,11 +309,11 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets totalResultCount
      *
-     * @param float|null $totalResultCount totalResultCount
+     * @param int|null $totalResultCount totalResultCount
      *
      * @return self
      */
-    public function setTotalResultCount(?float $totalResultCount): self
+    public function setTotalResultCount(?int $totalResultCount): self
     {
         if (is_null($totalResultCount)) {
             throw new \InvalidArgumentException('non-nullable totalResultCount cannot be null');

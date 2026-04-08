@@ -46,7 +46,7 @@ class WebsiteSalesRank implements ModelInterface, ArrayAccess, \JsonSerializable
         'contextFreeName' => 'string',
         'displayName' => 'string',
         'id' => 'string',
-        'salesRank' => 'float'
+        'salesRank' => 'int'
     ];
 
     /**
@@ -380,9 +380,9 @@ class WebsiteSalesRank implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets salesRank
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getSalesRank(): float|null
+    public function getSalesRank(): int|null
     {
         return $this->container['salesRank'];
     }
@@ -390,11 +390,11 @@ class WebsiteSalesRank implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets salesRank
      *
-     * @param float|null $salesRank salesRank
+     * @param int|null $salesRank salesRank
      *
      * @return self
      */
-    public function setSalesRank(?float $salesRank): self
+    public function setSalesRank(?int $salesRank): self
     {
         if (is_null($salesRank)) {
             throw new \InvalidArgumentException('non-nullable salesRank cannot be null');

@@ -50,8 +50,8 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
         'languagesOfPreference' => 'string[]',
         'properties' => 'array<string,string>',
         'resources' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\GetVariationsResource[]',
-        'variationCount' => 'float',
-        'variationPage' => 'float'
+        'variationCount' => 'int',
+        'variationPage' => 'int'
     ];
 
     /**
@@ -604,9 +604,9 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets variationCount
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getVariationCount(): float|null
+    public function getVariationCount(): int|null
     {
         return $this->container['variationCount'];
     }
@@ -614,11 +614,11 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets variationCount
      *
-     * @param float|null $variationCount Number of variations to be returned per page in GetVariations. By default, GetVariations returns 10 variations per page. Valid range: 1-10. Type: Positive Integer Less than or equal to 10 Default: 10 Example: 10  Use this parameter to control how many variations are returned in each response. When combined with VariationPage, you can paginate through all available variations.
+     * @param int|null $variationCount Number of variations to be returned per page in GetVariations. By default, GetVariations returns 10 variations per page. Valid range: 1-10. Type: Positive Integer Less than or equal to 10 Default: 10 Example: 10  Use this parameter to control how many variations are returned in each response. When combined with VariationPage, you can paginate through all available variations.
      *
      * @return self
      */
-    public function setVariationCount(?float $variationCount): self
+    public function setVariationCount(?int $variationCount): self
     {
         if (is_null($variationCount)) {
             throw new \InvalidArgumentException('non-nullable variationCount cannot be null');
@@ -639,9 +639,9 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets variationPage
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getVariationPage(): float|null
+    public function getVariationPage(): int|null
     {
         return $this->container['variationPage'];
     }
@@ -649,11 +649,11 @@ class GetVariationsRequestContent implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets variationPage
      *
-     * @param float|null $variationPage Page number of variations returned by GetVariations. By default, GetVariations returns the first page. Use VariationPage to return a subsection of the response. By default, there are 10 variations per page (configurable via VariationCount). Type: Positive Integer Default: 1 Example: 1
+     * @param int|null $variationPage Page number of variations returned by GetVariations. By default, GetVariations returns the first page. Use VariationPage to return a subsection of the response. By default, there are 10 variations per page (configurable via VariationCount). Type: Positive Integer Default: 1 Example: 1
      *
      * @return self
      */
-    public function setVariationPage(?float $variationPage): self
+    public function setVariationPage(?int $variationPage): self
     {
         if (is_null($variationPage)) {
             throw new \InvalidArgumentException('non-nullable variationPage cannot be null');

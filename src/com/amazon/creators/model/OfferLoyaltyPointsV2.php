@@ -43,7 +43,7 @@ class OfferLoyaltyPointsV2 implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'points' => 'float'
+        'points' => 'int'
     ];
 
     /**
@@ -278,9 +278,9 @@ class OfferLoyaltyPointsV2 implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets points
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getPoints(): float|null
+    public function getPoints(): int|null
     {
         return $this->container['points'];
     }
@@ -288,11 +288,11 @@ class OfferLoyaltyPointsV2 implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets points
      *
-     * @param float|null $points points
+     * @param int|null $points points
      *
      * @return self
      */
-    public function setPoints(?float $points): self
+    public function setPoints(?int $points): self
     {
         if (is_null($points)) {
             throw new \InvalidArgumentException('non-nullable points cannot be null');

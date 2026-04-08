@@ -43,7 +43,7 @@ class SingleIntegerValuedAttribute implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'displayValue' => 'float',
+        'displayValue' => 'int',
         'label' => 'string',
         'locale' => 'string'
     ];
@@ -292,9 +292,9 @@ class SingleIntegerValuedAttribute implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets displayValue
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getDisplayValue(): float|null
+    public function getDisplayValue(): int|null
     {
         return $this->container['displayValue'];
     }
@@ -302,11 +302,11 @@ class SingleIntegerValuedAttribute implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets displayValue
      *
-     * @param float|null $displayValue displayValue
+     * @param int|null $displayValue displayValue
      *
      * @return self
      */
-    public function setDisplayValue(?float $displayValue): self
+    public function setDisplayValue(?int $displayValue): self
     {
         if (is_null($displayValue)) {
             throw new \InvalidArgumentException('non-nullable displayValue cannot be null');

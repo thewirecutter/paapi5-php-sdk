@@ -52,8 +52,8 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
         'condition' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\Condition',
         'currencyOfPreference' => 'string',
         'deliveryFlags' => '\Amazon\CreatorsAPI\v1\com\amazon\creators\model\DeliveryFlag[]',
-        'itemCount' => 'float',
-        'itemPage' => 'float',
+        'itemCount' => 'int',
+        'itemPage' => 'int',
         'keywords' => 'string',
         'languagesOfPreference' => 'string[]',
         'maxPrice' => 'float',
@@ -857,9 +857,9 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets itemCount
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getItemCount(): float|null
+    public function getItemCount(): int|null
     {
         return $this->container['itemCount'];
     }
@@ -867,11 +867,11 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets itemCount
      *
-     * @param float|null $itemCount The number of items desired in SearchItems response.
+     * @param int|null $itemCount The number of items desired in SearchItems response.
      *
      * @return self
      */
-    public function setItemCount(?float $itemCount): self
+    public function setItemCount(?int $itemCount): self
     {
         if (is_null($itemCount)) {
             throw new \InvalidArgumentException('non-nullable itemCount cannot be null');
@@ -892,9 +892,9 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets itemPage
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getItemPage(): float|null
+    public function getItemPage(): int|null
     {
         return $this->container['itemPage'];
     }
@@ -902,11 +902,11 @@ class SearchItemsRequestContent implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets itemPage
      *
-     * @param float|null $itemPage The specific page of items to be returned from the available Search Results.
+     * @param int|null $itemPage The specific page of items to be returned from the available Search Results.
      *
      * @return self
      */
-    public function setItemPage(?float $itemPage): self
+    public function setItemPage(?int $itemPage): self
     {
         if (is_null($itemPage)) {
             throw new \InvalidArgumentException('non-nullable itemPage cannot be null');
