@@ -225,7 +225,7 @@ class DefaultApi
             $this->cachedVersion = $currentVersion;
             $this->cachedAuthEndpoint = $currentAuthEndpoint;
         }
-        
+
         return $this->tokenManager;
     }
 
@@ -235,11 +235,11 @@ class DefaultApi
      * @param string $resourcePath The API resource path
      * @return array Array of headers
      */
-    private function buildAuthenticatedHeaders(string $resourcePath): array
+    protected function buildAuthenticatedHeaders(string $resourcePath): array
     {
         // Get OAuth2 token (creates/recreates token manager if needed)
         $token = $this->getOrCreateTokenManager()->getToken();
-        
+
         // Build OAuth2 headers - Version suffix only for v2.x (Cognito)
         $version = $this->config->getVersion();
         if (str_starts_with($version, "3.")) {
@@ -251,7 +251,7 @@ class DefaultApi
                 'Authorization' => "Bearer {$token}, Version {$version}"
             ];
         }
-        
+
         return $oauthHeaders;
     }
 
@@ -355,7 +355,7 @@ class DefaultApi
                     );
             }
 
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -434,7 +434,7 @@ class DefaultApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
 
             throw $e;
         }
@@ -536,7 +536,7 @@ class DefaultApi
         if (!preg_match("/.*\\S.*/", $xMarketplace)) {
             throw new \InvalidArgumentException("invalid value for \"xMarketplace\" when calling DefaultApi.getBrowseNodes, must conform to the pattern /.*\\S.*/.");
         }
-        
+
         // verify the required parameter 'getBrowseNodesRequestContent' is set
         if ($getBrowseNodesRequestContent === null || (is_array($getBrowseNodesRequestContent) && count($getBrowseNodesRequestContent) === 0)) {
             throw new \InvalidArgumentException(
@@ -723,7 +723,7 @@ class DefaultApi
                     );
             }
 
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -802,7 +802,7 @@ class DefaultApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
 
             throw $e;
         }
@@ -904,7 +904,7 @@ class DefaultApi
         if (!preg_match("/.*\\S.*/", $xMarketplace)) {
             throw new \InvalidArgumentException("invalid value for \"xMarketplace\" when calling DefaultApi.getFeed, must conform to the pattern /.*\\S.*/.");
         }
-        
+
         // verify the required parameter 'getFeedRequestContent' is set
         if ($getFeedRequestContent === null || (is_array($getFeedRequestContent) && count($getFeedRequestContent) === 0)) {
             throw new \InvalidArgumentException(
@@ -1091,7 +1091,7 @@ class DefaultApi
                     );
             }
 
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1170,7 +1170,7 @@ class DefaultApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
 
             throw $e;
         }
@@ -1272,7 +1272,7 @@ class DefaultApi
         if (!preg_match("/.*\\S.*/", $xMarketplace)) {
             throw new \InvalidArgumentException("invalid value for \"xMarketplace\" when calling DefaultApi.getItems, must conform to the pattern /.*\\S.*/.");
         }
-        
+
         // verify the required parameter 'getItemsRequestContent' is set
         if ($getItemsRequestContent === null || (is_array($getItemsRequestContent) && count($getItemsRequestContent) === 0)) {
             throw new \InvalidArgumentException(
@@ -1459,7 +1459,7 @@ class DefaultApi
                     );
             }
 
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1538,7 +1538,7 @@ class DefaultApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
 
             throw $e;
         }
@@ -1640,7 +1640,7 @@ class DefaultApi
         if (!preg_match("/.*\\S.*/", $xMarketplace)) {
             throw new \InvalidArgumentException("invalid value for \"xMarketplace\" when calling DefaultApi.getReport, must conform to the pattern /.*\\S.*/.");
         }
-        
+
         // verify the required parameter 'getReportRequestContent' is set
         if ($getReportRequestContent === null || (is_array($getReportRequestContent) && count($getReportRequestContent) === 0)) {
             throw new \InvalidArgumentException(
@@ -1827,7 +1827,7 @@ class DefaultApi
                     );
             }
 
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1906,7 +1906,7 @@ class DefaultApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
 
             throw $e;
         }
@@ -2008,7 +2008,7 @@ class DefaultApi
         if (!preg_match("/.*\\S.*/", $xMarketplace)) {
             throw new \InvalidArgumentException("invalid value for \"xMarketplace\" when calling DefaultApi.getVariations, must conform to the pattern /.*\\S.*/.");
         }
-        
+
         // verify the required parameter 'getVariationsRequestContent' is set
         if ($getVariationsRequestContent === null || (is_array($getVariationsRequestContent) && count($getVariationsRequestContent) === 0)) {
             throw new \InvalidArgumentException(
@@ -2193,7 +2193,7 @@ class DefaultApi
                     );
             }
 
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -2272,7 +2272,7 @@ class DefaultApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
 
             throw $e;
         }
@@ -2371,7 +2371,7 @@ class DefaultApi
         if (!preg_match("/.*\\S.*/", $xMarketplace)) {
             throw new \InvalidArgumentException("invalid value for \"xMarketplace\" when calling DefaultApi.listFeeds, must conform to the pattern /.*\\S.*/.");
         }
-        
+
 
         $resourcePath = '/catalog/v1/listFeeds';
         $formParams = [];
@@ -2542,7 +2542,7 @@ class DefaultApi
                     );
             }
 
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -2621,7 +2621,7 @@ class DefaultApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
 
             throw $e;
         }
@@ -2720,7 +2720,7 @@ class DefaultApi
         if (!preg_match("/.*\\S.*/", $xMarketplace)) {
             throw new \InvalidArgumentException("invalid value for \"xMarketplace\" when calling DefaultApi.listReports, must conform to the pattern /.*\\S.*/.");
         }
-        
+
 
         $resourcePath = '/reports/v1/listReports';
         $formParams = [];
@@ -2893,7 +2893,7 @@ class DefaultApi
                     );
             }
 
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -2972,7 +2972,7 @@ class DefaultApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
 
             throw $e;
         }
@@ -3074,7 +3074,7 @@ class DefaultApi
         if (!preg_match("/.*\\S.*/", $xMarketplace)) {
             throw new \InvalidArgumentException("invalid value for \"xMarketplace\" when calling DefaultApi.searchItems, must conform to the pattern /.*\\S.*/.");
         }
-        
+
 
 
         $resourcePath = '/catalog/v1/searchItems';
