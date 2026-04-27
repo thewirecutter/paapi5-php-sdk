@@ -21,6 +21,7 @@ We have not changed the API behavior in any way. A listing of our additions and 
 * Upgraded `friendsofphp/php-cs-fixer` to `^3.5` with updated `.php_cs` config.
 * Added integration tests that run the example scripts and verify they execute without any errors.
 * Added typehints to method signatures where possible (without breaking backwards compatibility).
+* Exposed the `DefaultApi`'s `buildAuthenticatedTokens()` method as protected so it can be overridden for caching tokens (see below for example).
 
 ## Installation
 
@@ -107,6 +108,69 @@ See the `examples/` directory for additional sample scripts covering all support
 - `SampleListReports.php`
 
 Complete API documentation is available at [https://affiliate-program.amazon.com/creatorsapi](https://affiliate-program.amazon.com/creatorsapi).
+
+## Caching Tokens
+
+The `DefaultApi` class caches OAuth2 tokens in memory for the duration of the instance. To implement a more persistent caching mechanism (e.g. file-based, Redis, etc.), you can extend `DefaultApi` and override the `buildAuthenticatedTokens()` method to first check your cache before making a request to Amazon's token endpoint.
+
+Example code snippet for improved caching:
+
+```php
+class CachedApi extends DefaultApi
+{
+    public function __construct(
+        private readonly cachingTokenManager $cachingTokenManager, // Inject the caching token manager
+        ?ClientInterface                     $client = null,
+        ?Configuration                       $config = null,
+        ?HeaderSelector                      $selector = null,
+        int                                  $hostIndex = 0
+    ) {
+        parent::__construct($client, $config, $selector, $hostIndex);
+    }
+
+    protected function buildAuthenticatedHeaders(string $resourcePath): array
+    {
+        $token   = $this->cachingTokenManager->getToken(); // Get the cached token (or fetch a new one if expired)
+        $version = $this->config->getVersion();
+
+        if (str_starts_with($version, '3.')) {
+            return ['Authorization' => "Bearer {$token}"];
+        }
+
+        return ['Authorization' => "Bearer {$token}, Version {$version}"];
+    }
+
+    public function clearToken(): void
+    {
+        $this->cachingTokenManager->clearToken();
+    }
+}
+
+class CachingTokenManager extends OAuth2TokenManager
+{
+    // NOTE: Cache is used here as pseudocode. You can implement your own caching logic using files, Redis, Memcached, etc.
+
+    private const string CACHE_KEY = 'amazon_unique_token_cache_key'; // Use a unique cache key for your token
+    private const int CACHE_FRESH_MINUTES = 50; // Time in minutes to consider the cached token "fresh" and safe to use without triggering background refresh.
+    private const int CACHE_TTL_MINUTES = 55; // Time in minutes to consider the cached token valid before it must be refreshed (should be less than the actual token expiration time)
+
+    public function getToken(): string
+    {
+        // Cache::flexible() will return the cached token if it exists and is not expired.
+        // If the token is expired or doesn't exist, it will call the provided callback to fetch a new token, store it in the cache, and return it.
+        return Cache::flexible(
+            self::CACHE_KEY,
+            [now()->addMinutes(self::CACHE_FRESH_MINUTES), now()->addMinutes(self::CACHE_TTL_MINUTES)],
+            fn() => parent::getToken() // You may want to wrap parent::getToken() in a helper method that can mock the return for testing.
+        );
+    }
+
+    public function clearToken(): void
+    {
+        Cache::forget(self::CACHE_KEY);
+    }
+}
+```
 
 ## License
 
