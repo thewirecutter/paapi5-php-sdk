@@ -153,9 +153,11 @@ class CachingTokenManager extends OAuth2TokenManager
     private const string CACHE_KEY = 'amazon_unique_token_cache_key'; // Use a unique cache key to avoid collisions with other cached data.
     private const int CACHE_TTL_SECONDS = 3300; // 55 minutes — 5 minutes less than Amazon's 60 minute token expiry
 
-    public function __construct(private readonly \Psr\SimpleCache\CacheInterface $cache)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly \Psr\SimpleCache\CacheInterface $cache,
+        OAuth2Config $config
+    ) {
+        parent::__construct($config);
     }
 
     public function getToken(): string
