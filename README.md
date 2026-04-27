@@ -21,6 +21,7 @@ We have not changed the API behavior in any way. A listing of our additions and 
 * Upgraded `friendsofphp/php-cs-fixer` to `^3.5` with updated `.php_cs` config.
 * Added integration tests that run the example scripts and verify they execute without any errors.
 * Added typehints to method signatures where possible (without breaking backwards compatibility).
+* Exposed the `DefaultApi`'s `buildAuthenticatedHeaders()` method as protected so it can be overridden for caching tokens (see below for example).
 
 ## Installation
 
@@ -107,6 +108,78 @@ See the `examples/` directory for additional sample scripts covering all support
 - `SampleListReports.php`
 
 Complete API documentation is available at [https://affiliate-program.amazon.com/creatorsapi](https://affiliate-program.amazon.com/creatorsapi).
+
+## Caching Tokens
+
+The `DefaultApi` class caches OAuth2 tokens in memory for the duration of the instance. To implement a more persistent caching mechanism (e.g. file-based, Redis, etc.), you can extend `DefaultApi` and override the `buildAuthenticatedHeaders()` method to first check your cache before making a request to Amazon's token endpoint.
+
+Example code snippet for improved caching:
+
+```php
+class CachedApi extends DefaultApi
+{
+    public function __construct(
+        private readonly CachingTokenManager $cachingTokenManager, // Inject a caching token manager that extends OAuth2TokenManager.
+        ?ClientInterface                     $client = null,
+        ?Configuration                       $config = null,
+        ?HeaderSelector                      $selector = null,
+        int                                  $hostIndex = 0
+    ) {
+        parent::__construct($client, $config, $selector, $hostIndex);
+    }
+
+    protected function buildAuthenticatedHeaders(string $resourcePath): array
+    {
+        $token   = $this->cachingTokenManager->getToken(); // This will use the cached token if available, or fetch a new one if not.
+        $version = $this->config->getVersion();
+
+        if (str_starts_with($version, '3.')) {
+            return ['Authorization' => "Bearer {$token}"];
+        }
+
+        return ['Authorization' => "Bearer {$token}, Version {$version}"];
+    }
+
+    public function clearToken(): void
+    {
+        $this->cachingTokenManager->clearToken();
+    }
+}
+
+class CachingTokenManager extends OAuth2TokenManager
+{
+    // $cache is any PSR-16 CacheInterface implementation (files, Redis, Memcached, etc.)
+
+    private const string CACHE_KEY = 'amazon_unique_token_cache_key'; // Use a unique cache key to avoid collisions with other cached data.
+    private const int CACHE_TTL_SECONDS = 3300; // 55 minutes — 5 minutes less than Amazon's 60 minute token expiry
+
+    public function __construct(
+        private readonly \Psr\SimpleCache\CacheInterface $cache,
+        OAuth2Config $config
+    ) {
+        parent::__construct($config);
+    }
+
+    public function getToken(): string
+    {
+        $cached = $this->cache->get(self::CACHE_KEY);
+
+        if ($cached !== null) {
+            return $cached;
+        }
+
+        $token = parent::getToken();
+        $this->cache->set(self::CACHE_KEY, $token, self::CACHE_TTL_SECONDS);
+
+        return $token;
+    }
+
+    public function clearToken(): void
+    {
+        $this->cache->delete(self::CACHE_KEY);
+    }
+}
+```
 
 ## License
 

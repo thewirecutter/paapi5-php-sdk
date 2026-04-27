@@ -235,7 +235,7 @@ class DefaultApi
      * @param string $resourcePath The API resource path
      * @return array Array of headers
      */
-    private function buildAuthenticatedHeaders(string $resourcePath): array
+    protected function buildAuthenticatedHeaders(string $resourcePath): array
     {
         // Get OAuth2 token (creates/recreates token manager if needed)
         $token = $this->getOrCreateTokenManager()->getToken();
